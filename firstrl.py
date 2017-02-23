@@ -21,7 +21,7 @@ MSG_HEIGHT = PANEL_HEIGHT - 1
 INVENTORY_WIDTH = 50
 
 # Map attributes
-DEUB_MODE = True
+DEUB_MODE = False
 MAP_WIDTH = 80
 MAP_HEIGHT = 45
 ROOM_MAX_SIZE = 10
@@ -35,6 +35,12 @@ TORCH_RADIUS = 10
 
 # Spells
 HEAL_AMOUNT = 4
+LIGHTNING_DAMAGE = 20
+LIGHTNING_RANGE = 5
+CONFUSE_NUM_TURNS = 10
+CONFUSE_RANGE = 8
+FIREBALL_RADIUS = 3
+FIREBALL_DAMAGE = 12
 
 # Color Defs
 color_dark_wall = libtcod.Color(0, 0, 100)
@@ -121,6 +127,10 @@ class Object:
         dy = other.y - self.y
         return math.sqrt(dx ** 2 + dy ** 2)
 
+    # Return the distance to some coordinates
+    def distance(self, x, y):
+        return math.sqrt((x - self.x) ** 2 + (y - self.y) ** 2)
+
     # If object is in FOV, set the color and then draw the character that represents this item at its current position.
     def draw(self):
         if libtcod.map_is_in_fov(fov_map, self.x, self.y):
@@ -190,6 +200,24 @@ class BasicMonster:
                 monster.fighter.attack(player)
 
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# COMPONENT CLASS DEF: CONFUSEDMONSTER --- AI for a temporarily confused monster (reverts to previous AI after a while).
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class ConfusedMonster:
+    def __init__(self, old_ai, num_turns=CONFUSE_NUM_TURNS):
+        self.old_ai = old_ai
+        self.num_turns = num_turns
+
+    # Move randomly if still confused, else revert back to normal AI.
+    def take_turn(self):
+        if self.num_turns > 0:  # still confused...
+            self.owner.move(libtcod.random_get_int(0, -1, 1), libtcod.random_get_int(0, -1, 1))
+            self.num_turns -= 1
+
+        else:
+            self.owner.ai = self.old_ai
+            message('The ' + self.owner.name + ' is no longer confused!', libtcod.red)
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # COMPONENT CLASS DEF: ITEM --- Component that allows an object to be picked up and used.
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class Item:
@@ -206,13 +234,22 @@ class Item:
             objects.remove(self.owner)
             message('You picked up a ' + self.owner.name + '!', libtcod.green)
 
+    # Just call the "use_function" if it is defined
     def use(self):
-        # just call the "use_function" if it is defined
+
         if self.use_function is None:
             message('The ' + self.owner.name + ' cannot be used.')
         else:
             if self.use_function() != 'cancelled':
                 inventory.remove(self.owner)  # destroy after use, unless it was cancelled for some reason
+
+    # Add to the map and remove from the player's inventory. also, place it at the player's coordinates
+    def drop(self):
+        objects.append(self.owner)
+        inventory.remove(self.owner)
+        self.owner.x = player.x
+        self.owner.y = player.y
+        message('You dropped a ' + self.owner.name + '.', libtcod.yellow)
 
 
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -341,19 +378,31 @@ def place_objects(room):
 
     # Choose random number of items
     num_items = libtcod.random_get_int(0, 0, MAX_ROOM_ITEMS)
-    # Distribute items in random (unblocked) locations.
+    # Distribute random items in random (unblocked) locations.
     for i in range(num_items):
         x = libtcod.random_get_int(0, room.x1 + 1, room.x2 - 1)
         y = libtcod.random_get_int(0, room.y1 + 1, room.y2 - 1)
 
         if not is_blocked(x, y):
-            # create a healing potion
-            item_component = Item(use_function=cast_heal)
+            dice =  libtcod.random_get_int(0, 0, 100)
+            if dice < 70:
+                # Create a healing potion
+                item_component = Item(use_function=cast_heal)
+                item = Object(x, y, '!', 'healing potion', libtcod.violet, item=item_component)
+            elif dice < 70+10:
+                # Create lightning bolt scroll.
+                item_component = Item(use_function=cast_lightning)
+            elif dice < 70+10+10:
+                # Create a fireball scroll.
+                item_component = Item(use_function=cast_fireball)
+                item = Object(x, y, '#', 'scroll of fireball', libtcod.light_yellow, item=item_component)
+            else:
+                # Create a confuse scroll
+                item_component= Item(use_function=cast_confuse)
+                item = Object(x, y, '#', 'scroll of confusion', libtcod.light_yellow, item=item_component)
 
-            item = Object(x, y, '!', 'healing potion', libtcod.violet, item=item_component)
-
-            objects.append(item)
-            item.send_to_back()  # items appear below other objects
+                objects.append(item)
+                item.send_to_back()                                                                                     # Items appear below other objects
 
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # FUNCTION DEF: BLOCKS --- Tests whether a tile at a given position is a blocking tile or contains a blocking object.
@@ -575,7 +624,7 @@ def handle_keys():
         return 'exit'  # exit game
 
     if game_state == 'playing':
-        # movement keys
+        # Movement keys
         if key.vk == libtcod.KEY_UP:
             player_move_or_attack(0, -1)
 
@@ -588,21 +637,27 @@ def handle_keys():
         elif key.vk == libtcod.KEY_RIGHT:
             player_move_or_attack(1, 0)
         else:
-            # test for other keys
+            # Test for other keys
             key_char = chr(key.c)
 
             if key_char == 'g':
-                # pick up an item
+                # Pick up an item
                 for object in objects:  # look for an item in the player's tile
                     if object.x == player.x and object.y == player.y and object.item:
                         object.item.pick_up()
                         break
 
             if key_char == 'i':
-                # show the inventory; if an item is selected, use it
+                # Show the inventory; if an item is selected, use it
                 chosen_item = inventory_menu('Press the key next to an item to use it, or any other to cancel.\n')
                 if chosen_item is not None:
                     chosen_item.use()
+
+            if key_char == 'd':
+                # Show the inventory; if an item is selected, drop it
+                chosen_item = inventory_menu('Press the key next to an item to drop it, or any other to cancel.\n')
+                if chosen_item is not None:
+                    chosen_item.drop()
 
             return 'didnt-take-turn'
 
@@ -641,13 +696,110 @@ def cast_heal():
     message('Your wounds start to feel better!', libtcod.light_violet)
     player.fighter.heal(HEAL_AMOUNT)
 
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# FUNCTION DEF: CAST LIGHTNING --- A basic spell definition.
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+def cast_lightning():
+    # Find the nearest enemy within max range and damage it.
+    monster = closest_monster(LIGHTNING_RANGE)
+    if monster is None:
+        message('No enemy is close enough to strike.', libtcod.red)
+        return 'cancelled'
+
+    # Zap it!
+    message('A lightning bolt strikes the ' + monster.name + ' with a loud thunder! The damage is '
+            + str(LIGHTNING_DAMAGE) + ' hit points.', libtcod.blue)
+    monster.fighter.take_damage(LIGHTNING_DAMAGE)
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# FUNCTION DEF: CAST CONFUSE --- A basic spell definition.
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+def cast_confuse():
+    # Ask the player for a target to confuse
+    message('Left-click an enemy to confuse it, or right-click to cancel.', libtcod.light_cyan)
+    monster = target_monster(CONFUSE_RANGE)
+    if monster is None: return 'cancelled'
+
+    # Else replace the nearest monster's AI with a "confused" one; after some turns it will restore the old AI
+    old_ai = monster.ai
+    monster.ai = ConfusedMonster(old_ai)
+    monster.ai.owner = monster  # tell the new component who owns it
+    message('The eyes of the ' + monster.name + ' look vacant, as he starts to stumble around!',
+            libtcod.light_green)
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# FUNCTION DEF: CAST FIREBALL --- A basic spell definition.
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+def cast_fireball():
+    # Ask the player for a target tile to throw a fireball at
+    message('Left-click a target tile for the fireball, or right-click to cancel.', libtcod.light_cyan)
+    (x, y) = target_tile()
+    if x is None: return 'cancelled'
+    message('The fireball explodes, burning everything within ' + str(FIREBALL_RADIUS) + ' tiles!', libtcod.orange)
+
+    for obj in objects:  # damage every fighter in range, including the player
+        if obj.distance(x, y) <= FIREBALL_RADIUS and obj.fighter:
+            message('The ' + obj.name + ' gets burned for ' + str(FIREBALL_DAMAGE) + ' hit points.', libtcod.orange)
+            obj.fighter.take_damage(FIREBALL_DAMAGE)
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# FUNCTION DEF: CLOSEST MONSTER --- Returns closest enemy, up to a maximum range and in the player's FOV
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+def closest_monster(max_range):
+    closest_enemy = None
+    closest_dist = max_range + 1                                                                                        # start with (slightly more than) maximum range
+
+    for object in objects:
+        if object.fighter and not object == player and libtcod.map_is_in_fov(fov_map, object.x, object.y):
+            # Calculate distance between this object and the player
+            dist = player.distance_to(object)
+            if dist < closest_dist:  # it's closer, so remember it
+                closest_enemy = object
+                closest_dist = dist
+    return closest_enemy
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# FUNCTION DEF: TARGET TILE --- Return the position of a tile left-clicked in player's FOV (optionally in a range),
+#                               or (None,None) if right-clicked.
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+def target_tile(max_range=None):
+    global key, mouse
+    while True:
+        # Render the screen. this erases the inventory and shows the names of objects under the mouse.
+        libtcod.console_flush()                                                                                         # Flush the console to present changes to the player.
+        libtcod.sys_check_for_event(libtcod.EVENT_KEY_PRESS | libtcod.EVENT_MOUSE, key, mouse)                          # Absorbs key presses and does nothing with them - this is a mouse interface, baby!
+        render_all()
+
+        (x, y) = (mouse.cx, mouse.cy)
+
+        # Accept the target if the player clicked in FOV, and in case a range is specified, if it's in that range
+        if (mouse.lbutton_pressed and libtcod.map_is_in_fov(fov_map, x, y) and
+                (max_range is None or player.distance(x, y) <= max_range)):
+            return (x, y)
+        if mouse.rbutton_pressed or key.vk == libtcod.KEY_ESCAPE:                                                       # Cancel if the player right-clicked or pressed Escape
+            return (None, None)
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# FUNCTION DEF: TARGET MONSTER --- Returns a clicked monster inside FOV up to a range, or None if right-clicked
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+def target_monster(max_range=None):
+    while True:
+        (x, y) = target_tile(max_range)
+        if x is None:                                                                                                   # Player cancelled
+            return None
+
+        # Return the first clicked monster, otherwise continue looping
+        for obj in objects:
+            if obj.x == x and obj.y == y and obj.fighter and obj != player:
+                return obj
+
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # INITIALIZE AND MAIN LOOP
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # Init console(s)
 libtcod.console_set_custom_font('arial10x10.png', libtcod.FONT_TYPE_GREYSCALE | libtcod.FONT_LAYOUT_TCOD)
-libtcod.console_init_root(SCREEN_WIDTH, SCREEN_HEIGHT, "python/AH RL Framework", False)                                # Initialize the default (base) console. This is where we will blit all graphics to.
+libtcod.console_init_root(SCREEN_WIDTH, SCREEN_HEIGHT, "python/AH RL Framework", False)                                 # Initialize the default (base) console. This is where we will blit all graphics to.
 libtcod.sys_set_fps(LIMIT_FPS)
 con = libtcod.console_new(SCREEN_WIDTH, SCREEN_HEIGHT)                                                                  # Initialize another console to act as a buffer.
 panel = libtcod.console_new(SCREEN_WIDTH, PANEL_HEIGHT)
