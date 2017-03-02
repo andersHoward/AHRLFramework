@@ -15,7 +15,7 @@
 			"file": "main.py",
 			"settings":
 			{
-				"buffer_size": 48760,
+				"buffer_size": 46976,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -33,7 +33,7 @@
 			"file": "src/ecs/Component.py",
 			"settings":
 			{
-				"buffer_size": 932,
+				"buffer_size": 1043,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "class Component(entity):"
@@ -191,15 +191,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 48760,
+						"buffer_size": 46976,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1629,
-								1629
+								0,
+								0
 							]
 						],
 						"settings":
@@ -257,15 +257,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 932,
+						"buffer_size": 1043,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								852,
-								852
+								0,
+								0
 							]
 						],
 						"settings":

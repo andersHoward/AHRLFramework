@@ -59,6 +59,30 @@ class Entity():
         dy = int(round(dy / distance))
         self.move(dx, dy)
 
+    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    # FUNCTION DEF: GET EQUIPPED IN SLOT --- Takes a slot as input and tells you what is equipped in that slot.
+    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    # Returns the equipment in a slot, or None if it is empty.
+    def get_equipped_in_slot(slot):
+        for obj in inventory:
+            if obj.equipment and obj.equipment.slot == slot and obj.equipment.is_equipped:
+                return obj.equipment
+        return None
+
+    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    # FUNCTION DEF: GET ALL EQUIPPED --- Takes an object and returns a list of all items equipped on that object.
+    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    # Returns the equipment in a slot, or None if it is empty.
+    def get_all_equipped(obj):
+        if obj == player:
+            equipped_list = []
+            for item in inventory:
+                if item.equipment and item.equipment.is_equipped:
+                    equipped_list.append(item.equipment)
+            return equipped_list
+        else:
+            return []  # Other objects have no equipment (at this point)
+
     # Return dist to another object. TODO this should be in a generic utils module.
     def distance_to(self, other):
         dx = other.x - self.x
@@ -85,3 +109,27 @@ class Entity():
     # Erase the character that represents this object.
     def clear(self):
         libtcod.console_put_char(con, self.x, self.y, ' ', libtcod.BKGND_NONE)
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# FUNCTION DEF: PLAYER MOVE OR ATTACK --- interprets player movement as a move or an attack on an object.
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+def player_move_or_attack(dx, dy):
+    global fov_recompute
+
+    # Coordinates the player is trying to act upon.
+    x = player.x + dx
+    y = player.y + dy
+
+    # Try to find attackable object at target tile.
+    target = None
+    for object in objects:
+        if object.fighter and object.x == x and object.y == y:
+            target = object
+            break
+
+    # Attack if object found, else move
+    if target is not None:
+        player.fighter.attack(target)
+    else:
+        player.move(dx, dy)
+        fov_recompute = True
