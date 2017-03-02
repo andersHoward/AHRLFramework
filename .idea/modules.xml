@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/LibtcodTest.iml" filepath="$PROJECT_DIR$/.idea/LibtcodTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/AHRLFramework.iml" filepath="$PROJECT_DIR$/.idea/AHRLFramework.iml" />
     </modules>
   </component>
 </project>

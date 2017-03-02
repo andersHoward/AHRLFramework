@@ -3,11 +3,340 @@ import math
 import textwrap
 import shelve
 
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# TOP-LEVEL VARIABLE DEFINITIONS
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+# Actual size of the window.
+SCREEN_WIDTH = 80
+SCREEN_HEIGHT = 50
+LIMIT_FPS = 20
 
+# GUI
+BAR_WIDTH = 20
+PANEL_HEIGHT = 7
+PANEL_Y = SCREEN_HEIGHT - PANEL_HEIGHT
+MSG_X = BAR_WIDTH + 2
+MSG_WIDTH = SCREEN_WIDTH - BAR_WIDTH - 2
+MSG_HEIGHT = PANEL_HEIGHT - 1
+INVENTORY_WIDTH = 50
 
+# Map attributes
+DEUB_MODE = False
+MAP_WIDTH = 80
+MAP_HEIGHT = 45
+ROOM_MAX_SIZE = 10
+ROOM_MIN_SIZE = 6
+MAX_ROOMS = 30
+FOV_ALGO = 1
+FOV_LIGHT_WALLS = True
+TORCH_RADIUS = 10
+LEVEL_SCREEN_WIDTH = 40
+CHARACTER_SCREEN_WIDTH = 30
 
+# Spells
+HEAL_AMOUNT = 40
+LIGHTNING_DAMAGE = 40
+LIGHTNING_RANGE = 5
+CONFUSE_NUM_TURNS = 10
+CONFUSE_RANGE = 8
+FIREBALL_RADIUS = 3
+FIREBALL_DAMAGE = 25
 
+# Experience and leveling
+LEVEL_UP_BASE = 200
+LEVEL_UP_FACTOR = 150
+
+# Color Defs
+color_dark_wall = libtcod.Color(0, 0, 100)
+color_light_wall = libtcod.Color(130, 110, 50)
+color_dark_ground = libtcod.Color(50, 50, 150)
+color_light_ground = libtcod.Color(200, 180, 50)
+
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# CLASS DEFINITION: Tile --- A tile of the map and its properties
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class Tile:
+    def __init__(self, blocked, block_sight=None):
+        self.blocked = blocked
+        self.explored = False
+
+        # by default, if a tile is blocked, it also blocks sight
+        if block_sight is None: block_sight = blocked
+        self.block_sight = block_sight
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# CLASS DEFINITION: Rect --- A rectangle on the map; used to characterize a room.
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class Rect:
+    def __init__(self, x, y, w, h):
+        self.x1 = x
+        self.y1 = y
+        self.x2 = x + w
+        self.y2 = y + h
+
+    def center(self):
+        center_x = (self.x1 + self.x2) / 2
+        center_y = (self.y1 + self.y2) / 2
+        return (center_x, center_y)
+
+    def intersect(self, other):
+        return(self.x1 <= other.x2 and self.x2 >= other.x1 and
+               self.y1 <= other.y2 and self.y2 >= other.y1)
+
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# CLASS DEFINITION: Object --- A generic object: the player, monsters, items, stairs. Always represented by an ascii character on-screen.
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class Object:
+    def __init__(self, x, y, char, name, color, blocks=False, fighter=None, ai=None, item=None,equipment=None, always_visible = False):
+        self.name = name
+        self.blocks = blocks
+        self.x = x
+        self.y = y
+        self.char = char
+        self.color = color
+        self.always_visible = always_visible
+
+        # Let the components of this object know who the parent object is.
+        self.fighter = fighter
+        if self.fighter:
+            self.fighter.owner = self
+        self.ai = ai
+        if self.ai:
+            self.ai.owner = self
+        self.item = item
+        if self.item:
+            self.item.owner = self
+        self.equipment = equipment
+        if self.equipment:
+            self.equipment.owner = self
+            self.item = Item()
+            self.item.owner = self                                                                                      # There must be an Item component for the Equipment component to work properly
+
+    # Move by the given amount.
+    def move(self, dx, dy):
+        if not is_blocked(self.x + dx, self.y + dy):                                                                    # Check if the tile we're trying to move into is a blocking tile or contains a blocking object.
+            self.x += dx
+            self.y += dy
+
+    # Moves object towards a target location. Normally used for simple AI.
+    def move_towards(self, target_x, target_y):
+        # Get vector.
+        dx = target_x - self.x
+        dy = target_y - self.y
+        distance = math.sqrt(dx ** 2 + dy **2)
+
+        # Normalize to a unit vector (of 1), then round to int so movement is restricted to the grid, then move.
+        dx = int(round(dx / distance))
+        dy = int(round(dy / distance))
+        self.move(dx, dy)
+
+    # Return dist to another object. TODO this should be in a generic utils module.
+    def distance_to(self, other):
+        dx = other.x - self.x
+        dy = other.y - self.y
+        return math.sqrt(dx ** 2 + dy ** 2)
+
+    # Return the distance to some coordinates
+    def distance(self, x, y):
+        return math.sqrt((x - self.x) ** 2 + (y - self.y) ** 2)
+
+    # If object is in FOV OR as been explored and is set to "always visible", set the color and then draw the character
+    # that represents this item at its current position.
+    def draw(self):
+        if libtcod.map_is_in_fov(fov_map, self.x, self.y) or (self.always_visible and map[self.x][self.y].explored):
+            libtcod.console_set_default_foreground(con, self.color)
+            libtcod.console_put_char(con, self.x, self.y, self.char, libtcod.BKGND_NONE)
+
+    # Moves this object to the back of the objects list. Useful for affecting draw order.
+    def send_to_back(self):
+        global objects
+        objects.remove(self)
+        objects.insert(0, self)
+
+    # Erase the character that represents this object.
+    def clear(self):
+        libtcod.console_put_char(con, self.x, self.y, ' ', libtcod.BKGND_NONE)
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# COMPONENT CLASS DEF: FIGHTER --- Component that adds combat properties and methods to a base object instance.
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class Fighter:
+    def __init__(self, hp, defense, power, xp, death_function=None):
+        self.base_max_hp = hp
+        self.hp = hp
+        self.base_defense = defense
+        self.base_power = power
+        self.xp = xp
+        self.death_function = death_function
+
+    # PROPERTIES
+    # E.g. When player.power is accessed, this function is called instead of accessing the property directly.
+    #   This allows us to sum the bonuses from all equipped items and buffs at run time, rather than having items and
+    #   buffs modifying the player stat directly which can easily cause bugs.
+
+    @property
+    def power(self):
+        bonus = sum(equipment.power_bonus for equipment in get_all_equipped(self.owner))
+        return self.base_power + bonus
+
+    @property
+    def defense(self):  # return actual defense, by summing up the bonuses from all equipped items
+        bonus = sum(equipment.defense_bonus for equipment in get_all_equipped(self.owner))
+        return self.base_defense + bonus
+
+    @property
+    def max_hp(self):  # return actual max_hp, by summing up the bonuses from all equipped items
+        bonus = sum(equipment.max_hp_bonus for equipment in get_all_equipped(self.owner))
+        return self.base_max_hp + bonus
+
+    # Make a target take damage.
+    def attack(self, target):
+        damage = self.power - target.fighter.defense
+
+        if damage > 0:
+            message(self.owner.name.capitalize() + ' attacks ' + target.name + ' for ' + str(damage) + ' hit points.')
+            target.fighter.take_damage(damage)
+        else:
+            message(self.owner.name.capitalize() + ' attacks ' + target.name + ' but it has no effect!')
+
+    def take_damage(self, damage):
+        if damage > 0:
+            self.hp -= damage
+
+        # Check for death and call death function.
+        if self.hp <= 0:
+            function = self.death_function
+            if function is not None:
+                function(self.owner)
+
+        # Award XP.
+        if self.owner != player:
+            player.fighter.xp += self.xp
+
+    def heal(self, amount):
+
+        self.hp += amount
+        if self.hp > self.max_hp:
+            self.hp = self.max_hp
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# COMPONENT CLASS DEF: BASICMONSTER --- Component that adds basic AI routines to an object instance.
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class BasicMonster:
+    def take_turn(self):
+        monster = self.owner
+        if libtcod.map_is_in_fov(fov_map, monster.x, monster.y):                                                         # Monster sees you if you see it. TODO something better?
+
+            if monster.distance_to(player) >= 2:
+                monster.move_towards(player.x, player.y)
+
+            # Close enough, attack! (if the player is still alive.)
+            elif player.fighter.hp > 0:
+                monster.fighter.attack(player)
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# COMPONENT CLASS DEF: CONFUSEDMONSTER --- AI for a temporarily confused monster (reverts to previous AI after a while).
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class ConfusedMonster:
+    def __init__(self, old_ai, num_turns=CONFUSE_NUM_TURNS):
+        self.old_ai = old_ai
+        self.num_turns = num_turns
+
+    # Move randomly if still confused, else revert back to normal AI.
+    def take_turn(self):
+        if self.num_turns > 0:  # still confused...
+            self.owner.move(libtcod.random_get_int(0, -1, 1), libtcod.random_get_int(0, -1, 1))
+            self.num_turns -= 1
+
+        else:
+            self.owner.ai = self.old_ai
+            message('The ' + self.owner.name + ' is no longer confused!', libtcod.red)
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# COMPONENT CLASS DEF: ITEM --- Component that allows an object to be picked up and used.
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class Item:
+    def __init__(self, use_function=None):
+        self.use_function = use_function
+
+    # Add to the player's inventory and remove from the map
+    def pick_up(self):
+
+        if len(inventory) >= 26:
+            message('Your inventory is full, cannot pick up ' + self.owner.name + '.', libtcod.red)
+        else:
+            inventory.append(self.owner)
+            objects.remove(self.owner)
+            message('You picked up a ' + self.owner.name + '!', libtcod.green)
+
+            # Special case: automatically equip, if the corresponding equipment slot is unused and the picked-up item
+            #               is equippable.
+            equipment = self.owner.equipment
+            if equipment and get_equipped_in_slot(equipment.slot) is None:
+                equipment.equip()
+
+    # Equip an item or call its use function.
+    def use(self):
+        # If the object has an Equipment component, it can be equipped.
+        if self.owner.equipment:
+            self.owner.equipment.toggle_equip()
+            return
+
+        # Else just call the use function if it is defined.
+        if self.use_function is None:
+            message('The ' + self.owner.name + ' cannot be used.')
+        else:
+            if self.use_function() != 'cancelled':
+                inventory.remove(self.owner)  # destroy after use, unless it was cancelled for some reason
+
+    # Add to the map and remove from the player's inventory. also, place it at the player's coordinates
+    def drop(self):
+        # Special case: if the object has the Equipment component, dequip it before dropping
+        if self.owner.equipment:
+            self.owner.equipment.dequip()
+
+        # add to the map and remove from the player's inventory. also, place it at the player's coordinates
+        objects.append(self.owner)
+        inventory.remove(self.owner)
+        self.owner.x = player.x
+        self.owner.y = player.y
+        message('You dropped a ' + self.owner.name + '.', libtcod.yellow)
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# COMPONENT CLASS DEF: EQUIPMENT --- Component that allows an object to be equipped to yield bonuses.
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class Equipment:
+    def __init__(self, slot, power_bonus=0, defense_bonus=0, max_hp_bonus=0):
+        self.power_bonus = power_bonus
+        self.defense_bonus = defense_bonus
+        self.max_hp_bonus = max_hp_bonus
+        self.slot = slot
+        self.is_equipped = False
+
+    # Toggle don/doff status.
+    def toggle_equip(self):
+        if self.is_equipped:
+            self.doff()
+        else:
+            self.equip()
+
+    # Equip object.
+    def equip(self):
+        # If the slot is already being used, doff whatever is there first
+        old_equipment = get_equipped_in_slot(self.slot)
+        if old_equipment is not None:
+            old_equipment.doff()
+
+        self.is_equipped = True
+        message('Equipped ' + self.owner.name + 'on ' + self.slot + '.', libtcod.light_green)
+
+    # Doff object.
+    def doff(self):
+        if not self.is_equipped: return
+        self.is_equipped = False
+        message('Doffed ' + self.owner.name + ' from ' + self.slot + '.', libtcod.light_yellow)
 
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # FUNCTION DEF: GET EQUIPPED IN SLOT --- Takes a slot as input and tells you what is equipped in that slot.

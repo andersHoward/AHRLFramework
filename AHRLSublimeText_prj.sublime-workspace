@@ -1,0 +1,379 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"py",
+				"Python27_64"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "main.py",
+			"settings":
+			{
+				"buffer_size": 48760,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/ecs/components.py",
+			"settings":
+			{
+				"buffer_size": 8494,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/ecs/Component.py",
+			"settings":
+			{
+				"buffer_size": 932,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "class Component(entity):"
+			}
+		}
+	],
+	"build_system": "Packages/User/Python27_64.sublime-build",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "install pa",
+		"selected_items":
+		[
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/L/Documents/GitHub/AHRLFramework",
+		"/L/Documents/GitHub/AHRLFramework/src",
+		"/L/Documents/GitHub/AHRLFramework/src/ecs"
+	],
+	"file_history":
+	[
+		"/L/Documents/GitHub/AHRLFramework/src/ecs/components.py",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/User/Flake8Lint.sublime-settings",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/README.md",
+		"/L/Documents/GitHub/AHRLFramework/AHRLSublimeText_prj.sublime-project",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 2/Packages/User/JSON.sublime-settings",
+		"/L/Documents/GitHub/AHRLFramework/src/Geometry.py",
+		"/L/Documents/GitHub/AHRLFramework/src/Entity.py",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 2/Packages/User/Python27_64.sublime-build",
+		"/L/Documents/GitHub/AHRLFramework/sublimetest.py",
+		"/C/Users/Cousin of BEAST/Desktop/NewSquadDataFormat01",
+		"/C/Users/Cousin of BEAST/Desktop/SquadsPartyDate_SAMPLE.json",
+		"/C/Users/Cousin of BEAST/AppData/Local/Temp/p4v/CousinofBEAST_perforce_1666/Fortnite/Main/FortniteGame/GameService/Fortnite-Core/src/main/java/com/epicgames/fortnite/core/game/managers/ScoreManager#32.java",
+		"/L/Epic/FortMain/FortniteGame/Content/Backend/ItemTemplates/PrivateQuotas.json",
+		"/C/Users/Cousin of BEAST/Desktop/Games/Roguelikes/UnNetHack 5.1.0/defaults.nh",
+		"/L/Documents/Google Drive/Projects/Game Dev and Programming/PythonRoguelike - out of date - moved to Github!/LibtcodTest/firstrl.py",
+		"/C/Users/Cousin of BEAST/Desktop/cbthemes01.conf",
+		"/C/Users/Cousin of BEAST/Desktop/WoW_UI_to_Cloud.bat",
+		"/C/Users/Cousin of BEAST/Desktop/Civ6 Saves to Cloud.bat",
+		"/C/Users/Cousin of BEAST/Desktop/Cloud to Civ6 Saves.bat",
+		"/L/Epic/FortMain/FortniteGame/Content/Backend/ItemTemplates/Quests.json",
+		"/L/Epic/FortMain/FortniteGame/Content/Backend/ItemTemplates/Quotas.json",
+		"/L/Documents/My Games/Sid Meier's Civilization VI/Saves/Single/Cloud to Civ6.bat",
+		"/L/Documents/My Games/Sid Meier's Civilization VI/Saves/Single/Civ6 to Cloud.bat",
+		"/C/Users/Cousin of BEAST/Desktop/Civ6 to Cloud.bat",
+		"/E/Applications/Arduino/hardware/arduino/avr/boards.txt",
+		"/E/Applications/Arduino/hardware/arduino/avr/platform.txt",
+		"/L/Documents/Arduino/libraries/HID-master/src/HID-Settings.h",
+		"/C/Users/Cousin of BEAST/Desktop/FreeBASIC-1.05.0-win64/vertrot.bas",
+		"/L/Epic/FortMain/FortniteGame/Content/Backend/ItemTemplates/HomebaseNodes.json",
+		"/L/Documents/GitHub/cqui/UI/ActionPanel.lua",
+		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/damage.qc",
+		"/C/Users/Cousin of BEAST/Desktop/FASM/_example.asm",
+		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/impulses.qc",
+		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/entities/ambient.qc",
+		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/effects/chasecam.qc",
+		"/C/Users/Cousin of BEAST/Desktop/SlowMotionVolume.h",
+		"/C/Users/Cousin of BEAST/Desktop/SlowMotionVolume.cpp",
+		"/C/Users/Cousin of BEAST/Desktop/AShooterCharacter.cpp",
+		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/PROGS.SRC",
+		"/C/Program Files (x86)/XBCD/x360ce/x360ce.ini",
+		"/C/Program Files (x86)/XBCD/Driver/xbcd.inf",
+		"/C/Users/Cousin of BEAST/Desktop/Epic Test/Q3_Formulas.txt",
+		"/C/Users/Cousin of BEAST/Desktop/Epic Test/Supporting Material/Q3_Formulas.txt"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"/",
+			"#\n",
+			"syntax",
+			"bonusArrayString",
+			"item",
+			"conning",
+			"bonus",
+			"Sheet1"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"-",
+			"additionalBonusArrayString",
+			"'1.Data'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 48760,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1629,
+								1629
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 409.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "src/ecs/components.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1142,
+								1142
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/ecs/Component.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 932,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								852,
+								852
+							]
+						],
+						"settings":
+						{
+							"auto_name": "class Component(entity):",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "AHRLSublimeText_prj.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 192.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
