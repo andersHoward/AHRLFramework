@@ -7,13 +7,14 @@
 #                        __/ |
 #                       |___/
 #
-# Abstract base class for a basic Entity, I.e. a generic object: the player, monsters, items, stairs.
-# Is composed of Components.
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-# CLASS DEFINITION: ENTITY ---
-#
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+''' Module that contains abstract base class for a basic Entity, 
+I.e. a generic object: the player, monsters, items, stairs. Is composed of Components.'''
 
+import libtcodpy
+
+
+# CLASS DEFINITION: ENTITY
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class Entity():
     '''Abstract base class for a generic Entity.'''
     def __init__(self, x, y, char, name, color, blocks=False, fighter=None, ai=None, item=None,equipment=None, always_visible = False):
@@ -109,27 +110,3 @@ class Entity():
     # Erase the character that represents this object.
     def clear(self):
         libtcod.console_put_char(con, self.x, self.y, ' ', libtcod.BKGND_NONE)
-
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-# FUNCTION DEF: PLAYER MOVE OR ATTACK --- interprets player movement as a move or an attack on an object.
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-def player_move_or_attack(dx, dy):
-    global fov_recompute
-
-    # Coordinates the player is trying to act upon.
-    x = player.x + dx
-    y = player.y + dy
-
-    # Try to find attackable object at target tile.
-    target = None
-    for object in objects:
-        if object.fighter and object.x == x and object.y == y:
-            target = object
-            break
-
-    # Attack if object found, else move
-    if target is not None:
-        player.fighter.attack(target)
-    else:
-        player.move(dx, dy)
-        fov_recompute = True

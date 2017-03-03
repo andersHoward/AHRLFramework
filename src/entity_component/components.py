@@ -2,18 +2,21 @@
 #  / __|___ _ __  _ __  ___ _ _  ___ _ _| |_ ___
 # | (__/ _ \ '  \| '_ \/ _ \ ' \/ -_) ' \  _(_-<
 #  \___\___/_|_|_| .__/\___/_||_\___|_||_\__/__/
-#                |_| 
-# Class definitions for each individual component type derived from Component.
+#                |_|
+'''Module that contains definitions for each individual component type derived
+from Component.'''
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+import libtcodpy as libtcod
 from Component import Component
+from .. entity_component import Entity
 
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-# COMPONENT CLASS DEF: FIGHTER --- Component that adds combat properties and methods to a base object instance.
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class Fighter:
+
+class C_Damage(Component):
+    '''Component class that handles basic damage output.'''
+
     def __init__(self, hp, defense, power, xp, death_function=None):
-        defaults = dict((hp=10), (defense = 10), )
+        defaults = dict((hp=10), (defense = 10))
         self.base_max_hp = hp
         self.hp = hp
         self.base_defense = defense
@@ -71,28 +74,71 @@ class Fighter:
         if self.hp > self.max_hp:
             self.hp = self.max_hp
 
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-# COMPONENT CLASS DEF: BASICMONSTER --- Component that adds basic AI routines to an object instance.
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class BasicMonster:
-    def take_turn(self):
-        monster = self.owner
-        if libtcod.map_is_in_fov(fov_map, monster.x, monster.y):                                                         # Monster sees you if you see it. TODO something better?
+class C_Transform(Component):
+    '''TODO Component class that gives an Entity a position in the world.'''
+    __init__(self):
+        Position[x=None, y=None, z=None]
 
-            if monster.distance_to(player) >= 2:
-                monster.move_towards(player.x, player.y)
+class C_Mover(Component):
+    '''TODO Component class that allows an entity some mode of travel. TODO: is movement type may a leaf, or subclassed?'''
 
-            # Close enough, attack! (if the player is still alive.)
-            elif player.fighter.hp > 0:
-                monster.fighter.attack(player)
+    def player_move_or_attack(dx, dy, player):
+        global fov_recompute, L_entities
 
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-# COMPONENT CLASS DEF: CONFUSEDMONSTER --- AI for a temporarily confused monster (reverts to previous AI after a while).
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class ConfusedMonster:
-    def __init__(self, old_ai, num_turns=CONFUSE_NUM_TURNS):
-        self.old_ai = old_ai
-        self.num_turns = num_turns
+        # Coordinates the player is trying to act upon.
+        x = player.x + dx
+        y = player.y + dy
+
+        # Try to find attackable entity at target tile.
+        target = None
+        for entity in L_entities:
+            if entity.fighter and entity.x == x and entity.y == y:
+                target = entity
+                break
+
+        # Attack if entity found, else move
+        if target is not None:
+            player.fighter.attack(target)
+        else:
+            player.move(dx, dy)
+            fov_recompute = True
+
+    def Try_Move(dx, dy, entity):
+        global fov_recompute
+
+        # Coordinates the player is trying to act upon.
+        x = player.x + dx
+        y = player.y + dy
+
+        # Try to find attackable object at target tile.
+        target = None
+        for object in objects:
+            if object.fighter and object.x == x and object.y == y:
+                target = object
+                break
+
+        # Attack if object found, else move
+        if target is not None:
+            player.fighter.attack(target)
+        else:
+            player.move(dx, dy)
+            fov_recompute = True
+
+class C_Health(Component):
+    ''' TODO Component class that manages Entity Hitpoints.'''
+    def __init__(self, max_hp):
+        Component.__init__(self) # Call superclass init.
+
+    defaults = dict(('current', 100), ('max', 100))
+
+    @property
+    def alive(self):
+        return self.current > 0
+
+
+class C_AI_State_Machine():
+    ''' TODO Allows an Entity to posses an AI state machine that manages 
+    AI state classes.'''
 
     # Move randomly if still confused, else revert back to normal AI.
     def take_turn(self):

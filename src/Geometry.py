@@ -7,7 +7,7 @@
 #                                            __/ |
 #                                           |___/
 #
-# Various classes used to help create shapes, e.g. on the UI, or parts of the map.
+'''Classes used to help create shapes, e.g. on the UI, or parts of the map.'''
 # ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class Rect:
     '''Rect: A rectangle on the map; used to characterize a room.'''

@@ -1,5 +1,5 @@
 import libtcodpy as libtcod
-import CONST
+import Constants as CONST
 import GUI
 
 class Init():
