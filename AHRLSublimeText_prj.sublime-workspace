@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"equip",
+				"equipped_inventory"
+			],
+			[
 				"li",
 				"libtcod"
 			],
@@ -24,6 +28,15 @@
 			}
 		},
 		{
+			"file": "src/entity/C_Inventory.py",
+			"settings":
+			{
+				"buffer_size": 1212,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "src/entity/C_Item.py",
 			"settings":
 			{
@@ -37,15 +50,6 @@
 			"settings":
 			{
 				"buffer_size": 2504,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/entity/C_Inventory.py",
-			"settings":
-			{
-				"buffer_size": 771,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -108,7 +112,6 @@
 		"/L/Documents/GitHub/AHRLFramework",
 		"/L/Documents/GitHub/AHRLFramework/src",
 		"/L/Documents/GitHub/AHRLFramework/src/ai",
-		"/L/Documents/GitHub/AHRLFramework/src/entity",
 		"/L/Documents/GitHub/AHRLFramework/src/game_state",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs"
 	],
@@ -227,7 +230,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -262,6 +265,34 @@
 				},
 				{
 					"buffer": 1,
+					"file": "src/entity/C_Inventory.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1212,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								201,
+								201
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "src/entity/C_Item.py",
 					"semi_transient": false,
 					"settings":
@@ -291,7 +322,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "src/entity/Entity.py",
 					"semi_transient": false,
 					"settings":
@@ -315,34 +346,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 54.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/entity/C_Inventory.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 771,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								622,
-								622
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -381,7 +384,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -467,7 +470,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

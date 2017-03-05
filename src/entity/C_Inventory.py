@@ -8,21 +8,41 @@ class C_Inventory():
             Write this dang class.
     """
 
-    def __init__():
+    @property
+    def inventory(self):
+        """Inventory getter."""
+        pass
+
+    @inventory.setter
+    def inventory(self, value):
+        """Inventory setter."""
+        self.inventory = value
+
+    @property
+    def equipped_inventory(self):
+        """Equipped inventory getter."""
+        pass
+
+    @equipped_inventory.setter
+    def inventory(self, value):
+        """Equipped inventory setter."""
+        pass
+
+    def __init__(self):
         """Inventory Component initialization."""
         pass
 
-    def get_equipped_in_slot(inventory, slot):
-        """ Returns the equipment that is in the queried slot.
+    def get_equipped_in_slot(self, inventory, slot):
+        """Returns the equipment that is in the queried slot.
 
                 Args:
                     inventory (Inventory): the inventory component of the
-                    queried entity.
-        """
+                    queried entity."""
         inventory = inventory
         slot = slot
 
         for obj in inventory:
-            if obj.equipment and obj.equipment.slot == slot and obj.equipment.is_equipped:
+            if obj.equipment and obj.equipment.slot == slot and \
+               obj.equipment.is_equipped:
                 return obj.equipment
         return None
