@@ -6,24 +6,17 @@
 #                       | |                            
 #                       |_|
 #
-# Abstract base class for individual ECS component implementations.
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-#
-#    ____ ____ _  _ ___  ____ _  _ ____ _  _ ___
-#    |    |  | |\/| |__] |  | |\ | |___ |\ |  |
-#    |___ |__| |  | |    |__| | \| |___ | \|  |
-#
-#       Component base class definition.
+''' Abstract base class for individual ECS component implementations.'''
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 import json
 
+
 class Component():
     '''The abstract base class for all individual ECS components.'''
 
-    __slots__['defaults', 'entity']
-    defaults = {}
+    def __slots__['defaults', 'entity']
+        defaults = {}
 
     def __init__(self, entity, **properties):
         '''Properties'''

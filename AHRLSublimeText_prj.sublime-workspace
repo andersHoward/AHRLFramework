@@ -16,19 +16,18 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 3069,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "src/ai/AI_State.py",
 			"settings":
 			{
-				"buffer_size": 1321,
+				"buffer_size": 1588,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/entity/C_Item.py",
+			"settings":
+			{
+				"buffer_size": 2440,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -37,7 +36,26 @@
 			"file": "src/entity/Entity.py",
 			"settings":
 			{
-				"buffer_size": 4315,
+				"buffer_size": 2504,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/entity/C_Inventory.py",
+			"settings":
+			{
+				"buffer_size": 771,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/entity/C_Equipment.py",
+			"settings":
+			{
+				"buffer_size": 1292,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -90,19 +108,32 @@
 		"/L/Documents/GitHub/AHRLFramework",
 		"/L/Documents/GitHub/AHRLFramework/src",
 		"/L/Documents/GitHub/AHRLFramework/src/ai",
+		"/L/Documents/GitHub/AHRLFramework/src/entity",
 		"/L/Documents/GitHub/AHRLFramework/src/game_state",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs"
 	],
 	"file_history":
 	[
+		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Inventory.py",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/Component.py",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/components.py",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Item.py",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Ability_Handler.py",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/C_AI_State_Machine.py",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Mover.py",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Transform.py",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Damage.py",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Health.py",
+		"/L/Documents/GitHub/AHRLFramework/src/ai/AI_State.py",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/Entity.py",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/C_AbilityHandler",
 		"/L/Documents/GitHub/AHRLFramework/notes.txt",
 		"/L/Documents/GitHub/AHRLFramework/src/game_state/GameState.py",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs/components.py",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs/Component.py",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs/Entity.py",
 		"/L/Documents/GitHub/AHRLFramework/src/CONST.py",
-		"/L/Documents/GitHub/AHRLFramework/src/ai/AI_State.py",
-		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/User/Flake8Lint.sublime-settings",
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
 		"/L/Documents/GitHub/AHRLFramework/main.py",
@@ -196,59 +227,114 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
+					"file": "src/ai/AI_State.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3069,
+						"buffer_size": 1588,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								614,
-								614
+								372,
+								372
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 1,
-					"file": "src/ai/AI_State.py",
+					"file": "src/entity/C_Item.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1321,
+						"buffer_size": 2440,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1321,
-								1321
+								423,
+								423
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/entity/Entity.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2504,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								515,
+								515
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/entity/C_Inventory.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								622,
+								622
 							]
 						],
 						"settings":
@@ -259,24 +345,30 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 2,
-					"file": "src/entity/Entity.py",
+					"buffer": 4,
+					"file": "src/entity/C_Equipment.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4315,
+						"buffer_size": 1292,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3343,
-								3343
+								754,
+								754
 							]
 						],
 						"settings":
@@ -286,10 +378,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 873.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -323,7 +415,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.590277777778,
 			1.0
 		],
 		"rows":
@@ -383,7 +475,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 192.0,
+	"side_bar_width": 222.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

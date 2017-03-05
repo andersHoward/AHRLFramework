@@ -7,55 +7,20 @@
 #                        __/ |
 #                       |___/
 #
-''' Module that contains abstract base class for a basic Entity, 
-I.e. a generic object: the player, monsters, items, stairs. Is composed of Components.'''
+"""Module that contains abstract base class for a basic Entity,
+Is composed of Components."""
 
 import libtcodpy
 
 
-# CLASS DEFINITION: ENTITY
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class Entity():
-    '''Abstract base class for a generic Entity.'''
-    def __init__(self, x, y, char, name, color, blocks=False, fighter=None, ai=None, item=None,equipment=None, always_visible = False):
+    '''Abstract base class for a generic Entity.
+        Args:
+            x (int): initial
+        '''
+    def __init__(self, components):
+        pass
 
-
-        # Let the components of this object know who the parent object is.
-        #TODO Move all of this shit into a component registry function.
-        self.fighter = fighter
-        if self.fighter:
-            self.fighter.owner = self
-        self.ai = ai
-        if self.ai:
-            self.ai.owner = self
-        self.item = item
-        if self.item:
-            self.item.owner = self
-        self.equipment = equipment
-        # There must be an Item component for the Equipment component to work properly
-        if self.equipment:
-            self.equipment.owner = self
-            self.item = Item()
-            self.item.owner = self
-
-        # TODO Move all of this shit into the appropriate components.
-        # self.name = name
-        # self.blocks = blocks
-        # self.x = x
-        # self.y = y
-        # self.char = char
-        # self.color = color
-        # self.always_visible = always_visible
-
-    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # FUNCTION DEF: GET EQUIPPED IN SLOT --- Takes a slot as input and tells you what is equipped in that slot.
-    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # Returns the equipment in a slot, or None if it is empty.
-    def get_equipped_in_slot(slot):
-        for obj in inventory:
-            if obj.equipment and obj.equipment.slot == slot and obj.equipment.is_equipped:
-                return obj.equipment
-        return None
 
     # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     # FUNCTION DEF: GET ALL EQUIPPED --- Takes an object and returns a list of all items equipped on that object.

@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c04c25b6-c5f4-4574-a6b6-0592582a23de" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MainJunction.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_state/GameState.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_state/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AHRLSublimeText_prj.sublime-workspace" afterPath="$PROJECT_DIR$/AHRLSublimeText_prj.sublime-workspace" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/Entity.py" afterPath="$PROJECT_DIR$/src/entity/Entity.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/components.py" afterPath="$PROJECT_DIR$/src/entity/components.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/InputHandler" afterPath="$PROJECT_DIR$/src/InputHandler.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/MapGenerator" afterPath="$PROJECT_DIR$/src/MapGenerator.Py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -499,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488672175007</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="+ Fleshed out the Transform component. Removed the old corresponding properties from the Entity class that had been from the tutorial.&#10;+ Some framework for the Mover component (takes a mode of transport).&#10;+ Moved code from the libtcod tutorial into the Mover.Try_Move. &#10;+ Added python packaging.&#10;+ Wrote framework for a game state interface class. This will eventually hold the main loop.&#10;+ Wrote framework for game state FSM called 'Main Junction.' This will eventually be responsible for swapping states from menu to game.&#10;+ Stripped main.py down to the bare essentials. Only calls Init.init which will bootstrap everything else (starting with a libtcod console).">
+      <created>1488685219392</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1488685219392</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -562,7 +560,8 @@
     <MESSAGE value="Beginning the quest to break out of the single file of the tutorial by renaming main file to 'main' which will init the rest of the game and game state." />
     <MESSAGE value="Pecked away at a little bit of everything, slowly stitching things back together while also adding the framework of the Entity-Component system." />
     <MESSAGE value="Package re-org." />
-    <option name="LAST_COMMIT_MESSAGE" value="Package re-org." />
+    <MESSAGE value="+ Fleshed out the Transform component. Removed the old corresponding properties from the Entity class that had been from the tutorial.&#10;+ Some framework for the Mover component (takes a mode of transport).&#10;+ Moved code from the libtcod tutorial into the Mover.Try_Move. &#10;+ Added python packaging.&#10;+ Wrote framework for a game state interface class. This will eventually hold the main loop.&#10;+ Wrote framework for game state FSM called 'Main Junction.' This will eventually be responsible for swapping states from menu to game.&#10;+ Stripped main.py down to the bare essentials. Only calls Init.init which will bootstrap everything else (starting with a libtcod console)." />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Fleshed out the Transform component. Removed the old corresponding properties from the Entity class that had been from the tutorial.&#10;+ Some framework for the Mover component (takes a mode of transport).&#10;+ Moved code from the libtcod tutorial into the Mover.Try_Move. &#10;+ Added python packaging.&#10;+ Wrote framework for a game state interface class. This will eventually hold the main loop.&#10;+ Wrote framework for game state FSM called 'Main Junction.' This will eventually be responsible for swapping states from menu to game.&#10;+ Stripped main.py down to the bare essentials. Only calls Init.init which will bootstrap everything else (starting with a libtcod console)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -701,6 +700,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -819,6 +819,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="785">
           <caret line="196" column="38" lean-forward="false" selection-start-line="196" selection-start-column="38" selection-end-line="196" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
