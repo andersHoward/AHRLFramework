@@ -74,12 +74,28 @@ class C_Damage(Component):
             self.hp = self.max_hp
 
 class C_Transform(Component):
-    '''TODO Component class that gives an Entity a position in the world.'''
-    __init__(self):
-        Position[x=None, y=None, z=None]
+    '''Component that gives an Entity a position in the world.
+        Args:
+            x (int): initial x position in cellular matrix
+            y (int): initial y position in cellular matrix
+            z (int): initial z position in cellular matrix'''
+
+    def __init__(self, x=None, y=None, z=None):
+        global Position = (x,y,z)
+
+    def get_position(self):
+        return Position
+
+    def set_position(self, x, y, z):
+        Position = (x, y, z)
 
 class C_Mover(Component):
-    '''TODO Component class that allows an entity some mode of travel. TODO: is movement type may a leaf, or subclassed?'''
+    '''Component that  allows an entity some mode of travel.
+            Args:
+                transport_mode (str): name of the mode of travel to append to the entity.'''
+
+    def __init__(self, transport_mode):
+        transport_mode = transport_mode
 
     def player_move_or_attack(dx, dy, player):
         global fov_recompute, L_entities
@@ -102,26 +118,24 @@ class C_Mover(Component):
             player.move(dx, dy)
             fov_recompute = True
 
-    def Try_Move(dx, dy, entity):
-        global fov_recompute
+    # Move by the given amount.
+    def Try_Move(self, dx, dy):
+        if not is_blocked(self.x + dx,
+                          self.y + dy):  # Check if the tile we're trying to move into is a blocking tile or contains a blocking object.
+            self.x += dx
+            self.y += dy
 
-        # Coordinates the player is trying to act upon.
-        x = player.x + dx
-        y = player.y + dy
+    # Moves object towards a target location. Normally used for simple AI.
+    def move_towards(self, target_x, target_y):
+        # Get vector.
+        dx = target_x - self.x
+        dy = target_y - self.y
+        distance = math.sqrt(dx ** 2 + dy ** 2)
 
-        # Try to find attackable object at target tile.
-        target = None
-        for object in objects:
-            if object.fighter and object.x == x and object.y == y:
-                target = object
-                break
-
-        # Attack if object found, else move
-        if target is not None:
-            player.fighter.attack(target)
-        else:
-            player.move(dx, dy)
-            fov_recompute = True
+        # Normalize to a unit vector (of 1), then round to int so movement is restricted to the grid, then move.
+        dx = int(round(dx / distance))
+        dy = int(round(dy / distance))
+        self.move(dx, dy)
 
 class C_Health(Component):
     ''' TODO Component class that manages Entity Hitpoints.'''

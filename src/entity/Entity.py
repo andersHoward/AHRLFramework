@@ -18,15 +18,10 @@ import libtcodpy
 class Entity():
     '''Abstract base class for a generic Entity.'''
     def __init__(self, x, y, char, name, color, blocks=False, fighter=None, ai=None, item=None,equipment=None, always_visible = False):
-        self.name = name
-        self.blocks = blocks
-        self.x = x
-        self.y = y
-        self.char = char
-        self.color = color
-        self.always_visible = always_visible
+
 
         # Let the components of this object know who the parent object is.
+        #TODO Move all of this shit into a component registry function.
         self.fighter = fighter
         if self.fighter:
             self.fighter.owner = self
@@ -37,28 +32,20 @@ class Entity():
         if self.item:
             self.item.owner = self
         self.equipment = equipment
+        # There must be an Item component for the Equipment component to work properly
         if self.equipment:
             self.equipment.owner = self
             self.item = Item()
-            self.item.owner = self                                                                                      # There must be an Item component for the Equipment component to work properly
+            self.item.owner = self
 
-    # Move by the given amount.
-    def move(self, dx, dy):
-        if not is_blocked(self.x + dx, self.y + dy):                                                                    # Check if the tile we're trying to move into is a blocking tile or contains a blocking object.
-            self.x += dx
-            self.y += dy
-
-    # Moves object towards a target location. Normally used for simple AI.
-    def move_towards(self, target_x, target_y):
-        # Get vector.
-        dx = target_x - self.x
-        dy = target_y - self.y
-        distance = math.sqrt(dx ** 2 + dy **2)
-
-        # Normalize to a unit vector (of 1), then round to int so movement is restricted to the grid, then move.
-        dx = int(round(dx / distance))
-        dy = int(round(dy / distance))
-        self.move(dx, dy)
+        # TODO Move all of this shit into the appropriate components.
+        # self.name = name
+        # self.blocks = blocks
+        # self.x = x
+        # self.y = y
+        # self.char = char
+        # self.color = color
+        # self.always_visible = always_visible
 
     # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     # FUNCTION DEF: GET EQUIPPED IN SLOT --- Takes a slot as input and tells you what is equipped in that slot.
