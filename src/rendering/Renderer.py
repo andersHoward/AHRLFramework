@@ -1,14 +1,13 @@
 import libtcodpy as libtcod
-import GUI
-from .. import Constants as CONST
+from src import Constants as CONST
 
 
 class Renderer(mainConsole, player):
+    def __init__(self):
+        pass
 
-    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # FUNCTION DEF: RENDER ALL
-    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     def render_all(self):
+        '''Main render update call for game loop.'''
         global fov_map, color_dark_wall, color_light_wall
         global color_dark_ground, color_light_ground
         global fov_recompute

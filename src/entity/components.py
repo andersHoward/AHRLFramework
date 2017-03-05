@@ -9,7 +9,6 @@ from Component.'''
 
 import libtcodpy as libtcod
 from Component import Component
-from .. entity_component import Entity
 
 
 class C_Damage(Component):

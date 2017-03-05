@@ -1,0 +1,5 @@
+
+Google's naming style guide: module_name, package_name, ClassName, method_name, ExceptionName, function_name,
+    LOBAL_CONSTANT_NAME, global_var_name, instance_var_name, function_parameter_name, local_var_name'''
+
+TODO Consider adding Testdocs everywhere

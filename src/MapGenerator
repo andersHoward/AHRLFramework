@@ -181,3 +181,17 @@ def place_objects(room):
             objects.append(item)
             item.send_to_back()  # Items appear below other objects
             item.always_visible = True
+
+        def initialize_fov():
+            '''Initialize the FOV map. TODO This might be a dungeon generator function.'''
+            global fov_recompute, fov_map
+            fov_recompute = True
+
+            # Create the FOV map: create a duplicate (but inverse) FOV map according to the generated game map.
+            fov_map = libtcod.map_new(MAP_WIDTH, MAP_HEIGHT)
+            for y in range(MAP_HEIGHT):
+                for x in range(MAP_WIDTH):
+                    libtcod.map_set_properties(fov_map, x, y, not map[x][y].block_sight, not map[x][y].blocked)
+
+            # Unexplored areas start black (which is the default background color)
+            libtcod.console_clear(con)
