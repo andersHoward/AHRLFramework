@@ -1,6 +1,5 @@
 """Module that contains the Inventory Component class."""
 
-
 class C_Inventory():
     """Component that adds an inventory of items to an entity.
 
@@ -28,9 +27,22 @@ class C_Inventory():
         """Equipped inventory setter."""
         pass
 
-    def __init__(self):
+    def __init__(self, owner):
         """Inventory Component initialization."""
-        pass
+        super(C_Inventory, self).__init__(owner, inventory_slots=None)
+        max_inventory_size = inventory_slots
+
+
+def get_all_equipped(entity):
+    '''Returns a list of items currently equipped by the entity.'''
+    if owner == player:
+        equipped_list = []
+        for item in inventory:
+            if item.equipment and item.equipment.is_equipped:
+                equipped_list.append(item.equipment)
+        return equipped_list
+    else:
+        return []  # Other objects have no equipment (at this point)
 
     def get_equipped_in_slot(self, inventory, slot):
         """Returns the equipment that is in the queried slot.

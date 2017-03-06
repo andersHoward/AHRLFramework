@@ -1,8 +1,11 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Cousin of BEAST">
     <words>
+      <w>cname</w>
+      <w>crit</w>
       <w>libtcod</w>
       <w>tcodconsole</w>
+      <w>testdoc</w>
     </words>
   </dictionary>
 </component>

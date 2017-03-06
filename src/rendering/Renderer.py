@@ -68,3 +68,20 @@ class Renderer(mainConsole, player):
 
         # blit the contents of "panel" to the root console
         libtcod.console_blit(panel, 0, 0, SCREEN_WIDTH, PANEL_HEIGHT, 0, 0, PANEL_Y)
+
+    # If object is in FOV OR as been explored and is set to "always visible", set the color and then draw the character
+    # that represents this item at its current position.
+    def draw(self):
+        if libtcod.map_is_in_fov(fov_map, self.x, self.y) or (self.always_visible and map[self.x][self.y].explored):
+            libtcod.console_set_default_foreground(con, self.color)
+            libtcod.console_put_char(con, self.x, self.y, self.char, libtcod.BKGND_NONE)
+
+    # Moves this object to the back of the objects list. Useful for affecting draw order.
+    def send_to_back(self):
+        global objects
+        objects.remove(self)
+        objects.insert(0, self)
+
+    # Erase the character that represents this object.
+    def clear(self):
+        libtcod.console_put_char(con, self.x, self.y, ' ', libtcod.BKGND_NONE)

@@ -1,64 +1,72 @@
-#  _____      _   _ _
-# |  ___|    | | (_) |
-# | |__ _ __ | |_ _| |_ _   _
-# |  __| '_ \| __| | __| | | |
-# | |__| | | | |_| | |_| |_| |
-# \____/_| |_|\__|_|\__|\__, |
-#                        __/ |
-#                       |___/
-#
-"""Module that contains abstract base class for a basic Entity,
-Is composed of Components."""
+#!/usr/bin/env python
 
-import libtcodpy
+"""Entity.py: Module that contains abstract base class for a generic Entity"""
+
+from collections import OrderedDict as dict
+from uuid import uuid4
 
 
-class Entity():
-    '''Abstract base class for a generic Entity.
-        Args:
-            x (int): initial
-        '''
-    def __init__(self, components):
-        pass
+class Entity(object):
+    '''Entity container for a UID and list of components.
 
+    >>> e = Entity('player', 0)
+    >>> e
+    <Entity player:0>
+    >>> print e
+    OrderedDict()
+    >>> e.health = 1
+    >>> print e.health
+    1
+    >>> print e['health']
+    1
+    >>> e['health'] = 10
+    >>> e.health
+    10
+    '''
+    __slots__ = ['uid', 'name', 'components'] # Define the attributes that we expect this class to have with slot.
 
-    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # FUNCTION DEF: GET ALL EQUIPPED --- Takes an object and returns a list of all items equipped on that object.
-    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # Returns the equipment in a slot, or None if it is empty.
-    def get_all_equipped(obj):
-        if obj == player:
-            equipped_list = []
-            for item in inventory:
-                if item.equipment and item.equipment.is_equipped:
-                    equipped_list.append(item.equipment)
-            return equipped_list
+    def __init__(self, name=None, uid=None):
+        '''Entity init.'''
+        self.uid = uuid4() if uid is None else uid
+        self.name = name if name is not None else ''
+        self.components = dict()
+
+    def __repr__(self):
+        '''Querying the representation returns: <Entity name:0>.'''
+        cname = self.__class__.__name__
+        name = self.name or self.uid
+        if name != self.uid:
+            name = '{}:{}'.format(self.name, self.uid)
+        return '<{} {}>'.format(cname, name)
+
+    def __str__(self):
+        '''Printing this class runs this to return component collection.'''
+        return str(self.components)
+
+    def __getitem__(self, key):
+        '''Return the component value using the key.'''
+        return self.components[key]
+
+    def __setitem__(self, key, value):
+        '''Set the component using the key and value.'''
+        # TODO Component updates
+        self.components[key] = value
+
+    def __getattr__(self, key):
+        '''Allows access to the properties/components as an attr.'''
+        if key in super(Entity, self).__getattribute__('__slots__'):
+            return super(Entity, self).__getattribute__(key)
         else:
-            return []  # Other objects have no equipment (at this point)
+            return self.components[key]
 
-    # Return dist to another object. TODO this should be in a generic utils module.
-    def distance_to(self, other):
-        dx = other.x - self.x
-        dy = other.y - self.y
-        return math.sqrt(dx ** 2 + dy ** 2)
+    def __setattr__(self, key, value):
+        '''Allows access to the properties/components as an attr.'''
+        if key in super(Entity, self).__getattribute__('__slots__'):
+            super(Entity, self).__setattr__(key, value)
+        else:
+            self.components[key] = value
 
-    # Return the distance to some coordinates
-    def distance(self, x, y):
-        return math.sqrt((x - self.x) ** 2 + (y - self.y) ** 2)
+if __name__ == '__main__':
+    from doctest import testmod
 
-    # If object is in FOV OR as been explored and is set to "always visible", set the color and then draw the character
-    # that represents this item at its current position.
-    def draw(self):
-        if libtcod.map_is_in_fov(fov_map, self.x, self.y) or (self.always_visible and map[self.x][self.y].explored):
-            libtcod.console_set_default_foreground(con, self.color)
-            libtcod.console_put_char(con, self.x, self.y, self.char, libtcod.BKGND_NONE)
-
-    # Moves this object to the back of the objects list. Useful for affecting draw order.
-    def send_to_back(self):
-        global objects
-        objects.remove(self)
-        objects.insert(0, self)
-
-    # Erase the character that represents this object.
-    def clear(self):
-        libtcod.console_put_char(con, self.x, self.y, ' ', libtcod.BKGND_NONE)
+    testmod()

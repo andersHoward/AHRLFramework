@@ -1,5 +1,45 @@
 
 Google's naming style guide: module_name, package_name, ClassName, method_name, ExceptionName, function_name,
     LOBAL_CONSTANT_NAME, global_var_name, instance_var_name, function_parameter_name, local_var_name'''
+==========================================================================================
 
 TODO Consider adding Testdocs everywhere
+# TODO Ideas for main from studied source code:
+# BROGUE: Make a Rogue object inst. Set its seed and nextgame to 0.
+#   Make a tcodconsole as currentConsole. Set the renderer to SDL or OpenGL. loadKeymap().
+#   set Rogue.Game = new game or open game.
+#   Set font size.
+#   currentConsole.gameLoop().
+
+==========================================================================================
+Commonly used dunders:
+-----------------------
+
+__repr__ : Returns a representation of the class.
+__str__: Same, but as a string.
+------------------------------------------------------
+__eq__(self, other): compares the two for equivalency.
+
+def __eq(self, other):
+    equal = None
+    acceptable_comparison_types = (int, float)
+    if hasattr(other, 'value'):                 #Used to ensure the two object types are same first.
+        equal = self.value == other.value
+    elif
+    return equal
+
+------------------------------------------------------
+__call__: allows the class to be called. E.g.,
+
+class my_object():
+...
+def __call__(self):
+    #Define a function here.
+    print("Hello from my object!")
+..
+Then call it:
+my_object()
+>>>Hello from my object!
+------------------------------------------------------
+
+==========================================================================================

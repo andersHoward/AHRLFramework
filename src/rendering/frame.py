@@ -1,1 +1,3 @@
-currentFrame = 0
+"""Global frame count container."""
+
+current_frame = 0

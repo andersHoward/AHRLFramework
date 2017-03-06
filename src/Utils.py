@@ -100,3 +100,13 @@ def target_monster(max_range=None):
         for obj in objects:
             if obj.x == x and obj.y == y and obj.fighter and obj != player:
                 return obj
+
+# Return dist to another object. TODO this should be in a generic utils module.
+def distance_to(self, other):
+    dx = other.x - self.x
+    dy = other.y - self.y
+    return math.sqrt(dx ** 2 + dy ** 2)
+
+# Return the distance to some coordinates
+def distance(self, x, y):
+    return math.sqrt((x - self.x) ** 2 + (y - self.y) ** 2)
