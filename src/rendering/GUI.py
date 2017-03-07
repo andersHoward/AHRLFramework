@@ -1,5 +1,5 @@
-import libtcodpy as libtcod
-import sys
+from lib import libtcodpy as libtcod
+
 
 class GUI():
     def __init__(self):

@@ -31,24 +31,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/entity/Entity.py",
-			"settings":
-			{
-				"buffer_size": 2170,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/component/Component.py",
-			"settings":
-			{
-				"buffer_size": 3202,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "Packages/User/Python27_64.sublime-build",
 	"build_system_choices":
@@ -108,6 +90,9 @@
 	],
 	"file_history":
 	[
+		"/L/Documents/GitHub/AHRLFramework/ecs/README.rst",
+		"/L/Documents/GitHub/AHRLFramework/src/entity/Entity.py",
+		"/L/Documents/GitHub/AHRLFramework/src/component/Component.py",
 		"/C/Users/Cousin of BEAST/Desktop/Brogue seed catalog, seeds 1 to 1000, through dept",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Health.py",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Damage.py",
@@ -131,7 +116,6 @@
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_AI_State_Machine.py",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Mover.py",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Transform.py",
-		"/L/Documents/GitHub/AHRLFramework/src/entity/Entity.py",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_AbilityHandler",
 		"/L/Documents/GitHub/AHRLFramework/src/game_state/GameState.py",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs/components.py",
@@ -231,75 +215,13 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/entity/Entity.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2170,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 1,
-					"file": "src/component/Component.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3202,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],

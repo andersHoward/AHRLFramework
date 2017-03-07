@@ -1,5 +1,6 @@
+from lib import libtcodpy as libtcod
+
 import Constants as CONST
-import libtcodpy as libtcod
 from rendering import GUI
 
 

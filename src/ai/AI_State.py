@@ -1,6 +1,7 @@
 """AI States module for AI FSM."""
+from lib import libtcodpy as libtcod
+
 from .. import Constants as CONST
-import libtcodpy as libtcod
 
 
 class AIState():

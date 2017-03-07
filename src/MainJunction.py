@@ -1,4 +1,4 @@
-import libtcodpy as libtcod
+from lib import libtcodpy as libtcod
 
 
 class MainJunction():

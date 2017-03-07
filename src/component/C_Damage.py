@@ -2,9 +2,10 @@
 
 
 import Component
+from ..rendering.GUI import GUI
 from random import randint
 
-class C_Damage(Component):
+class C_Damage(Component.Component):
     """Component class that handles damage output.
 
         TODO:
@@ -28,45 +29,28 @@ class C_Damage(Component):
             damage_mult = self.critical
         return damage_mult
 
-    def __init__(self, power, death_function=None):
+    def __init__(self, normal_power_pct, critical_power_pct):
         """Damage component init."""
-
-        self.base_power = power
+        self.base_power = normal_power_pct
 
     @property
-    def power(self):
-        bonus = sum(equipment.power_bonus for equipment in get_all_equipped(self.owner))
+    def attack_power(self):
+
+        bonus = 1
+        #TODO: bonus = sum(equipment.power_bonus for equipment in get_all_equipped(self.owner))
+       # bonus = sum(owner_entity.equipment.attack_power_bonus for equipment in owner_entity.equipment.get_all_equipped() )
         return self.base_power + bonus
 
     # Make a target take damage.
-    def attack(self, target):
-        damage = self.power - target.fighter.defense
+    def attack(self, target_entity):
+        damage = self.power - target_entity.defense
 
         if damage > 0:
-            message(self.owner.name.capitalize() + ' attacks ' + target.name + ' for ' + str(damage) + ' hit points.')
-            target.fighter.take_damage(damage)
+            GUI.message(self.owner_entity.name.capitalize() + ' attacks ' + target_entity.name + ' for ' + str(damage) + ' hit points.')
+            target_entity.health.take_damage(damage)
         else:
-            message(self.owner.name.capitalize() + ' attacks ' + target.name + ' but it has no effect!')
+            GUI.message(self.owner_entity.name.capitalize() + ' attacks ' + target_entity.name + ' but it has no effect!')
 
-    def take_damage(self, damage):
-        if damage > 0:
-            self.hp -= damage
-
-        # Check for death and call death function.
-        if self.hp <= 0:
-            function = self.death_function
-            if function is not None:
-                function(self.owner)
-
-        # Award XP.
-        if self.owner != player:
-            player.fighter.xp += self.xp
-
-    def heal(self, amount):
-
-        self.hp += amount
-        if self.hp > self.max_hp:
-            self.hp = self.max_hp
 
 if __name__ == '__main__':
     from doctest import testmod

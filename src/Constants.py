@@ -1,7 +1,6 @@
 """Global constants."""
 
-
-import libtcodpy as libtcod
+from lib import libtcodpy as libtcod
 
 # Actual size of the window.
 SCREEN_WIDTH = 80
