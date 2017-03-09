@@ -1,7 +1,7 @@
 from lib import libtcodpy as libtcod
 
 import Constants as CONST
-from rendering import GUI
+from gui import GUI
 
 
 class Init():

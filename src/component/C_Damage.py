@@ -2,7 +2,7 @@
 
 
 import Component
-from ..rendering.GUI import GUI
+from ..gui.GUI import GUI
 from random import randint
 
 class C_Damage(Component.Component):

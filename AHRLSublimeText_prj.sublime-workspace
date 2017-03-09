@@ -31,6 +31,23 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/Users/Cousin of BEAST/Desktop/ecs_guide.txt",
+			"settings":
+			{
+				"buffer_size": 3256,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/config/item_templates.yaml",
+			"settings":
+			{
+				"buffer_size": 30,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "Packages/User/Python27_64.sublime-build",
 	"build_system_choices":
@@ -84,12 +101,14 @@
 	[
 		"/L/Documents/GitHub/AHRLFramework",
 		"/L/Documents/GitHub/AHRLFramework/src",
-		"/L/Documents/GitHub/AHRLFramework/src/component",
-		"/L/Documents/GitHub/AHRLFramework/src/entity",
+		"/L/Documents/GitHub/AHRLFramework/src/config",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs"
 	],
 	"file_history":
 	[
+		"/L/Documents/GitHub/AHRLFramework/src/config/item_templates2.yaml",
+		"/L/Downloads/six-1.10.0.tar/dist/six-1.10.0/README",
+		"/L/Documents/GitHub/AHRLFramework/ecs/docs/source/README",
 		"/L/Documents/GitHub/AHRLFramework/ecs/README.rst",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/Entity.py",
 		"/L/Documents/GitHub/AHRLFramework/src/component/Component.py",
@@ -215,8 +234,66 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/Cousin of BEAST/Desktop/ecs_guide.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3256,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								541,
+								541
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 506.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/config/item_templates.yaml",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 30,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		},
 		{
