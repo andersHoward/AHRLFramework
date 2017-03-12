@@ -1,13 +1,20 @@
-class CXP():
-    # ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # FUNCTION DEF: CHECK LEVEL UP - See if player has gained enough XP to level up.
-    # ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+"""Gives the entity an XP pool."""
+
+import Constants as CONST
+import gui.GUI
+
+class C_StatXP():
+
+    def __init__(self, level_thresholds, player):
+        player = player
+        level_thresholds = level_thresholds
+
     def check_level_up():
-        level_up_xp = LEVEL_UP_BASE + player.level * LEVEL_UP_FACTOR
+        level_up_xp = CONST.LEVEL_UP_BASE + player.level * CONST.LEVEL_UP_FACTOR
         if player.fighter.xp >= level_up_xp:
             player.level += 1
             player.fighter.xp -= level_up_xp
-            message('Your skills grow stronger. You reached level ' + str(player.level) + '!', libtcod.yellow)
+            GUI.message('Your skills grow stronger. You reached level ' + str(player.level) + '!', libtcod.yellow)
 
             # Ask for a skill advancement choice until one is made.
             choice = None
