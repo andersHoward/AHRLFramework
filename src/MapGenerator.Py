@@ -1,7 +1,7 @@
 """Creates Maps out of Rooms. Populates Rooms with Entities based upon YAML configs."""
 
 import Constants as CONST
-from ecs.ecs.managers import EntityManager
+from game_ecs.ecs.managers import EntityManager
 
 class MapGenerator():
     def __init__(self,map_config_yaml):

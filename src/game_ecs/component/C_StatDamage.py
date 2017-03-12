@@ -1,11 +1,11 @@
 """Damage component."""
 
-
-import Component
-from ..gui.GUI import GUI
 from random import randint
 
-class C_Damage(Component.Component):
+from gui.GUI import GUI
+
+
+class C_Damage(component.Component):
     """Component class that handles damage output.
 
         TODO:

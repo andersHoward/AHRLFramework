@@ -1,6 +1,7 @@
 """Global constants."""
 
 from lib import libtcodpy as libtcod
+from enum import Enum
 
 # Actual size of the window.
 SCREEN_WIDTH = 80
@@ -33,9 +34,16 @@ TORCH_RADIUS = 10
 LEVEL_SCREEN_WIDTH = 40
 CHARACTER_SCREEN_WIDTH = 30
 
-# Spells
-HEAL_AMOUNT = 40
-LIGHTNING_DAMAGE = 40
+# Spell Enums
+E_SPELL_NAME = Enum('heal', 'blink', 'teleport', 'confusion', 'fireball', 'push', 'invisibility', 'levitation')
+E_SPELL_TARGET_STYLE = Enum('user_selected_npc', 'user_selected_location', 'entity_origin_burst')
+E_SPELL_ELEMENT = Enum('fire', 'lightning', 'air', 'ice', 'water', 'divine', 'qi', 'cyber', 'poison', 'holy', 'unholy')
+E_SPELL_CLASS = Enum('heal', 'damage')
+E_PERSISTENT_EFFECTS = Enum('poison', 'bleed', 'crippled', 'hungry', 'vulnerable')
+
+# Spell constants
+HEAL_AMOUNT_BASE = 40
+LIGHTNING_DAMAGE = 30
 LIGHTNING_RANGE = 5
 CONFUSE_NUM_TURNS = 10
 CONFUSE_RANGE = 8
@@ -55,3 +63,4 @@ COLOR_LIGHT_GROUND = libtcod.Color(200, 180, 50)
 # Etc.
 DEUB_MODE = False
 LOGGING_FORMAT = "%(asctime)s [%(levelname)s] %(message)s"
+

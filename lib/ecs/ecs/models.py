@@ -36,6 +36,7 @@ class System(object):
     """
     def __init__(self):
         self.entity_manager = None
+        print(six.__version__)
         """This system's entity manager. It is set for each system when it is
         added to a system manager, so a system may not (reasonably) use
         multiple entity managers. The reason is performance. See

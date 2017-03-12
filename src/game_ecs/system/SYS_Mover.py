@@ -1,15 +1,11 @@
-class C_Mover(Component):
-    '''Component that  allows an entity some mode of travel.
-            Args:
-                transport_mode (str): name of the mode of travel to append to the entity.'''
+class SYS_Mover():
+    def __init__(self, mover_component, transform_component):
+        pass
 
-    def __init__(self, transport_mode):
-        transport_mode = transport_mode
-
-    def player_move_or_attack(dx, dy, player):
+    def player_move_or_attack(dx, dy):
         global fov_recompute, L_entities
 
-        # Coordinates the player is trying to act upon.
+        # Coordinates the entity is trying to act upon.
         x = player.x + dx
         y = player.y + dy
 
@@ -27,12 +23,14 @@ class C_Mover(Component):
             player.move(dx, dy)
             fov_recompute = True
 
+
     # Move by the given amount.
     def Try_Move(self, dx, dy):
         if not is_blocked(self.x + dx,
                           self.y + dy):  # Check if the tile we're trying to move into is a blocking tile or contains a blocking object.
             self.x += dx
             self.y += dy
+
 
     # Moves object towards a target location. Normally used for simple AI.
     def move_towards(self, target_x, target_y):

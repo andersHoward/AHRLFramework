@@ -1,7 +1,7 @@
 from collections import OrderedDict as dict
-import Component
 
-class C_Health(Component.Component):
+
+class C_Health(component.Component):
     ''' Component class that manages Entity hitpoints.
 
     Testdoc:

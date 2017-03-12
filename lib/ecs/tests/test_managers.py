@@ -6,9 +6,9 @@ import pytest
 usefixtures = pytest.mark.usefixtures
 from mock import MagicMock, sentinel
 
-from ecs.models import Component, System
-from ecs.managers import EntityManager, SystemManager
-from ecs.exceptions import (
+from game_ecs.models import Component, System
+from game_ecs.managers import EntityManager, SystemManager
+from game_ecs.exceptions import (
     NonexistentComponentTypeForEntity, DuplicateSystemTypeError,
     SystemAlreadyAddedToManagerError)
 

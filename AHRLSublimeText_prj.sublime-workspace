@@ -41,11 +41,13 @@
 			}
 		},
 		{
-			"file": "src/config/item_templates.yaml",
+			"file": "src/config/TestYamlEntityBuilder_Simplified.yaml",
 			"settings":
 			{
-				"buffer_size": 30,
-				"line_ending": "Windows"
+				"buffer_size": 482,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "# Nested dictionary of NPCs."
 			}
 		}
 	],
@@ -101,6 +103,7 @@
 	[
 		"/L/Documents/GitHub/AHRLFramework",
 		"/L/Documents/GitHub/AHRLFramework/src",
+		"/L/Documents/GitHub/AHRLFramework/src/component",
 		"/L/Documents/GitHub/AHRLFramework/src/config",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs"
 	],
@@ -260,7 +263,7 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 506.0,
+						"translation.y": 440.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -268,27 +271,28 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src/config/item_templates.yaml",
-					"semi_transient": true,
+					"file": "src/config/TestYamlEntityBuilder_Simplified.yaml",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 30,
+						"buffer_size": 482,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								481,
+								481
 							]
 						],
 						"settings":
 						{
+							"auto_name": "# Nested dictionary of NPCs.",
 							"syntax": "Packages/YAML/YAML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 132.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -330,7 +334,7 @@
 		"cols":
 		[
 			0.0,
-			0.490159992148,
+			0.650455923097,
 			1.0
 		],
 		"rows":

@@ -1,11 +1,24 @@
-from lib import libtcodpy as libtcod
+"""Init class sticks around to init and re-init the game."""
 
+from lib import libtcodpy as libtcod
 import Constants as CONST
 from gui import GUI
+import ecs.ecs as lib_ecs
+from game_ecs import system as game_systems
 
 
 class Init():
-    def InitLibtcod(self):
+
+    def __init__(self):
+        self.init_libtcod()
+        managers = {'system_manager': lib_ecs.SystemManager, 'entity_manager': lib_ecs.EntityManager}
+        systems = {'system_xp' : game_systems.}
+
+        # Start the game. Main menu holds the main loop.
+        GUI.GUI.main_menu()
+
+
+    def init_libtcod(self):
         libtcod.console_set_custom_font('arial10x10.png',
                                         libtcod.FONT_TYPE_GREYSCALE |
                                         libtcod.FONT_LAYOUT_TCOD)
@@ -16,13 +29,6 @@ class Init():
         libtcod.sys_set_fps(CONST.LIMIT_FPS)
         con = libtcod.console_new(CONST.SCREEN_WIDTH, CONST.SCREEN_HEIGHT)  # Initialize another console to act as a buffer.
         panel = libtcod.console_new(CONST.SCREEN_WIDTH, CONST.PANEL_HEIGHT)
-
-        GUI.main_menu()
-
-
-
-
-
 
     def new_game():
         '''Initialize all of the variables required for a new game.'''
