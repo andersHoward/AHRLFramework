@@ -3,11 +3,11 @@ from lib import libtcodpy as libtcod
 from src import Constants as CONST
 
 
-class Renderer(mainConsole, player):
+class Renderer():
     def __init__(self):
         pass
 
-    def render_all(self):
+    def render_all(self,mainConsole, player):
         '''Main render update call for game loop.'''
         global fov_map, color_dark_wall, color_light_wall
         global color_dark_ground, color_light_ground

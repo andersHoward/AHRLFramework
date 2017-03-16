@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"default",
+				"default_trinket_sizes"
+			],
+			[
+				"defa",
+				"default_head_object_sizes"
+			],
+			[
+				"data",
+				"data_generator"
+			],
+			[
 				"enti",
 				"owner_entity"
 			],
@@ -32,22 +44,30 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/Cousin of BEAST/Desktop/ecs_guide.txt",
+			"file": "src/config/ecs_templates.yaml",
 			"settings":
 			{
-				"buffer_size": 3256,
+				"buffer_size": 640,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/config/TestYamlEntityBuilder_Simplified.yaml",
+			"file": "src/config/item_templates.yaml",
 			"settings":
 			{
-				"buffer_size": 482,
+				"buffer_size": 1499,
 				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "# Nested dictionary of NPCs."
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/config/config_manifest.yaml",
+			"settings":
+			{
+				"buffer_size": 61,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -75,13 +95,30 @@
 				"Colorsublime: Install Theme"
 			]
 		],
-		"width": 432.0
+		"width": 416.0
 	},
 	"console":
 	{
-		"height": 125.0,
+		"height": 167.0,
 		"history":
 		[
+			"python ConfigLoader.py",
+			"'dir",
+			"dir",
+			"python -c import ConfigLoader",
+			"python -c 'import ConfigLoader'",
+			"python import ConfigLoader",
+			"python -m ConfigLoader.py",
+			"python -m ConfigLoader",
+			"python ConfigLoader -m",
+			"python ConfigLoader.py -m",
+			"config.ConfigLoader.py",
+			"ConfigLoader.py",
+			"python ConfigLoader.py",
+			"python config.ConfigLoader.py",
+			"python ConfigLoader",
+			"python ConfigLoader.py",
+			"pip install libyaml",
 			"python main.py",
 			"from component.C_Health import C_Health",
 			"from C_Health import C_Health",
@@ -103,12 +140,34 @@
 	[
 		"/L/Documents/GitHub/AHRLFramework",
 		"/L/Documents/GitHub/AHRLFramework/src",
-		"/L/Documents/GitHub/AHRLFramework/src/component",
 		"/L/Documents/GitHub/AHRLFramework/src/config",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs"
 	],
 	"file_history":
 	[
+		"/L/Documents/GitHub/AHRLFramework/src/config/ecs_templates.xlsm",
+		"/L/Documents/GitHub/AHRLFramework/src/config/ConfigLoader.py",
+		"/L/Documents/GitHub/AHRLFramework/src/Constants.py",
+		"/L/Documents/GitHub/AHRLFramework/src/ConfigLoader.py",
+		"/L/Documents/GitHub/AHRLFramework/src/config/ymlbackup.yaml",
+		"/L/Documents/GitHub/AHRLFramework/src/game_ecs/component/C_NPC.py",
+		"/L/Documents/GitHub/AHRLFramework/src/config/ecs_templates.yml",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Default (Windows).sublime-keymap",
+		"/L/Documents/GitHub/AHRLFramework/src/config/item_templates.yaml",
+		"/L/Documents/GitHub/AHRLFramework/src/game_ecs/component/C_Renderable.py",
+		"/L/Documents/GitHub/AHRLFramework/src/Init.py",
+		"/L/CodeLibraries/Libraries/libtcod-1.6.3-msvs-x64/python/samples_py.py",
+		"/L/CodeLibraries/Libraries/libtcod-1.6.3-msvs-x64/python/setup.py",
+		"/L/Documents/GitHub/AHRLFramework/src/config/TestYamlEntityBuilder_Simplified.yaml",
+		"/L/CodeLibraries/Libraries/libtcod-1.6.3-msvs-x64/.travis.yml",
+		"/L/CodeLibraries/Libraries/libtcod-1.6.3-msvs-x64/python/setup.cfg",
+		"/L/CodeLibraries/Open Src Games/Java Games/PixelDungeon/build.xml",
+		"/L/CodeLibraries/Libraries/Watabou PixelDungeon Lib/PD-classes-master/README.md",
+		"/C/inetpub/history/CFGHISTORY_0000000002/administration.config",
+		"/L/Projects/Flash Develop/jnfarros 2015 project update/Updated projects 2/jfarros Baseline A 1-11-2015/src/Main.as",
+		"/L/CodeLibraries/Open Src Games/C Games/RogueCloneSrc/src/main.c",
+		"/L/CodeLibraries/Open Src Games/C Games/RogueCloneSrc/src/curses.c",
+		"/C/Users/Cousin of BEAST/Desktop/ecs_guide.txt",
 		"/L/Documents/GitHub/AHRLFramework/src/config/item_templates2.yaml",
 		"/L/Downloads/six-1.10.0.tar/dist/six-1.10.0/README",
 		"/L/Documents/GitHub/AHRLFramework/ecs/docs/source/README",
@@ -119,15 +178,12 @@
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Health.py",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Damage.py",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/Component.py",
-		"/L/Documents/GitHub/AHRLFramework/src/Constants.py",
-		"/L/Documents/GitHub/AHRLFramework/src/Init.py",
 		"/L/Documents/GitHub/AHRLFramework/main.py",
 		"/L/Documents/GitHub/AHRLFramework/notes.txt",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Inventory.py",
 		"/L/Documents/GitHub/AHRLFramework/src/rendering/frame.py",
 		"/L/Documents/GitHub/AHRLFramework/src/rendering/Renderer.py",
 		"/L/Documents/GitHub/AHRLFramework/src/Utils.py",
-		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Default (Windows).sublime-keymap",
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
 		"/L/Documents/GitHub/AHRLFramework/src/__init__.py",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Equipment.py",
@@ -207,6 +263,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			" !",
+			"])\n",
+			"\\\\n",
 			"class_name",
 			"libtcod",
 			"/",
@@ -221,9 +280,10 @@
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"\\n",
 			"-",
 			"additionalBonusArrayString",
 			"'1.Data'"
@@ -242,73 +302,100 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/Cousin of BEAST/Desktop/ecs_guide.txt",
+					"file": "src/config/ecs_templates.yaml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3256,
+						"buffer_size": 640,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								541,
-								541
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"word_wrap": true
+							"syntax": "Packages/YAML Nav/YAML-ng.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 440.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/config/TestYamlEntityBuilder_Simplified.yaml",
+					"file": "src/config/item_templates.yaml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 482,
+						"buffer_size": 1499,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								481,
-								481
+								714,
+								714
 							]
 						],
 						"settings":
 						{
-							"auto_name": "# Nested dictionary of NPCs.",
-							"syntax": "Packages/YAML/YAML.sublime-syntax"
+							"syntax": "Packages/YAML Nav/YAML-ng.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 132.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
 		},
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 2,
+					"file": "src/config/config_manifest.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 61,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								61,
+								61
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML Nav/YAML-ng.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -334,7 +421,7 @@
 		"cols":
 		[
 			0.0,
-			0.650455923097,
+			0.550427507089,
 			1.0
 		],
 		"rows":
@@ -356,7 +443,7 @@
 	"project": "AHRLSublimeText_prj.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -386,7 +473,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
@@ -394,7 +481,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 298.0,
+	"side_bar_width": 213.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

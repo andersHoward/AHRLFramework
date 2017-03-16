@@ -1,6 +1,6 @@
 #
-# libtcod 1.6.2 Python wrapper
-# Copyright (c) 2008,2009,2010,2012,2013,2016 Jice & Mingos & rmtew
+# libtcod 1.6.3 Python wrapper
+# Copyright (c) 2008,2009,2010,2012,2013,2016,2017 Jice & Mingos & rmtew
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -54,6 +54,8 @@ else:
 
 if not hasattr(ctypes, "c_bool"):   # for Python < 2.6
     c_bool = c_uint8
+
+c_void = None
 
 try:  #import NumPy if available
     import numpy
@@ -185,9 +187,9 @@ else:
         else:
             raise Exception("unable to find wrapper", function_name)
 
-HEXVERSION = 0x010602
-STRVERSION = "1.6.2"
-TECHVERSION = 0x01060200
+HEXVERSION = 0x010603
+STRVERSION = "1.6.3"
+TECHVERSION = 0x01060300
 
 ############################
 # color module
@@ -251,6 +253,7 @@ _lib.TCOD_color_multiply_scalar.restype=Color
 _lib.TCOD_color_multiply_scalar.argtypes=[Color , c_float ]
 
 # Should be valid on any platform, check it!  Has to be done after Color is defined.
+# NOTE(rmtew): This should ideally be deleted.  Most of it is moved or duplicated here.
 if MAC:
     from .cprotos import setup_protos
     setup_protos(_lib)
@@ -483,13 +486,13 @@ _lib.TCOD_color_lerp.restype = Color
 def color_lerp(c1, c2, a):
     return _lib.TCOD_color_lerp(c1, c2, c_float(a))
 
-#_lib.TCOD_color_set_HSV .restype=c_void
-_lib.TCOD_color_set_HSV .argtypes=[POINTER(Color),c_float , c_float , c_float ]
+_lib.TCOD_color_set_HSV.restype=c_void
+_lib.TCOD_color_set_HSV.argtypes=[POINTER(Color),c_float , c_float , c_float ]
 def color_set_hsv(c, h, s, v):
     _lib.TCOD_color_set_HSV(byref(c), c_float(h), c_float(s), c_float(v))
 
-#_lib.TCOD_color_get_HSV .restype=c_void
-_lib.TCOD_color_get_HSV .argtypes=[Color ,POINTER(c_float) , POINTER(c_float) , POINTER(c_float) ]
+_lib.TCOD_color_get_HSV.restype=c_void
+_lib.TCOD_color_get_HSV.argtypes=[Color ,POINTER(c_float) , POINTER(c_float) , POINTER(c_float) ]
 def color_get_hsv(c):
     h = c_float()
     s = c_float()
@@ -497,12 +500,12 @@ def color_get_hsv(c):
     _lib.TCOD_color_get_HSV(c, byref(h), byref(s), byref(v))
     return h.value, s.value, v.value
 
-#lib.TCOD_color_scale_HSV .restype=c_void
-_lib.TCOD_color_scale_HSV .argtypes=[POINTER(Color), c_float , c_float ]
+_lib.TCOD_color_scale_HSV.restype=c_void
+_lib.TCOD_color_scale_HSV.argtypes=[POINTER(Color), c_float , c_float ]
 def color_scale_HSV(c, scoef, vcoef) :
     _lib.TCOD_color_scale_HSV(byref(c),c_float(scoef),c_float(vcoef))
 
-#_lib.TCOD_color_gen_map.restype=c_void
+_lib.TCOD_color_gen_map.restype=c_void
 _lib.TCOD_color_gen_map.argtypes=[POINTER(Color), c_int, POINTER(Color), POINTER(c_int)]
 def color_gen_map(colors, indexes):
     ccolors = (Color * len(colors))(*colors)
@@ -828,17 +831,17 @@ CENTER=2
 
 # initializing the console
 
-#_lib.TCOD_console_init_root.restype=c_void
+_lib.TCOD_console_init_root.restype=c_void
 _lib.TCOD_console_init_root.argtypes=[c_int, c_int, c_char_p , c_bool , c_uint ]
 def console_init_root(w, h, title, fullscreen=False, renderer=RENDERER_SDL):
     _lib.TCOD_console_init_root(w, h, convert_to_ascii(title), fullscreen, renderer)
 
-#_lib.TCOD_console_set_custom_font.restype=c_void
+_lib.TCOD_console_set_custom_font.restype=c_void
 _lib.TCOD_console_set_custom_font.argtypes=[c_char_p, c_int,c_int, c_int]
 def console_set_custom_font(fontFile, flags=FONT_LAYOUT_ASCII_INCOL, nb_char_horiz=0, nb_char_vertic=0):
     _lib.TCOD_console_set_custom_font(convert_to_ascii(fontFile), flags, nb_char_horiz, nb_char_vertic)
 
-#_lib.TCOD_console_map_ascii_code_to_font.restype=c_void
+_lib.TCOD_console_map_ascii_code_to_font.restype=c_void
 _lib.TCOD_console_map_ascii_code_to_font.argtypes=[c_int, c_int, c_int]
 def console_map_ascii_code_to_font(asciiCode, fontCharX, fontCharY):
     asciiCode = convert_to_ascii(asciiCode)
@@ -848,7 +851,7 @@ def console_map_ascii_code_to_font(asciiCode, fontCharX, fontCharY):
         _lib.TCOD_console_map_ascii_code_to_font(asciiCode, fontCharX, fontCharY)
 
 
-#_lib.TCOD_console_map_ascii_codes_to_font.restype=c_void
+_lib.TCOD_console_map_ascii_codes_to_font.restype=c_void
 _lib.TCOD_console_map_ascii_codes_to_font.argtypes=[c_int, c_int, c_int, c_int]
 def console_map_ascii_codes_to_font(firstAsciiCode, nbCodes, fontCharX,
                                     fontCharY):
@@ -874,7 +877,7 @@ _lib.TCOD_console_is_fullscreen.argtypes=[]
 def console_is_fullscreen():
     return _lib.TCOD_console_is_fullscreen()
 
-#_lib.TCOD_console_set_fullscreen.restype=c_void
+_lib.TCOD_console_set_fullscreen.restype=c_void
 _lib.TCOD_console_set_fullscreen.argtypes=[c_bool ]
 def console_set_fullscreen(fullscreen):
     _lib.TCOD_console_set_fullscreen(c_int(fullscreen))
@@ -894,7 +897,7 @@ _lib.TCOD_console_is_active.argtypes=[]
 def console_is_active():
     return _lib.TCOD_console_is_active()
 
-#_lib.TCOD_console_set_window_title.restype=c_void
+_lib.TCOD_console_set_window_title.restype=c_void
 _lib.TCOD_console_set_window_title.argtypes=[c_char_p]
 def console_set_window_title(title):
     _lib.TCOD_console_set_window_title(convert_to_ascii(title))
@@ -903,7 +906,7 @@ _lib.TCOD_console_credits_render.restype = c_bool
 def console_credits():
     _lib.TCOD_console_credits()
 
-#_lib.TCOD_console_credits_reset.restype=c_void
+_lib.TCOD_console_credits_reset.restype=c_void
 _lib.TCOD_console_credits_reset.argtypes=[]
 def console_credits_reset():
     _lib.TCOD_console_credits_reset()
@@ -913,56 +916,56 @@ _lib.TCOD_console_credits_render.argtypes=[c_int, c_int, c_bool ]
 def console_credits_render(x, y, alpha):
     return _lib.TCOD_console_credits_render(x, y, c_int(alpha))
 
-#_lib.TCOD_console_flush.restype=c_void
+_lib.TCOD_console_flush.restype=c_void
 _lib.TCOD_console_flush.argtypes=[]
 def console_flush():
     _lib.TCOD_console_flush()
 
 # drawing on a console
 
-#_lib.TCOD_console_set_default_background.restype=c_void
+_lib.TCOD_console_set_default_background.restype=c_void
 _lib.TCOD_console_set_default_background.argtypes=[c_void_p ,Color ]
 def console_set_default_background(con, col):
     _lib.TCOD_console_set_default_background(con, col)
 
 
-#_lib.TCOD_console_set_default_foreground.restype=c_void
+_lib.TCOD_console_set_default_foreground.restype=c_void
 _lib.TCOD_console_set_default_foreground.argtypes=[c_void_p ,Color ]
 def console_set_default_foreground(con, col):
     _lib.TCOD_console_set_default_foreground(con, col)
 
-#_lib.TCOD_console_clear.restype=c_void
+_lib.TCOD_console_clear.restype=c_void
 _lib.TCOD_console_clear.argtypes=[c_void_p ]
 def console_clear(con):
     return _lib.TCOD_console_clear(con)
 
-#_lib.TCOD_console_put_char.restype=c_void
-#_lib.TCOD_console_put_char.argtypes=[c_void_p ,c_int, c_int, c_int, c_int ]
+_lib.TCOD_console_put_char.restype=c_void
+_lib.TCOD_console_put_char.argtypes=[c_void_p ,c_int, c_int, c_int, c_int]
 def console_put_char(con, x, y, c, flag=BKGND_DEFAULT):
     if type(c) == str or type(c) == bytes:
         _lib.TCOD_console_put_char(c_void_p(con), x, y, ord(c), flag)
     else:
         _lib.TCOD_console_put_char(c_void_p(con), x, y, c, flag)
 
-#_lib.TCOD_console_put_char_ex.restype=c_void
-#_lib.TCOD_console_put_char_ex.argtypes=[c_void_p ,c_int, c_int, c_int, Color, Color ]
+_lib.TCOD_console_put_char_ex.restype=c_void
+_lib.TCOD_console_put_char_ex.argtypes=[c_void_p ,c_int, c_int, c_int, Color, Color]
 def console_put_char_ex(con, x, y, c, fore, back):
     if type(c) == str or type(c) == bytes:
         _lib.TCOD_console_put_char_ex(c_void_p(con), x, y, ord(c), fore, back)
     else:
         _lib.TCOD_console_put_char_ex(c_void_p(con), x, y, c, fore, back)
 
-#_lib.TCOD_console_set_char_background.restype=c_void
+_lib.TCOD_console_set_char_background.restype=c_void
 _lib.TCOD_console_set_char_background.argtypes=[c_void_p ,c_int, c_int, Color , c_int ]
 def console_set_char_background(con, x, y, col, flag=BKGND_SET):
     _lib.TCOD_console_set_char_background(con, x, y, col, flag)
 
-#_lib.TCOD_console_set_char_foreground.restype=c_void
+_lib.TCOD_console_set_char_foreground.restype=c_void
 _lib.TCOD_console_set_char_foreground.argtypes=[c_void_p ,c_int, c_int, Color ]
 def console_set_char_foreground(con, x, y, col):
     _lib.TCOD_console_set_char_foreground(con, x, y, col)
 
-#_lib.TCOD_console_set_char.restype=c_void
+_lib.TCOD_console_set_char.restype=c_void
 _lib.TCOD_console_set_char.argtypes=[c_void_p ,c_int, c_int, c_int]
 def console_set_char(con, x, y, c):
     if type(c) == str or type(c) == bytes:
@@ -970,7 +973,7 @@ def console_set_char(con, x, y, c):
     else:
         _lib.TCOD_console_set_char(con, x, y, c)
 
-#_lib.TCOD_console_set_background_flag.restype=c_void
+_lib.TCOD_console_set_background_flag.restype=c_void
 _lib.TCOD_console_set_background_flag.argtypes=[c_void_p ,c_int ]
 def console_set_background_flag(con, flag):
     _lib.TCOD_console_set_background_flag(con, flag)
@@ -980,7 +983,7 @@ _lib.TCOD_console_get_background_flag.argtypes=[c_void_p ]
 def console_get_background_flag(con):
     return _lib.TCOD_console_get_background_flag(con)
 
-#_lib.TCOD_console_set_alignment.restype=c_void
+_lib.TCOD_console_set_alignment.restype=c_void
 _lib.TCOD_console_set_alignment.argtypes=[c_void_p ,c_int ]
 def console_set_alignment(con, alignment):
     _lib.TCOD_console_set_alignment(con, alignment)
@@ -1055,7 +1058,7 @@ _lib.TCOD_console_get_background_color_image.argtypes=[c_void_p]
 def console_get_background_image(con):
     return _lib.TCOD_console_get_background_color_image(con)
 
-#_lib.TCOD_console_set_color_control.restype=c_void
+_lib.TCOD_console_set_color_control.restype=c_void
 _lib.TCOD_console_set_color_control.argtypes=[c_void_p, Color, Color ]
 def console_set_color_control(con,fore,back) :
     _lib.TCOD_console_set_color_control(con,fore,back)
@@ -1085,7 +1088,7 @@ _lib.TCOD_console_get_char.argtypes=[c_void_p, c_int, c_int]
 def console_get_char(con, x, y):
     return _lib.TCOD_console_get_char(con, x, y)
 
-#_lib.TCOD_console_set_fade.restype=c_void
+_lib.TCOD_console_set_fade.restype=c_void
 _lib.TCOD_console_set_fade.argtypes=[c_byte, Color]
 def console_set_fade(fade, fadingColor):
     _lib.TCOD_console_set_fade(fade, fadingColor)
@@ -1145,7 +1148,7 @@ _lib.TCOD_console_set_key_color.argtypes=[c_void_p ,Color ]
 def console_set_key_color(con, col):
     _lib.TCOD_console_set_key_color(c_void_p(con), col)
 
-#_lib.TCOD_console_set_dirty.restype=c_void
+_lib.TCOD_console_set_dirty.restype=c_void
 _lib.TCOD_console_set_dirty.argtypes=[c_int, c_int, c_int, c_int]
 def console_set_dirty(x, y, w, h):
     return _lib.TCOD_console_set_dirty(x, y, w, h)
@@ -1155,7 +1158,7 @@ def console_delete(con):
     _lib.TCOD_console_delete(con)
 
 # fast color filling
-#_lib.TCOD_console_fill_foreground.restype=c_void
+_lib.TCOD_console_fill_foreground.restype=c_void
 _lib.TCOD_console_fill_foreground.argtypes=[c_void_p , POINTER(c_int), POINTER(c_int), POINTER(c_int)]
 def console_fill_foreground(con,r,g,b) :
     if len(r) != len(g) or len(r) != len(b):
@@ -1178,7 +1181,7 @@ def console_fill_foreground(con,r,g,b) :
 
     _lib.TCOD_console_fill_foreground(c_void_p(con), cr, cg, cb)
 
-#_lib.TCOD_console_fill_background.restype=c_void
+_lib.TCOD_console_fill_background.restype=c_void
 _lib.TCOD_console_fill_background.argtypes=[c_void_p , POINTER(c_int), POINTER(c_int), POINTER(c_int)]
 
 def console_fill_background(con,r,g,b) :
@@ -1203,7 +1206,7 @@ def console_fill_background(con,r,g,b) :
     _lib.TCOD_console_fill_background(c_void_p(con), cr, cg, cb)
 
 
-#_lib.TCOD_console_fill_char.restype=c_void
+_lib.TCOD_console_fill_char.restype=c_void
 _lib.TCOD_console_fill_char.argtypes=[c_void_p , POINTER(c_int)]
 def console_fill_char(con,arr) :
     if (numpy_available and isinstance(arr, numpy.ndarray) ):
@@ -1238,11 +1241,22 @@ def console_save_apf(con, filename) :
 ############################
 # sys module
 ############################
+
+_lib.TCOD_sys_startup.restype=c_void
+_lib.TCOD_sys_startup.argtypes=[]
+def sys_startup():
+    _lib.TCOD_sys_startup()
+
+_lib.TCOD_sys_shutdown.restype=c_void
+_lib.TCOD_sys_shutdown.argtypes=[]
+def sys_shutdown():
+    _lib.TCOD_sys_shutdown()
+
 _lib.TCOD_sys_get_last_frame_length.restype = c_float
 _lib.TCOD_sys_elapsed_seconds.restype = c_float
 
 # high precision time functions
-#_lib.TCOD_sys_set_fps.restype=c_void
+_lib.TCOD_sys_set_fps.restype=c_void
 _lib.TCOD_sys_set_fps.argtypes=[c_int]
 def sys_set_fps(fps):
     _lib.TCOD_sys_set_fps(fps)
@@ -1257,7 +1271,7 @@ _lib.TCOD_sys_get_last_frame_length.argtypes=[]
 def sys_get_last_frame_length():
     return _lib.TCOD_sys_get_last_frame_length()
 
-#_lib.TCOD_sys_sleep_milli.restype=c_void
+_lib.TCOD_sys_sleep_milli.restype=c_void
 _lib.TCOD_sys_sleep_milli.argtypes=[c_uint ]
 def sys_sleep_milli(val):
     _lib.TCOD_sys_sleep_milli(val)
@@ -1272,7 +1286,7 @@ _lib.TCOD_sys_elapsed_seconds.argtypes=[]
 def sys_elapsed_seconds():
     return _lib.TCOD_sys_elapsed_seconds()
 
-#_lib.TCOD_sys_set_renderer.restype=c_void
+_lib.TCOD_sys_set_renderer.restype=c_void
 _lib.TCOD_sys_set_renderer.argtypes=[c_int ]
 def sys_set_renderer(renderer):
     _lib.TCOD_sys_set_renderer(renderer)
@@ -1284,19 +1298,32 @@ def sys_get_renderer():
 
 # easy screenshots
 
-#_lib.TCOD_sys_save_screenshot.restype=c_void
+_lib.TCOD_sys_save_screenshot.restype=c_void
 _lib.TCOD_sys_save_screenshot.argtypes=[c_char_p]
 def sys_save_screenshot(name=0):
     _lib.TCOD_sys_save_screenshot(convert_to_ascii(name))
 
+# clipboard support
+# This maps to the SDL2 API, so only uses utf-8 for both Python 2 and 3.
+
+_lib.TCOD_sys_clipboard_set.restype=c_bool
+_lib.TCOD_sys_clipboard_set.argtypes=[c_char_p]
+def sys_clipboard_set(text):
+    return _lib.TCOD_sys_clipboard_set(text.encode("utf-8"))
+
+_lib.TCOD_sys_clipboard_get.restype=c_char_p
+_lib.TCOD_sys_clipboard_get.argtypes=[]
+def sys_clipboard_get():
+    return _lib.TCOD_sys_clipboard_get().decode("utf-8")
+
 # custom fullscreen resolution
 
-#_lib.TCOD_sys_force_fullscreen_resolution.restype=c_void
+_lib.TCOD_sys_force_fullscreen_resolution.restype=c_void
 _lib.TCOD_sys_force_fullscreen_resolution.argtypes=[c_int, c_int]
 def sys_force_fullscreen_resolution(width, height):
     _lib.TCOD_sys_force_fullscreen_resolution(width, height)
 
-#_lib.TCOD_sys_get_current_resolution.restype=c_void
+_lib.TCOD_sys_get_current_resolution.restype=c_void
 _lib.TCOD_sys_get_current_resolution.argtypes=[POINTER(c_int), POINTER(c_int)]
 def sys_get_current_resolution():
     w = c_int()
@@ -1304,10 +1331,10 @@ def sys_get_current_resolution():
     _lib.TCOD_sys_get_current_resolution(byref(w), byref(h))
     return w.value, h.value
 
-#_lib.TCOD_sys_get_fullscreen_offsets.restype=c_void
+_lib.TCOD_sys_get_fullscreen_offsets.restype=c_void
 _lib.TCOD_sys_get_fullscreen_offsets.argtypes=[POINTER(c_int), POINTER(c_int)]
 
-#_lib.TCOD_sys_get_char_size.restype=c_void
+_lib.TCOD_sys_get_char_size.restype=c_void
 _lib.TCOD_sys_get_char_size.argtypes=[POINTER(c_int), POINTER(c_int)]
 def sys_get_char_size():
     w = c_int()
@@ -1316,7 +1343,7 @@ def sys_get_char_size():
     return w.value, h.value
 
 # update font bitmap
-#_lib.TCOD_sys_update_char.restype=c_void
+_lib.TCOD_sys_update_char.restype=c_void
 _lib.TCOD_sys_update_char.argtypes=[c_int, c_int, c_int, c_void_p , c_int, c_int]
 def sys_update_char(asciiCode, fontx, fonty, img, x, y) :
     _lib.TCOD_sys_update_char(asciiCode,fontx,fonty,img,x,y)
@@ -1372,7 +1399,7 @@ def line(xo,yo,xd,yd,py_callback) :
     c_callback=LINE_CBK_FUNC(py_callback)
     return _lib.TCOD_line(xo,yo,xd,yd,c_callback)
 
-#_lib.TCOD_line_init_mt.restype=c_void
+_lib.TCOD_line_init_mt.restype=c_void
 _lib.TCOD_line_init_mt.argtypes=[c_int, c_int, c_int, c_int, c_void_p]
 _lib.TCOD_line_step_mt.restype = c_bool
 _lib.TCOD_line_step_mt.argtypes=[POINTER(c_int), POINTER(c_int), c_void_p]
@@ -1395,37 +1422,37 @@ _lib.TCOD_image_new.argtypes=[c_int, c_int]
 def image_new(width, height):
     return _lib.TCOD_image_new(width, height)
 
-#_lib.TCOD_image_clear.restype=c_void
+_lib.TCOD_image_clear.restype=c_void
 _lib.TCOD_image_clear.argtypes=[c_void_p , Color ]
 def image_clear(image,col) :
     _lib.TCOD_image_clear(image,col)
 
-#_lib.TCOD_image_invert.restype=c_void
+_lib.TCOD_image_invert.restype=c_void
 _lib.TCOD_image_invert.argtypes=[c_void_p ]
 def image_invert(image) :
     _lib.TCOD_image_invert(image)
 
-#_lib.TCOD_image_hflip.restype=c_void
+_lib.TCOD_image_hflip.restype=c_void
 _lib.TCOD_image_hflip.argtypes=[c_void_p ]
 def image_hflip(image) :
     _lib.TCOD_image_hflip(image)
 
-#_lib.TCOD_image_rotate90.restype=c_void
+_lib.TCOD_image_rotate90.restype=c_void
 _lib.TCOD_image_rotate90.argtypes=[c_void_p , c_int]
 def image_rotate90(image, num=1) :
     _lib.TCOD_image_rotate90(image,num)
 
-#_lib.TCOD_image_vflip.restype=c_void
+_lib.TCOD_image_vflip.restype=c_void
 _lib.TCOD_image_vflip.argtypes=[c_void_p ]
 def image_vflip(image) :
     _lib.TCOD_image_vflip(image)
 
-#_lib.TCOD_image_scale.restype=c_void
+_lib.TCOD_image_scale.restype=c_void
 _lib.TCOD_image_scale.argtypes=[c_void_p , c_int, c_int]
 def image_scale(image, neww, newh) :
     _lib.TCOD_image_scale(image,neww,newh)
 
-#_lib.TCOD_image_set_key_color.restype=c_void
+_lib.TCOD_image_set_key_color.restype=c_void
 _lib.TCOD_image_set_key_color.argtypes=[c_void_p , Color]
 def image_set_key_color(image,col) :
     _lib.TCOD_image_set_key_color(image,col)
@@ -1450,12 +1477,12 @@ _lib.TCOD_image_from_console.argtypes=[c_void_p ]
 def image_from_console(console):
     return _lib.TCOD_image_from_console(console)
 
-#_lib.TCOD_image_refresh_console.restype=c_void
+_lib.TCOD_image_refresh_console.restype=c_void
 _lib.TCOD_image_refresh_console.argtypes=[c_void_p , c_void_p ]
 def image_refresh_console(image, console):
     _lib.TCOD_image_refresh_console(image, console)
 
-#_lib.TCOD_image_get_size.restype=c_void
+_lib.TCOD_image_get_size.restype=c_void
 _lib.TCOD_image_get_size.argtypes=[c_void_p , POINTER(c_int),POINTER(c_int)]
 def image_get_size(image):
     w=c_int()
@@ -1473,32 +1500,32 @@ _lib.TCOD_image_get_mipmap_pixel.argtypes=[c_void_p ,c_float,c_float, c_float, c
 def image_get_mipmap_pixel(image, x0, y0, x1, y1):
     return _lib.TCOD_image_get_mipmap_pixel(image, c_float(x0), c_float(y0), c_float(x1), c_float(y1))
 
-#_lib.TCOD_image_put_pixel.restype=c_void
+_lib.TCOD_image_put_pixel.restype=c_void
 _lib.TCOD_image_put_pixel.argtypes=[ c_void_p ,c_int, c_int, Color ]
 def image_put_pixel(image, x, y, col):
     _lib.TCOD_image_put_pixel(image, x, y, col)
 
-#_lib.TCOD_image_blit.restype=c_void
+_lib.TCOD_image_blit.restype=c_void
 _lib.TCOD_image_blit.argtypes=[c_void_p, c_void_p, c_float, c_float, c_int, c_float, c_float, c_float]
 def image_blit(image, console, x, y, bkgnd_flag, scalex, scaley, angle):
     _lib.TCOD_image_blit(image, console, x, y, bkgnd_flag, scalex, scaley, angle)
 
-#_lib.TCOD_image_blit_rect.restype=c_void
+_lib.TCOD_image_blit_rect.restype=c_void
 _lib.TCOD_image_blit_rect.argtypes=[c_void_p , c_void_p , c_int, c_int, c_int, c_int,]
 def image_blit_rect(image, console, x, y, w, h, bkgnd_flag):
     _lib.TCOD_image_blit_rect(image, console, x, y, w, h, bkgnd_flag)
 
-#_lib.TCOD_image_blit_2x.restype=c_void
+_lib.TCOD_image_blit_2x.restype=c_void
 _lib.TCOD_image_blit_2x.argtypes=[c_void_p , c_void_p , c_int, c_int, c_int, c_int, c_int, c_int]
 def image_blit_2x(image, console, dx, dy, sx=0, sy=0, w=-1, h=-1):
     _lib.TCOD_image_blit_2x(image, console, dx,dy,sx,sy,w,h)
 
-#_lib.TCOD_image_save.restype=c_void
+_lib.TCOD_image_save.restype=c_void
 _lib.TCOD_image_save.argtypes=[c_void_p, c_char_p]
 def image_save(image, filename):
     _lib.TCOD_image_save(image, convert_to_ascii(filename))
 
-#_lib.TCOD_image_delete.restype=c_void
+_lib.TCOD_image_delete.restype=c_void
 _lib.TCOD_image_delete.argtypes=[c_void_p]
 def image_delete(image):
     _lib.TCOD_image_delete(image)
@@ -1527,7 +1554,7 @@ class Mouse(Structure):
 
 _lib.TCOD_mouse_is_cursor_visible.restype = c_bool
 
-#_lib.TCOD_mouse_show_cursor.restype=c_void
+_lib.TCOD_mouse_show_cursor.restype=c_void
 _lib.TCOD_mouse_show_cursor.argtypes=[c_bool ]
 def mouse_show_cursor(visible):
     _lib.TCOD_mouse_show_cursor(c_int(visible))
@@ -1537,12 +1564,12 @@ _lib.TCOD_mouse_is_cursor_visible.argtypes=[]
 def mouse_is_cursor_visible():
     return _lib.TCOD_mouse_is_cursor_visible()
 
-#_lib.TCOD_mouse_move.restype=c_void
+_lib.TCOD_mouse_move.restype=c_void
 _lib.TCOD_mouse_move.argtypes=[c_int, c_int]
 def mouse_move(x, y):
     _lib.TCOD_mouse_move(x, y)
 
-#_lib.TCOD_mouse_get_status_wrapper.restype=c_void
+_lib.TCOD_mouse_get_status_wrapper.restype=c_void
 _lib.TCOD_mouse_get_status_wrapper.argtypes=[c_void_p]
 def mouse_get_status():
     mouse=Mouse()
@@ -1648,17 +1675,17 @@ _lib.TCOD_parser_new_struct.argtypes=[c_void_p , c_char_p]
 def parser_new_struct(parser, name):
     return _lib.TCOD_parser_new_struct(parser, convert_to_ascii(name))
 
-#_lib.TCOD_struct_add_flag.restype=c_void
+_lib.TCOD_struct_add_flag.restype=c_void
 _lib.TCOD_struct_add_flag.argtypes=[c_void_p ,c_char_p]
 def struct_add_flag(struct, name):
     _lib.TCOD_struct_add_flag(struct, convert_to_ascii(name))
 
-#_lib.TCOD_struct_add_property.restype=c_void
+_lib.TCOD_struct_add_property.restype=c_void
 _lib.TCOD_struct_add_property.argtypes=[c_void_p , c_char_p,c_int , c_bool ]
 def struct_add_property(struct, name, typ, mandatory):
     _lib.TCOD_struct_add_property(struct, convert_to_ascii(name), typ, mandatory)
 
-#_lib.TCOD_struct_add_value_list.restype=c_void
+_lib.TCOD_struct_add_value_list.restype=c_void
 _lib.TCOD_struct_add_value_list.argtypes=[c_void_p ,c_char_p, POINTER(c_char_p), c_bool ]
 def struct_add_value_list(struct, name, value_list, mandatory):
     CARRAY = c_char_p * (len(value_list) + 1)
@@ -1668,15 +1695,15 @@ def struct_add_value_list(struct, name, value_list, mandatory):
     cvalue_list[len(value_list)] = 0
     _lib.TCOD_struct_add_value_list(struct, convert_to_ascii(name), cvalue_list, mandatory)
 
-#_lib.TCOD_struct_add_value_list_sized.restype=c_void
+_lib.TCOD_struct_add_value_list_sized.restype=c_void
 _lib.TCOD_struct_add_value_list_sized.argtypes=[c_void_p ,c_char_p, POINTER(c_char_p), c_int, c_bool ]
 
-#_lib.TCOD_struct_add_list_property.restype=c_void
+_lib.TCOD_struct_add_list_property.restype=c_void
 _lib.TCOD_struct_add_list_property.argtypes=[c_void_p , c_char_p,c_int , c_bool ]
 def struct_add_list_property(struct, name, typ, mandatory):
     _lib.TCOD_struct_add_list_property(struct, convert_to_ascii(name), typ, mandatory)
 
-#_lib.TCOD_struct_add_structure.restype=c_void
+_lib.TCOD_struct_add_structure.restype=c_void
 _lib.TCOD_struct_add_structure.argtypes=[c_void_p ,c_void_p]
 def struct_add_structure(struct, sub_struct):
     _lib.TCOD_struct_add_structure(struct, sub_struct)
@@ -1699,7 +1726,7 @@ _lib.TCOD_struct_get_type.argtypes=[c_void_p , c_char_p]
 def struct_get_type(struct, name):
     return _lib.TCOD_struct_get_type(struct, convert_to_ascii(name))
 
-#_lib.TCOD_parser_run.restype=c_void
+_lib.TCOD_parser_run.restype=c_void
 _lib.TCOD_parser_run.argtypes=[c_void_p , c_char_p, c_void_p]
 def parser_run(parser, filename, listener=0):
     if listener != 0:
@@ -1735,7 +1762,7 @@ def parser_run(parser, filename, listener=0):
     else:
         _lib.TCOD_parser_run(parser, convert_to_ascii(filename), 0)
 
-#_lib.TCOD_parser_delete.restype=c_void
+_lib.TCOD_parser_delete.restype=c_void
 _lib.TCOD_parser_delete.argtypes=[c_void_p ]
 def parser_delete(parser):
     _lib.TCOD_parser_delete(parser)
@@ -1821,7 +1848,7 @@ _lib.TCOD_random_new_from_seed.argtypes=[c_int, c_uint]
 def random_new_from_seed(seed, algo=RNG_CMWC):
     return _lib.TCOD_random_new_from_seed(algo, seed)
 
-#_lib.TCOD_random_set_distribution.restype=c_void
+_lib.TCOD_random_set_distribution.restype=c_void
 _lib.TCOD_random_set_distribution.argtypes=[c_void_p , c_int ]
 def random_set_distribution(rnd, dist) :
 	_lib.TCOD_random_set_distribution(rnd, dist)
@@ -1866,12 +1893,12 @@ _lib.TCOD_random_save.argtypes=[c_void_p ]
 def random_save(rnd):
     return _lib.TCOD_random_save(rnd)
 
-#_lib.TCOD_random_restore.restype=c_void
+_lib.TCOD_random_restore.restype=c_void
 _lib.TCOD_random_restore.argtypes=[c_void_p , c_void_p ]
 def random_restore(rnd, backup):
     _lib.TCOD_random_restore(rnd, backup)
 
-#_lib.TCOD_random_delete.restype=c_void
+_lib.TCOD_random_delete.restype=c_void
 _lib.TCOD_random_delete.argtypes=[c_void_p ]
 def random_delete(rnd):
     _lib.TCOD_random_delete(rnd)
@@ -1901,7 +1928,7 @@ _lib.TCOD_noise_new.argtypes=[c_int, c_float , c_float , c_void_p ]
 def noise_new(dim, h=NOISE_DEFAULT_HURST, l=NOISE_DEFAULT_LACUNARITY, random=0):
     return _lib.TCOD_noise_new(dim, h, l, random)
 
-#_lib.TCOD_noise_set_type.restype=c_void
+_lib.TCOD_noise_set_type.restype=c_void
 _lib.TCOD_noise_set_type.argtypes=[c_void_p , c_int ]
 def noise_set_type(n, typ) :
     _lib.TCOD_noise_set_type(n,typ)
@@ -1930,7 +1957,7 @@ _lib.TCOD_noise_get_turbulence_ex.argtypes=[c_void_p , POINTER(c_float), c_float
 def noise_get_turbulence(n, f, oc, typ=NOISE_DEFAULT):
     return _lib.TCOD_noise_get_turbulence_ex(n, _NOISE_PACKER_FUNC[len(f)](*f), oc, typ)
 
-#_lib.TCOD_noise_delete.restype=c_void
+_lib.TCOD_noise_delete.restype=c_void
 _lib.TCOD_noise_delete.argtypes=[c_void_p ]
 def noise_delete(n):
     _lib.TCOD_noise_delete(n)
@@ -1965,27 +1992,27 @@ _lib.TCOD_map_new.argtypes=[c_int, c_int]
 def map_new(w, h):
     return _lib.TCOD_map_new(w, h)
 
-#_lib.TCOD_map_copy.restype=c_void
+_lib.TCOD_map_copy.restype=c_void
 _lib.TCOD_map_copy.argtypes=[c_void_p , c_void_p ]
 def map_copy(source, dest):
     return _lib.TCOD_map_copy(source, dest)
 
-#_lib.TCOD_map_set_properties.restype=c_void
+_lib.TCOD_map_set_properties.restype=c_void
 _lib.TCOD_map_set_properties.argtypes=[c_void_p , c_int, c_int, c_bool, c_bool]
 def map_set_properties(m, x, y, isTrans, isWalk):
     _lib.TCOD_map_set_properties(m, x, y, c_int(isTrans), c_int(isWalk))
 
-#_lib.TCOD_map_clear.restype=c_void
+_lib.TCOD_map_clear.restype=c_void
 _lib.TCOD_map_clear.argtypes=[c_void_p , c_bool , c_bool ]
 def map_clear(m,walkable=False,transparent=False):
     _lib.TCOD_map_clear(m,c_int(walkable),c_int(transparent))
 
-#_lib.TCOD_map_compute_fov.restype=c_void
+_lib.TCOD_map_compute_fov.restype=c_void
 _lib.TCOD_map_compute_fov.argtypes=[c_void_p , c_int, c_int, c_int, c_bool, c_int ]
 def map_compute_fov(m, x, y, radius=0, light_walls=True, algo=FOV_RESTRICTIVE ):
     _lib.TCOD_map_compute_fov(m, x, y, c_int(radius), c_bool(light_walls), c_int(algo))
 
-#_lib.TCOD_map_set_in_fov.restype=c_void
+_lib.TCOD_map_set_in_fov.restype=c_void
 _lib.TCOD_map_set_in_fov.argtypes=[c_void_p , c_int, c_int, c_bool ]
 def map_set_in_fov(m, x, y, fov):
     return _lib.TCOD_map_set_in_fov(m, x, y, fov)
@@ -2005,7 +2032,7 @@ _lib.TCOD_map_is_walkable.argtypes=[c_void_p , c_int, c_int]
 def map_is_walkable(m, x, y):
     return _lib.TCOD_map_is_walkable(m, x, y)
 
-#_lib.TCOD_map_delete.restype=c_void
+_lib.TCOD_map_delete.restype=c_void
 _lib.TCOD_map_delete.argtypes=[c_void_p ]
 def map_delete(m):
     return _lib.TCOD_map_delete(m)
@@ -2036,17 +2063,20 @@ _lib.TCOD_path_new_using_map.argtypes=[c_void_p , c_float ]
 def path_new_using_map(m, dcost=1.41):
     return (_lib.TCOD_path_new_using_map(m, dcost), None)
 
+_lib.TCOD_path_new_using_function.restype=c_void_p
+_lib.TCOD_path_new_using_function.argtypes=[c_int, c_int, PATH_CBK_FUNC,
+                                            py_object, c_float]
 def path_new_using_function(w, h, func, userdata=0, dcost=1.41):
     cbk_func = PATH_CBK_FUNC(func)
     return (_lib.TCOD_path_new_using_function(w, h, cbk_func,
-            py_object(userdata), c_float(dcost)), cbk_func)
+                                              userdata, dcost), cbk_func)
 
 _lib.TCOD_path_compute.restype = c_bool
 _lib.TCOD_path_compute.argtypes=[c_void_p , c_int,c_int, c_int, c_int]
 def path_compute(p, ox, oy, dx, dy):
     return _lib.TCOD_path_compute(p[0], ox, oy, dx, dy)
 
-#_lib.TCOD_path_get_origin.restype=c_void
+_lib.TCOD_path_get_origin.restype=c_void
 _lib.TCOD_path_get_origin.argtypes=[c_void_p , POINTER(c_int), POINTER(c_int)]
 def path_get_origin(p):
     x = c_int()
@@ -2054,7 +2084,7 @@ def path_get_origin(p):
     _lib.TCOD_path_get_origin(p[0], byref(x), byref(y))
     return x.value, y.value
 
-#_lib.TCOD_path_get_destination.restype=c_void
+_lib.TCOD_path_get_destination.restype=c_void
 _lib.TCOD_path_get_destination.argtypes=[c_void_p , POINTER(c_int), POINTER(c_int)]
 def path_get_destination(p):
     x = c_int()
@@ -2067,12 +2097,12 @@ _lib.TCOD_path_size.argtypes=[c_void_p ]
 def path_size(p):
     return _lib.TCOD_path_size(p[0])
 
-#_lib.TCOD_path_reverse.restype=c_void
+_lib.TCOD_path_reverse.restype=c_void
 _lib.TCOD_path_reverse.argtypes=[c_void_p ]
 def path_reverse(p):
     _lib.TCOD_path_reverse(p[0])
 
-#_lib.TCOD_path_get.restype=c_void
+_lib.TCOD_path_get.restype=c_void
 _lib.TCOD_path_get.argtypes=[c_void_p , c_int, POINTER(c_int), POINTER(c_int)]
 def path_get(p, idx):
     x = c_int()
@@ -2094,7 +2124,7 @@ def path_walk(p, recompute):
         return x.value, y.value
     return None,None
 
-#_lib.TCOD_path_delete.restype=c_void
+_lib.TCOD_path_delete.restype=c_void
 _lib.TCOD_path_delete.argtypes=[c_void_p ]
 def path_delete(p):
     _lib.TCOD_path_delete(p[0])
@@ -2106,12 +2136,15 @@ _lib.TCOD_dijkstra_new .argtypes=[c_void_p , c_float ]
 def dijkstra_new(m, dcost=1.41):
     return (_lib.TCOD_dijkstra_new(c_void_p(m), c_float(dcost)), None)
 
+_lib.TCOD_dijkstra_new_using_function.restype=c_void_p
+_lib.TCOD_dijkstra_new_using_function.argtypes=[c_int, c_int, PATH_CBK_FUNC,
+                                                py_object, c_float]
 def dijkstra_new_using_function(w, h, func, userdata=0, dcost=1.41):
     cbk_func = PATH_CBK_FUNC(func)
     return (_lib.TCOD_dijkstra_new_using_function(w, h, cbk_func,
-            py_object(userdata), c_float(dcost)), cbk_func)
+                                                  userdata, dcost), cbk_func)
 
-#_lib.TCOD_dijkstra_compute.restype=c_void
+_lib.TCOD_dijkstra_compute.restype=c_void
 _lib.TCOD_dijkstra_compute.argtypes=[c_void_p , c_int, c_int]
 def dijkstra_compute(p, ox, oy):
     _lib.TCOD_dijkstra_compute(p[0], c_int(ox), c_int(oy))
@@ -2131,12 +2164,12 @@ _lib.TCOD_dijkstra_size.argtypes=[c_void_p ]
 def dijkstra_size(p):
     return _lib.TCOD_dijkstra_size(p[0])
 
-#_lib.TCOD_dijkstra_reverse.restype=c_void
+_lib.TCOD_dijkstra_reverse.restype=c_void
 _lib.TCOD_dijkstra_reverse.argtypes=[c_void_p ]
 def dijkstra_reverse(p):
     _lib.TCOD_dijkstra_reverse(p[0])
 
-#_lib.TCOD_dijkstra_get.restype=c_void
+_lib.TCOD_dijkstra_get.restype=c_void
 _lib.TCOD_dijkstra_get.argtypes=[c_void_p , c_int, POINTER(c_int), POINTER(c_int)]
 def dijkstra_get(p, idx):
     x = c_int()
@@ -2158,7 +2191,7 @@ def dijkstra_path_walk(p):
         return x.value, y.value
     return None,None
 
-#_lib.TCOD_dijkstra_delete .restype=c_void
+_lib.TCOD_dijkstra_delete .restype=c_void
 _lib.TCOD_dijkstra_delete.argtypes=[c_void_p ]
 def dijkstra_delete(p):
     _lib.TCOD_dijkstra_delete(p[0])
@@ -2240,37 +2273,34 @@ _lib.TCOD_bsp_new_with_size.argtypes=[c_int,c_int,c_int, c_int]
 def bsp_new_with_size(x, y, w, h):
     return Bsp(_lib.TCOD_bsp_new_with_size(x, y, w, h))
 
-#_lib.TCOD_bsp_split_once.restype=c_void
+_lib.TCOD_bsp_split_once.restype=c_void
 _lib.TCOD_bsp_split_once.argtypes=[c_void_p, c_bool , c_int]
 def bsp_split_once(node, horizontal, position):
     _lib.TCOD_bsp_split_once(node.p, c_int(horizontal), position)
 
-#_lib.TCOD_bsp_split_recursive.restype=c_void
+_lib.TCOD_bsp_split_recursive.restype=c_void
 _lib.TCOD_bsp_split_recursive.argtypes=[c_void_p, c_void_p , c_int, ]
 def bsp_split_recursive(node, randomizer, nb, minHSize, minVSize, maxHRatio,
                         maxVRatio):
     _lib.TCOD_bsp_split_recursive(node.p, randomizer, nb, minHSize, minVSize,
                                   c_float(maxHRatio), c_float(maxVRatio))
 
-#_lib.TCOD_bsp_resize.restype=c_void
+_lib.TCOD_bsp_resize.restype=c_void
 _lib.TCOD_bsp_resize.argtypes=[c_void_p, c_int,c_int, c_int, c_int]
 def bsp_resize(node, x, y, w, h):
     _lib.TCOD_bsp_resize(node.p, x, y, w, h)
 
 _lib.TCOD_bsp_left.restype = POINTER(_CBsp)
-#_lib.TCOD_bsp_left.restype=c_void_p
 _lib.TCOD_bsp_left.argtypes=[c_void_p]
 def bsp_left(node):
     return Bsp(_lib.TCOD_bsp_left(node.p))
 
 _lib.TCOD_bsp_right.restype = POINTER(_CBsp)
-#_lib.TCOD_bsp_right.restype=c_void_p
 _lib.TCOD_bsp_right.argtypes=[c_void_p]
 def bsp_right(node):
     return Bsp(_lib.TCOD_bsp_right(node.p))
 
 _lib.TCOD_bsp_father.restype = POINTER(_CBsp)
-#_lib.TCOD_bsp_father.restype=c_void_p
 _lib.TCOD_bsp_father.argtypes=[c_void_p]
 def bsp_father(node):
     return Bsp(_lib.TCOD_bsp_father(node.p))
@@ -2286,7 +2316,6 @@ def bsp_contains(node, cx, cy):
     return _lib.TCOD_bsp_contains(node.p, cx, cy)
 
 _lib.TCOD_bsp_find_node.restype = POINTER(_CBsp)
-#_lib.TCOD_bsp_find_node.restype=c_void_p
 _lib.TCOD_bsp_find_node.argtypes=[c_void_p, c_int, c_int]
 def bsp_find_node(node, cx, cy):
     return Bsp(_lib.TCOD_bsp_find_node(node.p, cx, cy))
@@ -2316,12 +2345,12 @@ def bsp_traverse_inverted_level_order(node, callback, userData=0):
     _bsp_traverse(node, callback, userData,
                   _lib.TCOD_bsp_traverse_inverted_level_order)
 
-#_lib.TCOD_bsp_remove_sons.restype=c_void
+_lib.TCOD_bsp_remove_sons.restype=c_void
 _lib.TCOD_bsp_remove_sons.argtypes=[c_void_p]
 def bsp_remove_sons(node):
     _lib.TCOD_bsp_remove_sons(node.p)
 
-#_lib.TCOD_bsp_delete.restype=c_void
+_lib.TCOD_bsp_delete.restype=c_void
 _lib.TCOD_bsp_delete.argtypes=[c_void_p]
 def bsp_delete(node):
     _lib.TCOD_bsp_delete(node.p)
@@ -2359,78 +2388,81 @@ def heightmap_new(w, h):
     phm = _lib.TCOD_heightmap_new(w, h)
     return HeightMap(phm)
 
-#_lib.TCOD_heightmap_set_value.restype=c_void
+_lib.TCOD_heightmap_set_value.restype=c_void
 _lib.TCOD_heightmap_set_value.argtypes=[c_void_p, c_int, c_int, c_float ]
 def heightmap_set_value(hm, x, y, value):
     _lib.TCOD_heightmap_set_value(hm.p, x, y, c_float(value))
 
-#_lib.TCOD_heightmap_add.restype=c_void
+_lib.TCOD_heightmap_add.restype=c_void
 _lib.TCOD_heightmap_add.argtypes=[c_void_p, c_float ]
 def heightmap_add(hm, value):
     _lib.TCOD_heightmap_add(hm.p, c_float(value))
 
-#_lib.TCOD_heightmap_scale.restype=c_void
+_lib.TCOD_heightmap_scale.restype=c_void
 _lib.TCOD_heightmap_scale.argtypes=[c_void_p, c_float ]
 def heightmap_scale(hm, value):
     _lib.TCOD_heightmap_scale(hm.p, c_float(value))
 
-#_lib.TCOD_heightmap_clear.restype=c_void
+_lib.TCOD_heightmap_clear.restype=c_void
 _lib.TCOD_heightmap_clear.argtypes=[c_void_p]
 def heightmap_clear(hm):
     _lib.TCOD_heightmap_clear(hm.p)
 
-#_lib.TCOD_heightmap_clamp.restype=c_void
+_lib.TCOD_heightmap_clamp.restype=c_void
 _lib.TCOD_heightmap_clamp.argtypes=[c_void_p, c_float , c_float ]
 def heightmap_clamp(hm, mi, ma):
     _lib.TCOD_heightmap_clamp(hm.p, c_float(mi),c_float(ma))
 
-#_lib.TCOD_heightmap_copy.restype=c_void
+_lib.TCOD_heightmap_copy.restype=c_void
 _lib.TCOD_heightmap_copy.argtypes=[c_void_p,c_void_p]
 def heightmap_copy(hm1, hm2):
     _lib.TCOD_heightmap_copy(hm1.p, hm2.p)
 
-#_lib.TCOD_heightmap_normalize.restype=c_void
+_lib.TCOD_heightmap_normalize.restype=c_void
 _lib.TCOD_heightmap_normalize.argtypes=[c_void_p, c_float , c_float ]
 def heightmap_normalize(hm,  mi=0.0, ma=1.0):
     _lib.TCOD_heightmap_normalize(hm.p, c_float(mi), c_float(ma))
 
-#_lib.TCOD_heightmap_lerp_hm.restype=c_void
+_lib.TCOD_heightmap_lerp_hm.restype=c_void
 _lib.TCOD_heightmap_lerp_hm.argtypes=[c_void_p, c_void_p, c_void_p, c_float ]
 def heightmap_lerp_hm(hm1, hm2, hm3, coef):
     _lib.TCOD_heightmap_lerp_hm(hm1.p, hm2.p, hm3.p, c_float(coef))
 
-#_lib.TCOD_heightmap_add_hm.restype=c_void
+_lib.TCOD_heightmap_add_hm.restype=c_void
 _lib.TCOD_heightmap_add_hm.argtypes=[c_void_p, c_void_p, c_void_p]
 def heightmap_add_hm(hm1, hm2, hm3):
     _lib.TCOD_heightmap_add_hm(hm1.p, hm2.p, hm3.p)
 
-#_lib.TCOD_heightmap_multiply_hm.restype=c_void
+_lib.TCOD_heightmap_multiply_hm.restype=c_void
 _lib.TCOD_heightmap_multiply_hm.argtypes=[c_void_p, c_void_p, c_void_p]
 def heightmap_multiply_hm(hm1, hm2, hm3):
     _lib.TCOD_heightmap_multiply_hm(hm1.p, hm2.p, hm3.p)
 
-#_lib.TCOD_heightmap_add_hill.restype=c_void
+_lib.TCOD_heightmap_add_hill.restype=c_void
 _lib.TCOD_heightmap_add_hill.argtypes=[c_void_p, c_float , c_float , c_float , c_float ]
 def heightmap_add_hill(hm, x, y, radius, height):
     _lib.TCOD_heightmap_add_hill(hm.p, c_float( x), c_float( y),
                                  c_float( radius), c_float( height))
 
-#_lib.TCOD_heightmap_dig_hill.restype=c_void
+_lib.TCOD_heightmap_dig_hill.restype=c_void
 _lib.TCOD_heightmap_dig_hill.argtypes=[c_void_p, c_float , c_float , c_float , c_float ]
 def heightmap_dig_hill(hm, x, y, radius, height):
     _lib.TCOD_heightmap_dig_hill(hm.p, c_float( x), c_float( y),
                                  c_float( radius), c_float( height))
 
+_lib.TCOD_heightmap_mid_point_displacement.restype = c_void
+_lib.TCOD_heightmap_mid_point_displacement.argtypes = [c_void_p, c_void_p,
+                                                       c_float]
 def heightmap_mid_point_displacement(hm, rng, roughness):
-    _lib.TCOD_heightmap_mid_point_displacement(hm.p, rng, c_float(roughness))
+    _lib.TCOD_heightmap_mid_point_displacement(hm.p, rng, roughness)
 
-#_lib.TCOD_heightmap_rain_erosion.restype=c_void
+_lib.TCOD_heightmap_rain_erosion.restype=c_void
 _lib.TCOD_heightmap_rain_erosion.argtypes=[c_void_p, c_int,c_float ,c_float ,c_void_p ]
 def heightmap_rain_erosion(hm, nbDrops, erosionCoef, sedimentationCoef, rnd=0):
     _lib.TCOD_heightmap_rain_erosion(hm.p, nbDrops, c_float( erosionCoef),
                                      c_float( sedimentationCoef), rnd)
 
-#_lib.TCOD_heightmap_kernel_transform.restype=c_void
+_lib.TCOD_heightmap_kernel_transform.restype=c_void
 _lib.TCOD_heightmap_kernel_transform.argtypes=[c_void_p, c_int, POINTER(c_int), POINTER(c_int), POINTER(c_float), c_float ,c_float ]
 def heightmap_kernel_transform(hm, kernelsize, dx, dy, weight, minLevel,
                                maxLevel):
@@ -2442,23 +2474,23 @@ def heightmap_kernel_transform(hm, kernelsize, dx, dy, weight, minLevel,
     _lib.TCOD_heightmap_kernel_transform(hm.p, kernelsize, cdx, cdy, cweight,
                                          c_float(minLevel), c_float(maxLevel))
 
-#_lib.TCOD_heightmap_add_voronoi.restype=c_void
+_lib.TCOD_heightmap_add_voronoi.restype=c_void
 _lib.TCOD_heightmap_add_voronoi.argtypes=[c_void_p, c_int, c_int, POINTER(c_float),c_void_p ]
 def heightmap_add_voronoi(hm, nbPoints, nbCoef, coef, rnd=0):
     FARRAY = c_float * nbCoef
     ccoef = FARRAY(*coef)
     _lib.TCOD_heightmap_add_voronoi(hm.p, nbPoints, nbCoef, ccoef, rnd)
 
-#_lib.TCOD_heightmap_add_fbm.restype=c_void
-_lib.TCOD_heightmap_add_fbm.argtypes=[c_void_p, c_int ,c_float , c_float , c_float , c_float , c_float , c_float , c_float ]
+_lib.TCOD_heightmap_add_fbm.restype=c_void
+_lib.TCOD_heightmap_add_fbm.argtypes=[c_void_p, c_void_p, c_float, c_float, c_float, c_float, c_float, c_float, c_float]
 def heightmap_add_fbm(hm, noise, mulx, muly, addx, addy, octaves, delta, scale):
     _lib.TCOD_heightmap_add_fbm(hm.p, noise, c_float(mulx), c_float(muly),
                                 c_float(addx), c_float(addy),
                                 c_float(octaves), c_float(delta),
                                 c_float(scale))
 
-#_lib.TCOD_heightmap_scale_fbm.restype=c_void
-_lib.TCOD_heightmap_scale_fbm.argtypes=[c_void_p, c_int ,c_float , c_float , c_float , c_float , c_float , c_float , c_float ]
+_lib.TCOD_heightmap_scale_fbm.restype=c_void
+_lib.TCOD_heightmap_scale_fbm.argtypes=[c_void_p, c_void_p, c_float, c_float, c_float, c_float, c_float, c_float, c_float]
 def heightmap_scale_fbm(hm, noise, mulx, muly, addx, addy, octaves, delta,
                         scale):
     _lib.TCOD_heightmap_scale_fbm(hm.p, noise, c_float(mulx), c_float(muly),
@@ -2466,12 +2498,12 @@ def heightmap_scale_fbm(hm, noise, mulx, muly, addx, addy, octaves, delta,
                                   c_float(octaves), c_float(delta),
                                   c_float(scale))
 
-#_lib.TCOD_heightmap_islandify.restype=c_void
+_lib.TCOD_heightmap_islandify.restype=c_void
 _lib.TCOD_heightmap_islandify.argtypes=[c_void_p, c_float ,c_void_p ]
 def heightmap_islandify(hm, sealevel, rnd):
     return TCOD_heightmap_islandify(hm, sealevel, rnd)
 
-#_lib.TCOD_heightmap_dig_bezier.restype=c_void
+_lib.TCOD_heightmap_dig_bezier.restype=c_void
 _lib.TCOD_heightmap_dig_bezier.argtypes=[c_void_p, POINTER(c_int), POINTER(c_int), c_float , c_float , c_float , c_float ]
 def heightmap_dig_bezier(hm, px, py, startRadius, startDepth, endRadius,
                          endDepth):
@@ -2498,7 +2530,7 @@ _lib.TCOD_heightmap_get_slope.argtypes=[c_void_p, c_int, c_int]
 def heightmap_get_slope(hm, x, y):
     return _lib.TCOD_heightmap_get_slope(hm.p, x, y)
 
-#_lib.TCOD_heightmap_get_normal.restype=c_void
+_lib.TCOD_heightmap_get_normal.restype=c_void
 _lib.TCOD_heightmap_get_normal.argtypes=[c_void_p, c_float , c_float , POINTER(c_float), c_float ]
 def heightmap_get_normal(hm, x, y, waterLevel):
     FARRAY = c_float * 3
@@ -2516,7 +2548,7 @@ _lib.TCOD_heightmap_has_land_on_border.argtypes=[c_void_p, c_float ]
 def heightmap_has_land_on_border(hm, waterlevel):
     return _lib.TCOD_heightmap_has_land_on_border(hm.p, c_float(waterlevel))
 
-#_lib.TCOD_heightmap_get_minmax.restype=c_void
+_lib.TCOD_heightmap_get_minmax.restype=c_void
 _lib.TCOD_heightmap_get_minmax.argtypes=[c_void_p, POINTER(c_float), POINTER(c_float)]
 def heightmap_get_minmax(hm):
     mi = c_float()
@@ -2524,7 +2556,7 @@ def heightmap_get_minmax(hm):
     _lib.TCOD_heightmap_get_minmax(hm.p, byref(mi), byref(ma))
     return mi.value, ma.value
 
-#_lib.TCOD_heightmap_delete.restype=c_void
+_lib.TCOD_heightmap_delete.restype=c_void
 _lib.TCOD_heightmap_delete.argtypes=[c_void_p]
 def heightmap_delete(hm):
     _lib.TCOD_heightmap_delete(hm.p)
@@ -2534,8 +2566,8 @@ def heightmap_delete(hm):
 # name generator module
 ############################
 
-#_lib.TCOD_namegen_parse .restype=c_void
-_lib.TCOD_namegen_parse .argtypes=[c_char_p , c_void_p ]
+_lib.TCOD_namegen_parse.restype=c_void
+_lib.TCOD_namegen_parse.argtypes=[c_char_p , c_void_p ]
 def namegen_parse(filename,rnd=0) :
     _lib.TCOD_namegen_parse(convert_to_ascii(filename),rnd)
 
@@ -2567,7 +2599,7 @@ def namegen_get_sets():
         return list(v.decode("utf-8") for v in setsa)
     return list(setsa)
 
-#_lib.TCOD_namegen_destroy .restype=c_void
+_lib.TCOD_namegen_destroy.restype=c_void
 _lib.TCOD_namegen_destroy.argtypes=[]
 def namegen_destroy() :
     _lib.TCOD_namegen_destroy()
@@ -2579,10 +2611,10 @@ _lib.TCOD_lex_new_intern.argtypes=[]
 _lib.TCOD_lex_new.restype=c_void_p
 _lib.TCOD_lex_new.argtypes=[POINTER(c_char_p), POINTER(c_char_p), c_char_p, ]
 
-#_lib.TCOD_lex_delete.restype=c_void
+_lib.TCOD_lex_delete.restype=c_void
 _lib.TCOD_lex_delete.argtypes=[c_void_p]
 
-#_lib.TCOD_lex_set_data_buffer.restype=c_void
+_lib.TCOD_lex_set_data_buffer.restype=c_void
 _lib.TCOD_lex_set_data_buffer.argtypes=[c_void_p,c_char_p]
 
 _lib.TCOD_lex_set_data_file.restype=c_bool
@@ -2603,10 +2635,10 @@ _lib.TCOD_lex_expect_token_type.argtypes=[c_void_p,c_int]
 _lib.TCOD_lex_expect_token_value.restype=c_bool
 _lib.TCOD_lex_expect_token_value.argtypes=[c_void_p,c_int,c_char_p]
 
-#_lib.TCOD_lex_savepoint.restype=c_void
+_lib.TCOD_lex_savepoint.restype=c_void
 _lib.TCOD_lex_savepoint.argtypes=[c_void_p,c_void_p]
 
-#_lib.TCOD_lex_restore.restype=c_void
+_lib.TCOD_lex_restore.restype=c_void
 _lib.TCOD_lex_restore.argtypes=[c_void_p,c_void_p]
 
 _lib.TCOD_lex_get_last_javadoc.restype=c_char_p
@@ -2636,10 +2668,10 @@ _lib.TCOD_list_allocate.argtypes=[c_int]
 _lib.TCOD_list_duplicate.restype=c_void_p
 _lib.TCOD_list_duplicate.argtypes=[c_void_p ]
 
-#_lib.TCOD_list_delete.restype=c_void
+_lib.TCOD_list_delete.restype=c_void
 _lib.TCOD_list_delete.argtypes=[c_void_p ]
 
-#_lib.TCOD_list_push.restype=c_void
+_lib.TCOD_list_push.restype=c_void
 _lib.TCOD_list_push.argtypes=[c_void_p ,c_void_p ]
 
 _lib.TCOD_list_pop.restype=c_void_p
@@ -2648,13 +2680,13 @@ _lib.TCOD_list_pop.argtypes=[c_void_p ]
 _lib.TCOD_list_peek.restype=c_void_p
 _lib.TCOD_list_peek.argtypes=[c_void_p ]
 
-#_lib.TCOD_list_add_all.restype=c_void
+_lib.TCOD_list_add_all.restype=c_void
 _lib.TCOD_list_add_all.argtypes=[c_void_p , c_void_p ]
 
 _lib.TCOD_list_get.restype=c_void_p
 _lib.TCOD_list_get.argtypes=[c_void_p ,c_int]
 
-#_lib.TCOD_list_set.restype=c_void
+_lib.TCOD_list_set.restype=c_void
 _lib.TCOD_list_set.argtypes=[c_void_p ,c_void_p, c_int]
 
 _lib.TCOD_list_begin.restype=POINTER(c_void_p)
@@ -2663,28 +2695,28 @@ _lib.TCOD_list_begin.argtypes=[c_void_p ]
 _lib.TCOD_list_end.restype=POINTER(c_void_p)
 _lib.TCOD_list_end.argtypes=[c_void_p ]
 
-#_lib.TCOD_list_reverse.restype=c_void
+_lib.TCOD_list_reverse.restype=c_void
 _lib.TCOD_list_reverse.argtypes=[c_void_p ]
 
 _lib.TCOD_list_remove_iterator.restype=POINTER(c_void_p)
 _lib.TCOD_list_remove_iterator.argtypes=[c_void_p , POINTER(c_void_p)]
 
-#_lib.TCOD_list_remove.restype=c_void
+_lib.TCOD_list_remove.restype=c_void
 _lib.TCOD_list_remove.argtypes=[c_void_p ,c_void_p ]
 
 _lib.TCOD_list_remove_iterator_fast.restype=POINTER(c_void_p)
 _lib.TCOD_list_remove_iterator_fast.argtypes=[c_void_p , POINTER(c_void_p)]
 
-#_lib.TCOD_list_remove_fast.restype=c_void
+_lib.TCOD_list_remove_fast.restype=c_void
 _lib.TCOD_list_remove_fast.argtypes=[c_void_p ,c_void_p ]
 
 _lib.TCOD_list_contains.restype=c_bool
 _lib.TCOD_list_contains.argtypes=[c_void_p ,c_void_p ]
 
-#_lib.TCOD_list_clear.restype=c_void
+_lib.TCOD_list_clear.restype=c_void
 _lib.TCOD_list_clear.argtypes=[c_void_p ]
 
-#_lib.TCOD_list_clear_and_delete.restype=c_void
+_lib.TCOD_list_clear_and_delete.restype=c_void
 _lib.TCOD_list_clear_and_delete.argtypes=[c_void_p ]
 
 _lib.TCOD_list_size.restype=c_int
@@ -2717,106 +2749,106 @@ _lib.TCOD_sys_file_exists.restype=c_bool
 _lib.TCOD_sys_get_num_cores.restype=c_int
 _lib.TCOD_sys_get_num_cores.argtypes=[]
 
-#_lib.TCOD_thread_wait.restype=c_void
+_lib.TCOD_thread_wait.restype=c_void
 _lib.TCOD_thread_wait.argtypes=[c_void_p ]
 
 _lib.TCOD_mutex_new.restype=c_void_p
 _lib.TCOD_mutex_new.argtypes=[]
 
-#_lib.TCOD_mutex_in.restype=c_void
+_lib.TCOD_mutex_in.restype=c_void
 _lib.TCOD_mutex_in.argtypes=[c_void_p ]
 
-#_lib.TCOD_mutex_out.restype=c_void
+_lib.TCOD_mutex_out.restype=c_void
 _lib.TCOD_mutex_out.argtypes=[c_void_p ]
 
-#_lib.TCOD_mutex_delete.restype=c_void
+_lib.TCOD_mutex_delete.restype=c_void
 _lib.TCOD_mutex_delete.argtypes=[c_void_p ]
 
 _lib.TCOD_semaphore_new.restype=c_void_p
 _lib.TCOD_semaphore_new.argtypes=[c_int]
 
-#_lib.TCOD_semaphore_lock.restype=c_void
+_lib.TCOD_semaphore_lock.restype=c_void
 _lib.TCOD_semaphore_lock.argtypes=[c_void_p ]
 
-#_lib.TCOD_semaphore_unlock.restype=c_void
+_lib.TCOD_semaphore_unlock.restype=c_void
 _lib.TCOD_semaphore_unlock.argtypes=[c_void_p ]
 
-#_lib.TCOD_semaphore_delete.restype=c_void
+_lib.TCOD_semaphore_delete.restype=c_void
 _lib.TCOD_semaphore_delete.argtypes=[ c_void_p ]
 
 _lib.TCOD_condition_new.restype=c_void_p
 _lib.TCOD_condition_new.argtypes=[]
 
-#_lib.TCOD_condition_signal.restype=c_void
+_lib.TCOD_condition_signal.restype=c_void
 _lib.TCOD_condition_signal.argtypes=[c_void_p ]
 
-#_lib.TCOD_condition_broadcast.restype=c_void
+_lib.TCOD_condition_broadcast.restype=c_void
 _lib.TCOD_condition_broadcast.argtypes=[c_void_p ]
 
-#_lib.TCOD_condition_wait.restype=c_void
+_lib.TCOD_condition_wait.restype=c_void
 _lib.TCOD_condition_wait.argtypes=[c_void_p , c_void_p ]
 
-#_lib.TCOD_condition_delete.restype=c_void
+_lib.TCOD_condition_delete.restype=c_void
 _lib.TCOD_condition_delete.argtypes=[ c_void_p ]
 
 _lib.TCOD_tree_new.restype=c_void_p
 _lib.TCOD_tree_new.argtypes=[]
 
-#_lib.TCOD_tree_add_son.restype=c_void
+_lib.TCOD_tree_add_son.restype=c_void
 _lib.TCOD_tree_add_son.argtypes=[c_void_p, c_void_p]
 
 _lib.TCOD_text_init.restype=c_void_p
 _lib.TCOD_text_init.argtypes=[c_int, c_int, c_int, c_int, c_int]
 
-#_lib.TCOD_text_set_properties.restype=c_void
+_lib.TCOD_text_set_properties.restype=c_void
 _lib.TCOD_text_set_properties.argtypes=[c_void_p , c_int, c_int, c_char_p , c_int]
 
-#_lib.TCOD_text_set_colors.restype=c_void
+_lib.TCOD_text_set_colors.restype=c_void
 _lib.TCOD_text_set_colors.argtypes=[c_void_p , c_int , c_int , c_float]
 
 _lib.TCOD_text_update.restype=c_bool
 _lib.TCOD_text_update.argtypes=[c_void_p , c_int ]
 
-#_lib.TCOD_text_render.restype=c_void
+_lib.TCOD_text_render.restype=c_void
 _lib.TCOD_text_render.argtypes=[c_void_p , c_void_p ]
 
 _lib.TCOD_text_get.restype=c_char_p
 _lib.TCOD_text_get.argtypes=[c_void_p ]
 
-#_lib.TCOD_text_reset.restype=c_void
+_lib.TCOD_text_reset.restype=c_void
 _lib.TCOD_text_reset.argtypes=[c_void_p ]
 
-#_lib.TCOD_text_delete.restype=c_void
+_lib.TCOD_text_delete.restype=c_void
 _lib.TCOD_text_delete.argtypes=[c_void_p ]
 
 _lib.TCOD_zip_new.restype=c_void_p
 _lib.TCOD_zip_new.argtypes=[]
 
-#_lib.TCOD_zip_delete.restype=c_void
+_lib.TCOD_zip_delete.restype=c_void
 _lib.TCOD_zip_delete.argtypes=[c_void_p ]
 
-#_lib.TCOD_zip_put_char.restype=c_void
+_lib.TCOD_zip_put_char.restype=c_void
 _lib.TCOD_zip_put_char.argtypes=[c_void_p , c_char ]
 
-#_lib.TCOD_zip_put_int.restype=c_void
+_lib.TCOD_zip_put_int.restype=c_void
 _lib.TCOD_zip_put_int.argtypes=[c_void_p , c_int]
 
-#_lib.TCOD_zip_put_float.restype=c_void
+_lib.TCOD_zip_put_float.restype=c_void
 _lib.TCOD_zip_put_float.argtypes=[c_void_p , c_float ]
 
-#_lib.TCOD_zip_put_string.restype=c_void
+_lib.TCOD_zip_put_string.restype=c_void
 _lib.TCOD_zip_put_string.argtypes=[c_void_p , c_char_p]
 
-#_lib.TCOD_zip_put_color.restype=c_void
+_lib.TCOD_zip_put_color.restype=c_void
 _lib.TCOD_zip_put_color.argtypes=[c_void_p , c_int ]
 
-#_lib.TCOD_zip_put_image.restype=c_void
+_lib.TCOD_zip_put_image.restype=c_void
 _lib.TCOD_zip_put_image.argtypes=[c_void_p , c_void_p ]
 
-#_lib.TCOD_zip_put_console.restype=c_void
+_lib.TCOD_zip_put_console.restype=c_void
 _lib.TCOD_zip_put_console.argtypes=[c_void_p , c_void_p ]
 
-#_lib.TCOD_zip_put_data.restype=c_void
+_lib.TCOD_zip_put_data.restype=c_void
 _lib.TCOD_zip_put_data.argtypes=[c_void_p , c_int,c_void_p]
 
 _lib.TCOD_zip_get_current_bytes.restype=c_int
@@ -2855,6 +2887,5 @@ _lib.TCOD_zip_get_data.argtypes=[c_void_p , c_int,c_void_p]
 _lib.TCOD_zip_get_remaining_bytes.restype=c_int
 _lib.TCOD_zip_get_remaining_bytes.argtypes=[c_void_p ]
 
-#_lib.TCOD_zip_skip_bytes.restype=c_void
+_lib.TCOD_zip_skip_bytes.restype=c_void
 _lib.TCOD_zip_skip_bytes.argtypes=[c_void_p ,c_int ]
-

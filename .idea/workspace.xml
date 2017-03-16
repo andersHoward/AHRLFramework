@@ -1,60 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c04c25b6-c5f4-4574-a6b6-0592582a23de" name="Default" comment="+ Prelim work on ecs: getting map generator to take config and request entity construction via entity manager and a new component factory.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/config/ecs_templates.xlsm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_StatStrength.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_StatXP.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/component/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_AIFSM.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_AbilityHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_Inventory.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_Mover.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_PersistentEffects.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_Rendering.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_Stats.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_TakeTurn.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_Tiles.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_TurnSchedule.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_XP.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/system/__init__.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/component/C_StatXP.py" afterPath="" />
+    <list default="true" id="c04c25b6-c5f4-4574-a6b6-0592582a23de" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/libtcodpy/SDL2.dll" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/libtcodpy/libtcod.dll" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/config/config_manifest.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/config/ecs_templates.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/EntityFactory.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Prop.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SDL2.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libtcod.dll" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Cousin_of_BEAST.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Cousin_of_BEAST.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AHRLSublimeText_prj.sublime-workspace" afterPath="$PROJECT_DIR$/AHRLSublimeText_prj.sublime-workspace" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/ecs/__init__.py" afterPath="$PROJECT_DIR$/lib/ecs/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/ecs/docs/source/conf.py" afterPath="$PROJECT_DIR$/lib/ecs/docs/source/conf.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/ecs/ecs/models.py" afterPath="$PROJECT_DIR$/lib/ecs/ecs/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/ecs/tests/test_managers.py" afterPath="$PROJECT_DIR$/lib/ecs/tests/test_managers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/libtcodpy/__init__.py" afterPath="$PROJECT_DIR$/lib/libtcodpy/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/libtcodpy/cprotos.py" afterPath="$PROJECT_DIR$/lib/libtcodpy/cprotos.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notes.txt" afterPath="$PROJECT_DIR$/notes.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Constants.py" afterPath="$PROJECT_DIR$/src/Constants.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Init.py" afterPath="$PROJECT_DIR$/src/Init.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MapGenerator.Py" afterPath="$PROJECT_DIR$/src/MapGenerator.Py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/__init__.py" afterPath="$PROJECT_DIR$/src/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GUI.py" afterPath="$PROJECT_DIR$/src/gui/GUI.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/arial10x10.png" afterPath="$PROJECT_DIR$/src/assets/arial10x10.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/main_backup" afterPath="$PROJECT_DIR$/Backup/main_backup" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/menu_background1.png" afterPath="$PROJECT_DIR$/src/assets/menu_background1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/savegame" afterPath="$PROJECT_DIR$/src/SaveGame" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ComponentFactory.py" afterPath="$PROJECT_DIR$/src/game_ecs/ComponentFactory.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_AIStateMachine.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_AIStateMachine.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_AbilityHandler" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Abilities.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_Equipment.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Equipment.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_FlavorText.py" afterPath="$PROJECT_DIR$/src/game_ecs/GameComponent.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_Inventory.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Inventory.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_Item.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Item.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_Lootable.py" afterPath="$PROJECT_DIR$/src/game_ecs/GameSystem.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_Mover.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Mover.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_NPC.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_NPC.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_Renderable.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Renderable.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_StatDamage.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_StatDamage.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_StatDefense.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_FlavorText.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_StatHealth.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_StatHealth.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_StatStrength.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Lootable.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_StatusEffect.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_StatusEffect.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_Tile.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Tile.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/C_Transform.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Transform.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/component/__init__.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_StatDefense.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config/ConfigLoader.py" afterPath="$PROJECT_DIR$/src/config/ConfigLoader.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config/item_templates.yaml" afterPath="$PROJECT_DIR$/src/config/item_templates.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_ecs/component/C_NPC.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_NPC.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_ecs/component/C_Renderable.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Renderable.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_ecs/component/C_Tile.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Tile.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_ecs/system/SYS_Tiles.py" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_Tiles.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libtcod-gui.dll" afterPath="$PROJECT_DIR$/lib/libtcodpy/libtcod-gui.dll" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -69,56 +41,25 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SYS_Mover.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game_ecs/system/SYS_Mover.py">
+      <file leaf-file-name="ConfigLoader.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/config/ConfigLoader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/ecs/ecs/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+            <state relative-caret-position="220">
+              <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
               <folding>
-                <element signature="e#126#578#0" expanded="false" />
-                <element signature="e#610#671#0" expanded="false" />
+                <element signature="e#66#91#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/six/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="C_Abilities.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_Abilities.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SYS_AbilityHandler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game_ecs/system/SYS_AbilityHandler.py">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+              <caret line="10" column="54" lean-forward="true" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#34#48#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,11 +68,56 @@
       <file leaf-file-name="Constants.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="38" column="95" lean-forward="false" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="95" />
+            <state relative-caret-position="434">
+              <caret line="62" column="67" lean-forward="false" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
               <folding>
-                <element signature="e#25#61#0" expanded="true" />
+                <element signature="e#25#46#0" expanded="true" />
+                <marker date="1489650213296" expanded="true" signature="25:30" ph="import ..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notes.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notes.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Init.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Init.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="48" selection-end-column="37" />
+              <folding>
+                <element signature="e#62#81#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapGenerator.Py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MapGenerator.Py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+              <folding>
+                <element signature="e#89#114#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntityFactory.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/game_ecs/EntityFactory.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -168,6 +154,7 @@
       <find>entity_name</find>
       <find>name</find>
       <find>six</find>
+      <find>#</find>
     </findStrings>
     <replaceStrings>
       <replace>y</replace>
@@ -185,20 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/six/test_six.py" />
-        <option value="$PROJECT_DIR$/src/config_loader.py" />
-        <option value="$PROJECT_DIR$/src/ConfigLoader.py" />
-        <option value="$PROJECT_DIR$/src/config/ConfigLoader.py" />
-        <option value="$PROJECT_DIR$/src/config/ExcelToYaml.py" />
-        <option value="$PROJECT_DIR$/lib/ExcelToYaml.py" />
-        <option value="$PROJECT_DIR$/src/factory/EntityFactory.py" />
-        <option value="$PROJECT_DIR$/src/component/C_Lootable.py" />
-        <option value="$PROJECT_DIR$/src/component/C_StatStrength.py" />
-        <option value="$PROJECT_DIR$/src/component/C_FlavorText.py" />
-        <option value="$PROJECT_DIR$/src/EntityFactory.py" />
-        <option value="$PROJECT_DIR$/src/config/__init__.py" />
-        <option value="$PROJECT_DIR$/src/__init__.py" />
-        <option value="$PROJECT_DIR$/src/MapGenerator.Py" />
         <option value="$PROJECT_DIR$/src/ComponentFactory.py" />
         <option value="$PROJECT_DIR$/src/component/C_AIStateMachine.py" />
         <option value="$PROJECT_DIR$/src/component/C_Effect.py" />
@@ -215,10 +188,8 @@
         <option value="$PROJECT_DIR$/src/gui/GUI.py" />
         <option value="$PROJECT_DIR$/lib/ecs/ecs/__init__.py" />
         <option value="$PROJECT_DIR$/lib/ecs/__init__.py" />
-        <option value="$PROJECT_DIR$/src/Init.py" />
         <option value="$PROJECT_DIR$/src/game_ecs/system/SYS_Rendering.py" />
         <option value="$PROJECT_DIR$/src/game_ecs/system/SYS_Stats.py" />
-        <option value="$PROJECT_DIR$/src/game_ecs/system/SYS_Tiles.py" />
         <option value="$PROJECT_DIR$/src/game_ecs/component/SYS_AIFSM.py" />
         <option value="$PROJECT_DIR$/src/game_ecs/system/SYS_Inventory.py" />
         <option value="$PROJECT_DIR$/src/game_ecs/system/SYS_PersistentEffects.py" />
@@ -231,19 +202,34 @@
         <option value="$PROJECT_DIR$/src/game_ecs/GameComponent.py" />
         <option value="$PROJECT_DIR$/src/game_ecs/GameSystem.py" />
         <option value="$PROJECT_DIR$/src/game_ecs/system/__init__.py" />
-        <option value="$PROJECT_DIR$/src/Constants.py" />
         <option value="$PROJECT_DIR$/src/game_ecs/__init__.py" />
         <option value="$PROJECT_DIR$/src/game_ecs/system/SYS_AbilityHandler.py" />
         <option value="$PROJECT_DIR$/lib/ecs/ecs/models.py" />
         <option value="$PROJECT_DIR$/lib/six/__init__.py" />
+        <option value="$PROJECT_DIR$/src/config/TestYamlEntityBuilder_Simplified.yaml" />
+        <option value="$PROJECT_DIR$/src/game_ecs/component/C_NPC.py" />
+        <option value="$PROJECT_DIR$/src/game_ecs/component/C_StatXP.py" />
+        <option value="$PROJECT_DIR$/src/game_ecs/system/SYS_Tiles.py" />
+        <option value="$PROJECT_DIR$/src/game_ecs/component/C_Tile.py" />
+        <option value="$PROJECT_DIR$/src/game_ecs/component/C_Prop.py" />
+        <option value="$PROJECT_DIR$/src/ConfigLoader.py" />
+        <option value="$PROJECT_DIR$/src/config/config_manifest.yaml" />
+        <option value="$PROJECT_DIR$/src/config/item_templates.yaml" />
+        <option value="$PROJECT_DIR$/src/config/ecs_templates.yaml" />
+        <option value="$PROJECT_DIR$/src/config/ConfigLoader.py" />
+        <option value="$PROJECT_DIR$/notes.txt" />
+        <option value="$PROJECT_DIR$/src/Constants.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/src/Init.py" />
+        <option value="$PROJECT_DIR$/src/MapGenerator.Py" />
+        <option value="$PROJECT_DIR$/src/game_ecs/EntityFactory.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="x" value="-9" />
+    <option name="width" value="1692" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -289,16 +275,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AHRLFramework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="AHRLFramework" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -309,8 +285,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/component" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/libtcodpy" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -323,66 +299,87 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="L:\Documents\GitHub\AHRLFramework\src\game_ecs\system" />
+      <recent name="L:\Documents\GitHub\AHRLFramework\src\config" />
       <recent name="L:\Documents\GitHub\AHRLFramework\src" />
-      <recent name="L:\Documents\GitHub\AHRLFramework\Backup" />
-      <recent name="L:\Documents\GitHub\AHRLFramework\src\assets" />
-      <recent name="L:\Documents\GitHub\AHRLFramework\src\ecs" />
+      <recent name="L:\Documents\GitHub\AHRLFramework\src\" />
+      <recent name="L:\Documents\GitHub\AHRLFramework\lib\libtcodpy" />
+      <recent name="L:\Documents\GitHub\AHRLFramework\src\game_ecs\system" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="L:\Documents\GitHub\AHRLFramework\src\game_ecs\component" />
+      <recent name="L:\Documents\GitHub\AHRLFramework\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.SYS_AbilityHandler">
-    <configuration default="false" name="Component" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.ConfigLoader (1)">
+    <configuration default="false" name="ConfigLoader (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/component" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AHRLFramework" />
-      <option name="SCRIPT_NAME" value="L:\Documents\GitHub\AHRLFramework\Backup\ARCHIVEDComponent.txt" />
+      <option name="SCRIPT_NAME" value="L:\Documents\GitHub\AHRLFramework\src\config\ConfigLoader.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="conf" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="ConfigLoader (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lib/six/documentation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/config" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AHRLFramework" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lib/six/documentation/conf.py" />
+      <option name="SCRIPT_NAME" value="L:\Documents\GitHub\AHRLFramework\src\config\ConfigLoader.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="ConfigLoader (3)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lib/six" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AHRLFramework" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lib/six/setup.py" />
+      <option name="SCRIPT_NAME" value="L:\Documents\GitHub\AHRLFramework\src\config\ConfigLoader.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="ConfigLoader" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="ConfigLoader (4)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/config" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="AHRLFramework" />
+      <option name="SCRIPT_NAME" value="L:\Documents\GitHub\AHRLFramework\src\config\ConfigLoader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ConfigLoader (5)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -395,23 +392,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AHRLFramework" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/config/ConfigLoader.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="SYS_AbilityHandler" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/game_ecs/system" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="AHRLFramework" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/game_ecs/system/SYS_AbilityHandler.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -587,19 +567,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Python.AHRLFramework" />
       <item index="1" class="java.lang.String" itemvalue="Python.firstrl" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Component" />
-      <item index="3" class="java.lang.String" itemvalue="Python.conf" />
-      <item index="4" class="java.lang.String" itemvalue="Python.setup" />
-      <item index="5" class="java.lang.String" itemvalue="Python.ConfigLoader" />
-      <item index="6" class="java.lang.String" itemvalue="Python.SYS_AbilityHandler" />
+      <item index="2" class="java.lang.String" itemvalue="Python.ConfigLoader (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.ConfigLoader (2)" />
+      <item index="4" class="java.lang.String" itemvalue="Python.ConfigLoader (3)" />
+      <item index="5" class="java.lang.String" itemvalue="Python.ConfigLoader (4)" />
+      <item index="6" class="java.lang.String" itemvalue="Python.ConfigLoader (5)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.SYS_AbilityHandler" />
-        <item index="1" class="java.lang.String" itemvalue="Python.ConfigLoader" />
-        <item index="2" class="java.lang.String" itemvalue="Python.setup" />
-        <item index="3" class="java.lang.String" itemvalue="Python.conf" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Component" />
+        <item index="0" class="java.lang.String" itemvalue="Python.ConfigLoader (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ConfigLoader (5)" />
+        <item index="2" class="java.lang.String" itemvalue="Python.ConfigLoader (4)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ConfigLoader (3)" />
+        <item index="4" class="java.lang.String" itemvalue="Python.ConfigLoader (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -673,7 +653,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489292223319</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Tons of work on getting a test system together.">
+      <created>1489307374440</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1489307374440</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -718,26 +705,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-9" y="0" width="1692" height="1027" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14963119" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19951633" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15326902" sideWeight="0.50842994" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21329047" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14469454" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21972133" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21972133" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34340045" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15753424" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17256163" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17256163" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26045015" sideWeight="0.4915701" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25950783" sideWeight="0.4915701" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="866" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21329047" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -771,7 +758,8 @@
     <MESSAGE value="Package re-org." />
     <MESSAGE value="+ Fleshed out the Transform component. Removed the old corresponding properties from the Entity class that had been from the tutorial.&#10;+ Some framework for the Mover component (takes a mode of transport).&#10;+ Moved code from the libtcod tutorial into the Mover.Try_Move. &#10;+ Added python packaging.&#10;+ Wrote framework for a game state interface class. This will eventually hold the main loop.&#10;+ Wrote framework for game state FSM called 'Main Junction.' This will eventually be responsible for swapping states from menu to game.&#10;+ Stripped main.py down to the bare essentials. Only calls Init.init which will bootstrap everything else (starting with a libtcod console)." />
     <MESSAGE value="+ Prelim work on ecs: getting map generator to take config and request entity construction via entity manager and a new component factory." />
-    <option name="LAST_COMMIT_MESSAGE" value="+ Prelim work on ecs: getting map generator to take config and request entity construction via entity manager and a new component factory." />
+    <MESSAGE value="Tons of work on getting a test system together." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tons of work on getting a test system together." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -781,6 +769,16 @@
           <line>37</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/config/ConfigLoader.py</url>
+          <line>52</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/config/ConfigLoader.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -789,253 +787,22 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="29" />
+      <option name="time" value="66" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="player" />
-        <watch expression="objects" />
-        <watch expression="objects[31]" />
+        <watch expression="config_manifest" />
+        <watch expression="document" />
+        <watch expression="data" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/factory/EntityFactory.py" />
-    <entry file="file://$PROJECT_DIR$/src/config/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_StatusEffect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MapGenerator.Py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding>
-            <element signature="e#89#114#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/ConfigLoader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_AIStateMachine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_NPC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_Item.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_Tile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_Equipment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_Inventory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_Transform.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_Lootable.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/system/SYS_XP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_StatXP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding>
-            <element signature="e#36#61#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/managers/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="62" lean-forward="false" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/libtcodpy/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="196" column="6" lean-forward="false" selection-start-line="196" selection-start-column="6" selection-end-line="196" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ecs/tests/helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ecs/tests/test_managers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/arial10x10.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/managers/MGR_Systems.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_ecs/managers/MGR_Systems.py" />
     <entry file="file://$PROJECT_DIR$/src/game_ecs/system/SYS_Rendering.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ecs/ecs/managers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="144" column="11" lean-forward="true" selection-start-line="144" selection-start-column="11" selection-end-line="144" selection-end-column="11" />
-          <folding>
-            <element signature="e#245#5248#0" expanded="false" />
-            <element signature="e#1689#2460#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Init.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="14" column="46" lean-forward="false" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-          <folding>
-            <element signature="e#62#98#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1043,7 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1051,7 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1059,15 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/system/SYS_Tiles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1075,7 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1083,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1091,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1099,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="19" lean-forward="true" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1107,15 +859,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game_ecs/system/SYS_Mover.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1123,7 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1131,7 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1139,17 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="38" column="95" lean-forward="false" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="95" />
-          <folding>
-            <element signature="e#25#61#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1157,7 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" column="53" lean-forward="true" selection-start-line="1" selection-start-column="53" selection-end-line="1" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1165,28 +901,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="50" lean-forward="false" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game_ecs/system/SYS_AbilityHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ecs/ecs/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-          <folding>
-            <element signature="e#126#578#0" expanded="false" />
-            <element signature="e#610#671#0" expanded="false" />
-          </folding>
+          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1194,9 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="31" />
-          <folding>
-            <element signature="e#53#81#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1204,7 +922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1212,6 +929,246 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/ide/ide-scripting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/enum/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2920">
+          <caret line="146" column="6" lean-forward="false" selection-start-line="146" selection-start-column="6" selection-end-line="146" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/TestYamlEntityBuilder_Simplified.yaml" />
+    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_StatXP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ecs/ecs/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_Prop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="7" column="82" lean-forward="false" selection-start-line="7" selection-start-column="82" selection-end-line="7" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_Tile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_ecs/component/C_NPC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ecs/ecs/managers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="144" column="11" lean-forward="false" selection-start-line="144" selection-start-column="11" selection-end-line="144" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_ecs/system/SYS_Tiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="48" lean-forward="false" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/libtcodpy/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2560">
+          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/config_manifest.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/item_templates.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="1595" column="0" lean-forward="false" selection-start-line="1595" selection-start-column="0" selection-end-line="1595" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/scanner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/resolver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/composer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/constructor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/ecs_templates.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/ConfigLoader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding>
+            <element signature="e#66#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="62" column="67" lean-forward="false" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
+          <folding>
+            <element signature="e#25#46#0" expanded="true" />
+            <marker date="1489650213296" expanded="true" signature="25:30" ph="import ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="54" lean-forward="true" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+          <folding>
+            <element signature="e#34#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="48" selection-end-column="37" />
+          <folding>
+            <element signature="e#62#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MapGenerator.Py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <element signature="e#89#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_ecs/EntityFactory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
           <folding />
         </state>
       </provider>

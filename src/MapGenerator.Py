@@ -1,32 +1,21 @@
 """Creates Maps out of Rooms. Populates Rooms with Entities based upon YAML configs."""
 
 import Constants as CONST
-from game_ecs.ecs.managers import EntityManager
+from game_ecs import ComponentFactory
+from lib.ecs.ecs.managers import EntityManager
+from lib import libtcodpy as libtcod
 
 class MapGenerator():
     def __init__(self,map_config_yaml):
         map_config = map_config_yaml
 
-    def Setup_New_Entity(self, entity_superclass, entity_subclass):
-        """Requests a new entity from Entity Manager.
-
-        :type ecs_manager: entity
+    def Setup_New_Entity(self):
+        """Sends map params to entity factory, which returns list of entities.
         """
-        # Top-level type, e.g. player, npc, item, tile.
-        entity_superclass = entity_superclass
-        # Specific type, e.g. gnoll, sword of the whale, swamp.
-        entity_subclass = entity_subclass
-        entity = EntityManager.create_entity()
-        entity_component_list = {}
-        component = component
-
-        # TODO Look up the requested entity type in yaml config.
-        for each component in
+        pass
 
 
-
-
-    def create_room(room):
+    def create_room(self, room):
         '''Take a Rectangle and make all of its tiles passable.'''
         global map
 
@@ -36,21 +25,21 @@ class MapGenerator():
                 map[x][y].blocked = False
                 map[x][y].block_sight = False
 
-    def create_h_tunnel(x1, x2, y):
+    def create_h_tunnel(self, x1, x2, y):
         '''Takes two columns on a row and makes the tiles between them passable.'''
         global map
         for x in range(min(x1, x2), max(x1, x2) + 1):
             map[x][y].blocked = False
             map[x][y].block_sight = False
 
-    def create_v_tunnel(y1, y2, x):
+    def create_v_tunnel(self, y1, y2, x):
         '''Takes two rows on a column and makes the tiles between them passable.'''
         global map
         for y in range(min(y1, y2), max(y1, y2) + 1):
             map[x][y].blocked = False
             map[x][y].block_sight = False
 
-    def make_map():
+    def make_map(self):
         '''Main function that creates the dungeon. TODO clean this up/break it up.'''
 
         # Nested List Comprehension to fill the map with "unblocked" tiles.

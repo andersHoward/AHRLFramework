@@ -5,6 +5,8 @@
       <w>crit</w>
       <w>libecs</w>
       <w>libtcod</w>
+      <w>monodoc</w>
+      <w>multidoc</w>
       <w>tcodconsole</w>
       <w>testdoc</w>
       <w>yaml</w>

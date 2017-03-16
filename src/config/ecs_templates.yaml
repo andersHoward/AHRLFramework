@@ -1,0 +1,28 @@
+---
+Tiles:
+ dungeon_floor:
+   name: 'Dungeon Floor'
+   blocked: False
+   block_sight: False
+   terrain_type: CONST.E_TERRAIN_TYPES.FLAT_FLOOR
+   persistent_effects: 'None'
+ water_shallow:
+   name: 'Shallow Water'
+   blocked: False
+   block_sight: False
+   terrain_type: CONST.E_TERRAIN_TYPES.SHALLOW_WATER
+   persistent_effects: 'None'
+ water_deep:
+   name: 'Deep Water'
+   blocked: False
+   block_sight: False
+   terrain_type: CONST.E_TERRAIN_TYPES.DEEP_WATER
+   persistent_effects:
+     - CONST.E_PERSISTENT_EFFECTS.WATER_SIGHT
+     - CONST.E_PERSISTENT_EFFECTS.SWIMMING
+...
+---
+NPCs:
+ gnoll:
+   name: "Gnoll"
+   equipment: Sword, Shield

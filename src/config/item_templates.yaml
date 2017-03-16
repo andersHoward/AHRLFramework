@@ -1,3 +1,66 @@
-items:
-  sword: 100
-  axe: 80
+#!C_Item
+Weapons:
+    Melee:
+        - Sword
+        - Axe
+    Ranged:
+        - Short bow
+Armor:
+    - Leather
+    - Scale mail
+    - Banded mail
+    - Plate mail
+...
+--- #!C_Equipment
+Aliases:
+    - &default_hand_object_sizes
+        Small: 2
+        Medium: 3
+        Large: 4
+    - &default_trinket_sizes
+        Small: 1
+        Medium: 2
+        Large: None
+    - &default_head_object_sizes
+        Small: 4
+        Medium: 6
+        Large: None
+    - &default_body_object_sizes
+        Small: 6
+        Medium: 8
+        Large: None
+    - &default_foot_object_sizes
+        Small: 2
+        Medium: 4
+        Large: 6
+    - &default_bracer_object_sizes
+        Small: 2
+        Medium: 4
+        Large: None
+#Slottable location and default inventory space.
+EquippableSlots:
+    main_hand: *default_hand_object_sizes
+    off_hand: *default_hand_object_sizes
+    ring_one: *default_trinket_sizes
+    ring_two: *default_trinket_sizes
+    head: *default_head_object_sizes
+    torso: *default_body_object_sizes
+    legs: *default_body_object_sizes
+    feet: *default_foot_object_sizes
+    bracers: *default_bracer_object_sizes
+    implant: *default_trinket_sizes
+    memslot_one: *default_trinket_sizes
+    memslot_two: *default_trinket_sizes
+...
+--- #!C_Lootable These tags make the parser try to creat an object whose class is marked with the tag.
+RollTypes:
+    - dice
+    - weighted_random
+    - pure_random
+Loot_Packages:
+    - easy
+    - medium
+    - hard
+    - boss
+    - item_injected
+...
