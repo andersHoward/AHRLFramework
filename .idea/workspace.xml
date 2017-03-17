@@ -2,31 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c04c25b6-c5f4-4574-a6b6-0592582a23de" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/libtcodpy/SDL2.dll" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/libtcodpy/libtcod.dll" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/config/config_manifest.yaml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/config/ecs_templates.yaml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/EntityFactory.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Prop.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SDL2.dll" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libtcod.dll" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Cousin_of_BEAST.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Cousin_of_BEAST.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AHRLSublimeText_prj.sublime-workspace" afterPath="$PROJECT_DIR$/AHRLSublimeText_prj.sublime-workspace" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/libtcodpy/__init__.py" afterPath="$PROJECT_DIR$/lib/libtcodpy/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/libtcodpy/cprotos.py" afterPath="$PROJECT_DIR$/lib/libtcodpy/cprotos.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notes.txt" afterPath="$PROJECT_DIR$/notes.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Constants.py" afterPath="$PROJECT_DIR$/src/Constants.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Init.py" afterPath="$PROJECT_DIR$/src/Init.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MapGenerator.Py" afterPath="$PROJECT_DIR$/src/MapGenerator.Py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config/ConfigLoader.py" afterPath="$PROJECT_DIR$/src/config/ConfigLoader.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config/item_templates.yaml" afterPath="$PROJECT_DIR$/src/config/item_templates.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_ecs/component/C_NPC.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_NPC.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_ecs/component/C_Renderable.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Renderable.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_ecs/component/C_Tile.py" afterPath="$PROJECT_DIR$/src/game_ecs/component/C_Tile.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_ecs/system/SYS_Tiles.py" afterPath="$PROJECT_DIR$/src/game_ecs/system/SYS_Tiles.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libtcod-gui.dll" afterPath="$PROJECT_DIR$/lib/libtcodpy/libtcod-gui.dll" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/arial10x10.png" afterPath="$PROJECT_DIR$/assets/arial10x10.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/menu_background1.png" afterPath="$PROJECT_DIR$/assets/menu_background1.png" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,11 +24,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ConfigLoader.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ConfigLoader.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/config/ConfigLoader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+            <state relative-caret-position="275">
+              <caret line="33" column="93" lean-forward="true" selection-start-line="33" selection-start-column="93" selection-end-line="33" selection-end-column="93" />
               <folding>
                 <element signature="e#66#91#0" expanded="true" />
               </folding>
@@ -56,8 +39,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="54" lean-forward="true" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+            <state relative-caret-position="100">
+              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
               <folding>
                 <element signature="e#34#48#0" expanded="true" />
               </folding>
@@ -68,56 +51,19 @@
       <file leaf-file-name="Constants.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="62" column="67" lean-forward="false" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
+            <state relative-caret-position="380">
+              <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
               <folding>
                 <element signature="e#25#46#0" expanded="true" />
-                <marker date="1489650213296" expanded="true" signature="25:30" ph="import ..." />
+                <marker date="1489731031780" expanded="true" signature="25:30" ph="import ..." />
+                <marker date="1489731031780" expanded="true" signature="1267:1397" ph="..." />
+                <marker date="1489731031780" expanded="true" signature="1426:1580" ph="..." />
+                <marker date="1489731031780" expanded="true" signature="1607:1635" ph="..." />
+                <marker date="1489731031780" expanded="true" signature="1669:1788" ph="..." />
+                <marker date="1489731031780" expanded="true" signature="1823:1901" ph="..." />
+                <marker date="1489731031780" expanded="true" signature="1961:2117" ph="..." />
+                <marker date="1489731031780" expanded="true" signature="2158:2291" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notes.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notes.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Init.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Init.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="48" selection-end-column="37" />
-              <folding>
-                <element signature="e#62#81#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapGenerator.Py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MapGenerator.Py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-              <folding>
-                <element signature="e#89#114#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntityFactory.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/game_ecs/EntityFactory.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -216,20 +162,21 @@
         <option value="$PROJECT_DIR$/src/config/config_manifest.yaml" />
         <option value="$PROJECT_DIR$/src/config/item_templates.yaml" />
         <option value="$PROJECT_DIR$/src/config/ecs_templates.yaml" />
-        <option value="$PROJECT_DIR$/src/config/ConfigLoader.py" />
         <option value="$PROJECT_DIR$/notes.txt" />
-        <option value="$PROJECT_DIR$/src/Constants.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/src/Init.py" />
         <option value="$PROJECT_DIR$/src/MapGenerator.Py" />
         <option value="$PROJECT_DIR$/src/game_ecs/EntityFactory.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/src/Constants.py" />
+        <option value="$PROJECT_DIR$/src/config/ConfigLoader.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="width" value="1692" />
-    <option name="height" value="1027" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -279,6 +226,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AHRLFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AHRLFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -298,16 +259,16 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="L:\Documents\GitHub\AHRLFramework\src\game_ecs\component" />
+      <recent name="L:\Documents\GitHub\AHRLFramework\lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="L:\Documents\GitHub\AHRLFramework" />
       <recent name="L:\Documents\GitHub\AHRLFramework\src\config" />
       <recent name="L:\Documents\GitHub\AHRLFramework\src" />
       <recent name="L:\Documents\GitHub\AHRLFramework\src\" />
       <recent name="L:\Documents\GitHub\AHRLFramework\lib\libtcodpy" />
-      <recent name="L:\Documents\GitHub\AHRLFramework\src\game_ecs\system" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="L:\Documents\GitHub\AHRLFramework\src\game_ecs\component" />
-      <recent name="L:\Documents\GitHub\AHRLFramework\lib" />
     </key>
   </component>
   <component name="RunManager" selected="Python.ConfigLoader (1)">
@@ -660,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489307374440</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Work on yaml loader, logger, and ecs/map gen.">
+      <created>1489651529363</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1489651529363</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -705,19 +673,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="0" width="1692" height="1027" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19951633" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17386723" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15326902" sideWeight="0.50842994" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14469454" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21972133" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34340045" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34297964" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15753424" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17256163" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25950783" sideWeight="0.4915701" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33226153" sideWeight="0.4915701" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -751,6 +719,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Fixed a whole bunch of code that went missing." />
     <MESSAGE value="Fixed a whole bunch of code that went missing. Added mouse-targetting spell scrolls." />
     <MESSAGE value="Beginning the quest to break out of the single file of the tutorial by renaming main file to 'main' which will init the rest of the game and game state." />
@@ -759,7 +728,8 @@
     <MESSAGE value="+ Fleshed out the Transform component. Removed the old corresponding properties from the Entity class that had been from the tutorial.&#10;+ Some framework for the Mover component (takes a mode of transport).&#10;+ Moved code from the libtcod tutorial into the Mover.Try_Move. &#10;+ Added python packaging.&#10;+ Wrote framework for a game state interface class. This will eventually hold the main loop.&#10;+ Wrote framework for game state FSM called 'Main Junction.' This will eventually be responsible for swapping states from menu to game.&#10;+ Stripped main.py down to the bare essentials. Only calls Init.init which will bootstrap everything else (starting with a libtcod console)." />
     <MESSAGE value="+ Prelim work on ecs: getting map generator to take config and request entity construction via entity manager and a new component factory." />
     <MESSAGE value="Tons of work on getting a test system together." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tons of work on getting a test system together." />
+    <MESSAGE value="Work on yaml loader, logger, and ecs/map gen." />
+    <option name="LAST_COMMIT_MESSAGE" value="Work on yaml loader, logger, and ecs/map gen." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -769,16 +739,6 @@
           <line>37</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/config/ConfigLoader.py</url>
-          <line>52</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/config/ConfigLoader.py</url>
-          <line>34</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -787,18 +747,15 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="66" />
+      <option name="time" value="73" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="config_manifest" />
-        <watch expression="document" />
-        <watch expression="data" />
+        <watch expression="_master_config" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/game_ecs/managers/MGR_Systems.py" />
     <entry file="file://$PROJECT_DIR$/src/game_ecs/system/SYS_Rendering.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -1014,7 +971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,7 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,7 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
           <caret line="1595" column="0" lean-forward="false" selection-start-line="1595" selection-start-column="0" selection-end-line="1595" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,7 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1046,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1054,7 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,7 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,7 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,62 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/ecs_templates.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/loader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/ConfigLoader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding>
-            <element signature="e#66#91#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="62" column="67" lean-forward="false" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
-          <folding>
-            <element signature="e#25#46#0" expanded="true" />
-            <marker date="1489650213296" expanded="true" signature="25:30" ph="import ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="54" lean-forward="true" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
-          <folding>
-            <element signature="e#34#48#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1141,27 +1034,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Init.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
+        <state relative-caret-position="820">
           <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="48" selection-end-column="37" />
-          <folding>
-            <element signature="e#62#81#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MapGenerator.Py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
+        <state relative-caret-position="220">
           <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding>
-            <element signature="e#89#114#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1169,7 +1055,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/ecs_templates.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding>
+            <element signature="e#34#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding>
+            <element signature="e#25#46#0" expanded="true" />
+            <marker date="1489731031780" expanded="true" signature="25:30" ph="import ..." />
+            <marker date="1489731031780" expanded="true" signature="1267:1397" ph="..." />
+            <marker date="1489731031780" expanded="true" signature="1426:1580" ph="..." />
+            <marker date="1489731031780" expanded="true" signature="1607:1635" ph="..." />
+            <marker date="1489731031780" expanded="true" signature="1669:1788" ph="..." />
+            <marker date="1489731031780" expanded="true" signature="1823:1901" ph="..." />
+            <marker date="1489731031780" expanded="true" signature="1961:2117" ph="..." />
+            <marker date="1489731031780" expanded="true" signature="2158:2291" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/ntpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Applications/Python27_64/Lib/site-packages/yaml/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/ConfigLoader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="33" column="93" lean-forward="true" selection-start-line="33" selection-start-column="93" selection-end-line="33" selection-end-column="93" />
+          <folding>
+            <element signature="e#66#91#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

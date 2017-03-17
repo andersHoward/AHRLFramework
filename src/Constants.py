@@ -59,8 +59,7 @@ COLOR_LIGHT_GROUND = libtcod.Color(200, 180, 50)
 
 # Etc.
 DEBUG_MODE = False
-DEBUG_LOGGING_FORMAT = "%(asctime)s [%(levelname)s] %(message)s"
-CRITICAL_LOGGING_FORMAT = "%(asctime)s [%(levelname)s] %(message)s"
+LOGGING_FORMAT = "%(asctime)s [%(levelname)s] %(message)s"
 
 # Spell Enums
 class ESpellName(Enum):

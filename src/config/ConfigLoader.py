@@ -9,7 +9,7 @@ import yaml
 class ConfigLoader():
     """Object that handles YAML loading."""
 
-    def __init__(self, log):
+    def __init__(self):
         """Init ConfigLoader to load all game config data files."""
         global _ecs_config_filepath
         global _items_config_filepath
@@ -20,15 +20,16 @@ class ConfigLoader():
         # First, get paths
         _manifest_path = CONST.YAML_MANIFEST_PATH
         _script_dir = os.path.dirname(os.path.dirname(__file__))
-        _config_path = os.path.join(_script_dir, _manifest_path)
-        config_manifest = self.yaml_loader(_config_path)
+        _relative_path = os.path.join(_script_dir, _manifest_path)
+
+        # Get the config file manifest list from PyYaml.
+        config_file_list = self.yaml_loader(_relative_path)
 
         # Create yaml doc generator, then convert it into a list of dicts.
         _configs_list = []
-        for i in config_manifest:
+        for i in config_file_list:
             adjusted_path = os.path.join(_script_dir, i)
-            _configs_list.append(self.yaml_loader(adjusted_path))
-
+            _configs_list.extend(self.yaml_loader(adjusted_path))
 
         #Create master config dictionary that will hold all of the game's config dictionaries.
         _master_config = {}
@@ -41,19 +42,14 @@ class ConfigLoader():
 
     def yaml_loader(self, filepath):
         """Load a yaml file and return a list of the documents."""
-        with open(filepath, "r") as file_descriptor:
-            try:
-                # Single-document yaml method.
-                data = yaml.load(file_descriptor)
-                return data
-            except yaml.YAMLError:
-                print("ConfigLoader(): tried to load yaml as single-document yaml, but found multiple documents. Trying multi-document load method.")
         # Multi-document yaml method must cast generator to list.
         with open(filepath, "r") as file_descriptor:
-            data = list(yaml.load_all(file_descriptor))
-            if not data:
-                print("ERROR: Empty list yaml.")
-            return data
+            yaml_generator = yaml.load_all(file_descriptor)
+            yaml_nested_list = list(yaml_generator)
+            if len(yaml_nested_list) == 1:
+                return yaml_nested_list[0]
+            else:
+                return yaml_nested_list
 
     def yaml_dump(self, filepath, data):
         """Dump data to a yaml file."""
