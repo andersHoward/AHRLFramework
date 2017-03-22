@@ -1,0 +1,24 @@
+---
+MapStrategies:
+    - drunkard_walk
+    - city_builder
+    - cellular_automata
+...
+---
+Dungeons:
+    Cave:
+        strategy: cellular_automata
+        min_size: 10
+        max_size: 30
+        min_depth: -4
+        npc_table_OR: 
+          default: npctable_cave_monsters
+          sub: npctable_water_monsters
+          add: npctable_cave_champions, npctable_cave_questgivers
+    Compound:
+        strategy: city_builder
+        min_size: 10
+        max_size: 20
+        min_depth: 0
+        npc_table_OR: 
+          default: npctable_urban_compound

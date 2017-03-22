@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"return",
+				"return_grid"
+			],
+			[
+				"retu",
+				"return_grid"
+			],
+			[
+				"grid",
+				"grid_copy_source"
+			],
+			[
+				"MAP",
+				"MAP_HEIGHT"
+			],
+			[
+				"Const",
+				"CONST"
+			],
+			[
 				"default",
 				"default_trinket_sizes"
 			],
@@ -44,44 +64,33 @@
 	"buffers":
 	[
 		{
-			"file": "src/config/ecs_templates.yaml",
+			"file": "src/geometry/Grid.py",
 			"settings":
 			{
-				"buffer_size": 640,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/config/item_templates.yaml",
-			"settings":
-			{
-				"buffer_size": 1499,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/config/config_manifest.yaml",
-			"settings":
-			{
-				"buffer_size": 61,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Cousin of BEAST/AppData/Local/Temp/Temp1_config.zip/config/item_templates.yaml",
-			"settings":
-			{
-				"buffer_size": 1499,
+				"buffer_size": 3689,
 				"line_ending": "Windows"
 			}
 		}
 	],
-	"build_system": "Packages/User/Python27_64.sublime-build",
+	"build_system": "Packages/Python/Python.sublime-build",
 	"build_system_choices":
 	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				"Syntax Check"
+			]
+		]
 	],
 	"build_varint": "",
 	"command_palette":
@@ -103,7 +112,7 @@
 				"Colorsublime: Install Theme"
 			]
 		],
-		"width": 416.0
+		"width": 464.0
 	},
 	"console":
 	{
@@ -148,20 +157,56 @@
 	[
 		"/L/Documents/GitHub/AHRLFramework",
 		"/L/Documents/GitHub/AHRLFramework/src",
-		"/L/Documents/GitHub/AHRLFramework/src/config",
+		"/L/Documents/GitHub/AHRLFramework/src/geometry",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs"
 	],
 	"file_history":
 	[
-		"/L/Documents/GitHub/AHRLFramework/src/config/ecs_templates.xlsm",
-		"/L/Documents/GitHub/AHRLFramework/src/config/ConfigLoader.py",
+		"/L/Downloads/transcript.txt",
+		"/L/Downloads/Game4_MA_SBSB.txt",
+		"/C/Users/Cousin of BEAST/Desktop/Game4_MA_SBSB.txt",
+		"/E/Games/DoomRL/colors.lua",
+		"/E/Games/DoomRL/config.lua",
+		"/C/Users/Cousin of BEAST/Desktop/copyFunc.vba",
+		"/E/Applications/Sublime Text 3/Game4_MA_SBSB.txt",
+		"/L/Documents/GitHub/AHRLFramework/src/MapGenerator.Py",
+		"/L/Documents/Google Drive/Software/Games/Roguelikes/Brogue Tiles 1.7.4/Brogue Source/BrogueCode/Grid.c",
+		"/L/Documents/GitHub/AHRLFramework/src/geometry/Grid.py",
+		"/L/Documents/GitHub/AHRLFramework/src/geometry/__init__.py",
+		"/E/Games/DoomRL/keybindings.lua",
 		"/L/Documents/GitHub/AHRLFramework/src/Constants.py",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/User/Flake8Lint.sublime-settings",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/README.md",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Default.sublime-commands",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/.pep8",
+		"/L/Documents/BloodBowl2/Profiles/ADB831A7FDD83DD1E2A309CE7591DFF8/user.txt",
+		"/E/Games/Steam/SteamApps/appmanifest_236690.acf",
+		"/E/Games/Steam/userdata/766371/config/localconfig.vdf",
+		"/L/Documents/BloodBowl2/Campaign/Saves/0/CampaignReiklandSave.xml",
+		"/L/Documents/BloodBowl2/Profiles/9731782905E34C0D0FA84A5F530ECA80/user.txt",
+		"/L/Documents/BloodBowl2/Management.log",
+		"/L/Documents/GitHub/AHRLFramework/src/config/ConfigLoader.py",
+		"/L/Documents/GitHub/AHRLFramework/src/config/map_templates.yaml",
+		"/L/Documents/GitHub/AHRLFramework/src/config/config_manifest.yaml",
+		"/L/Documents/GitHub/AHRLFramework/src/config/__init__.py",
+		"/L/Documents/GitHub/AHRLFramework/src/Save.py",
+		"/L/Documents/GitHub/AHRLFramework/src/config/ecs_templates.yaml",
+		"/L/Documents/GitHub/AHRLFramework/src/config/item_templates.yaml",
+		"/L/Documents/GitHub/AHRLFramework/src/config/dungeon_templates.yaml",
+		"/L/Documents/Google Drive/Software/Games/Roguelikes/Smart Kobold/lib/libtcod-1.5.0/libtcodgui.so",
+		"/L/Downloads/ConfigLoader.py",
+		"/C/Users/Cousin of BEAST/AppData/Local/Temp/Temp1_roguelike-traumarl.zip/roguelike-traumarl/README.md",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/TheLastRogue-master/big.level",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/TheLastRogue-master/libtcodpy/cprotos.py",
+		"/C/Users/Cousin of BEAST/AppData/Local/Temp/Temp1_assets.zip/assets/README.md",
+		"/C/Users/Cousin of BEAST/AppData/Local/Temp/Temp1_config.zip/config/item_templates.yaml",
+		"/L/Documents/GitHub/AHRLFramework/src/config/ecs_templates.xlsm",
 		"/L/Documents/GitHub/AHRLFramework/src/ConfigLoader.py",
 		"/L/Documents/GitHub/AHRLFramework/src/config/ymlbackup.yaml",
 		"/L/Documents/GitHub/AHRLFramework/src/game_ecs/component/C_NPC.py",
 		"/L/Documents/GitHub/AHRLFramework/src/config/ecs_templates.yml",
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Default (Windows).sublime-keymap",
-		"/L/Documents/GitHub/AHRLFramework/src/config/item_templates.yaml",
 		"/L/Documents/GitHub/AHRLFramework/src/game_ecs/component/C_Renderable.py",
 		"/L/Documents/GitHub/AHRLFramework/src/Init.py",
 		"/L/CodeLibraries/Libraries/libtcod-1.6.3-msvs-x64/python/samples_py.py",
@@ -192,7 +237,6 @@
 		"/L/Documents/GitHub/AHRLFramework/src/rendering/frame.py",
 		"/L/Documents/GitHub/AHRLFramework/src/rendering/Renderer.py",
 		"/L/Documents/GitHub/AHRLFramework/src/Utils.py",
-		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
 		"/L/Documents/GitHub/AHRLFramework/src/__init__.py",
 		"/L/Documents/GitHub/AHRLFramework/src/entity/C_Equipment.py",
 		"/L/Documents/GitHub/AHRLFramework/src/ai/AI_State.py",
@@ -208,7 +252,6 @@
 		"/L/Documents/GitHub/AHRLFramework/src/ecs/Component.py",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs/Entity.py",
 		"/L/Documents/GitHub/AHRLFramework/src/CONST.py",
-		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/User/Flake8Lint.sublime-settings",
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs/Component",
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
@@ -246,18 +289,11 @@
 		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/impulses.qc",
 		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/entities/ambient.qc",
 		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/effects/chasecam.qc",
-		"/C/Users/Cousin of BEAST/Desktop/SlowMotionVolume.h",
-		"/C/Users/Cousin of BEAST/Desktop/SlowMotionVolume.cpp",
-		"/C/Users/Cousin of BEAST/Desktop/AShooterCharacter.cpp",
-		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/PROGS.SRC",
-		"/C/Program Files (x86)/XBCD/x360ce/x360ce.ini",
-		"/C/Program Files (x86)/XBCD/Driver/xbcd.inf",
-		"/C/Users/Cousin of BEAST/Desktop/Epic Test/Q3_Formulas.txt",
-		"/C/Users/Cousin of BEAST/Desktop/Epic Test/Supporting Material/Q3_Formulas.txt"
+		"/C/Users/Cousin of BEAST/Desktop/SlowMotionVolume.h"
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -271,6 +307,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"casualty",
+			"touch",
+			"dead",
+			"died",
+			"]\n",
+			"kill",
+			"_ecs_config_filepath",
+			"bundle",
 			" !",
 			"])\n",
 			"\\\\n",
@@ -291,6 +335,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			"table",
 			"\\n",
 			"-",
 			"additionalBonusArrayString",
@@ -310,11 +355,11 @@
 			[
 				{
 					"buffer": 0,
-					"file": "src/config/ecs_templates.yaml",
+					"file": "src/geometry/Grid.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 640,
+						"buffer_size": 3689,
 						"regions":
 						{
 						},
@@ -327,69 +372,83 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML Nav/YAML-ng.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/config/item_templates.yaml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1499,
-						"regions":
-						{
-						},
-						"selection":
-						[
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
 							[
-								714,
-								714
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML Nav/YAML-ng.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 180.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "src/config/config_manifest.yaml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 61,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								61,
-								61
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML Nav/YAML-ng.sublime-syntax"
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -397,41 +456,18 @@
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/Cousin of BEAST/AppData/Local/Temp/Temp1_config.zip/config/item_templates.yaml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1499,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
 				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -457,7 +493,7 @@
 		"cols":
 		[
 			0.0,
-			0.550427507089,
+			0.57463439272,
 			1.0
 		],
 		"rows":
@@ -469,7 +505,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 100.0
+		"height": 240.0
 	},
 	"output.find_results":
 	{
@@ -479,7 +515,7 @@
 	"project": "AHRLSublimeText_prj.sublime-project",
 	"replace":
 	{
-		"height": 66.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -509,7 +545,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
@@ -517,7 +553,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 213.0,
+	"side_bar_width": 151.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

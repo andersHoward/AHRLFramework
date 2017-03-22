@@ -11,13 +11,9 @@ class ConfigLoader():
 
     def __init__(self):
         """Init ConfigLoader to load all game config data files."""
-        global _ecs_config_filepath
-        global _items_config_filepath
-        global _master_config
-
-
         # Fetch list of all config files we want to load.
-        # First, get paths
+        # First, get paths and globals set up.
+        global _master_config
         _manifest_path = CONST.YAML_MANIFEST_PATH
         _script_dir = os.path.dirname(os.path.dirname(__file__))
         _relative_path = os.path.join(_script_dir, _manifest_path)
@@ -31,7 +27,7 @@ class ConfigLoader():
             adjusted_path = os.path.join(_script_dir, i)
             _configs_list.extend(self.yaml_loader(adjusted_path))
 
-        #Create master config dictionary that will hold all of the game's config dictionaries.
+        # Create master config dict of dicts.
         _master_config = {}
         for d in _configs_list:
             _master_config.update(d)

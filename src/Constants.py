@@ -6,8 +6,8 @@ from lib import libtcodpy as libtcod
 
 
 # Actual size of the window.
-SCREEN_WIDTH = 80
-SCREEN_HEIGHT = 50
+SCREEN_WIDTH = 160
+SCREEN_HEIGHT = 100
 LIMIT_FPS = 20
 
 # GUI
@@ -27,29 +27,22 @@ INVENTORYSLOTS_ROWS = 6
 INVENTORYSLOTS_COLUMNS = 4
 
 # Map attributes
-MAP_WIDTH = 80
-MAP_HEIGHT = 45
+MAP_WIDTH = 160
+MAP_HEIGHT = 90
 ROOM_MAX_SIZE = 10
 ROOM_MIN_SIZE = 6
 MAX_ROOMS = 30
 FOV_ALGO = 1
 FOV_LIGHT_WALLS = True
 TORCH_RADIUS = 10
-LEVEL_SCREEN_WIDTH = 40
-CHARACTER_SCREEN_WIDTH = 30
+LEVEL_SCREEN_WIDTH = 80
+CHARACTER_SCREEN_WIDTH = 60
 
 # Spell constants
-HEAL_AMOUNT_BASE = 40
-LIGHTNING_DAMAGE = 30
-LIGHTNING_RANGE = 5
-CONFUSE_NUM_TURNS = 10
-CONFUSE_RANGE = 8
-FIREBALL_RADIUS = 3
-FIREBALL_DAMAGE = 25
+
 
 # Experience and leveling
-LEVEL_UP_BASE = 200
-LEVEL_UP_FACTOR = 150
+
 
 # Color Defs
 COLOR_DARK_WALL = libtcod.Color(0, 0, 100)
@@ -60,6 +53,18 @@ COLOR_LIGHT_GROUND = libtcod.Color(200, 180, 50)
 # Etc.
 DEBUG_MODE = False
 LOGGING_FORMAT = "%(asctime)s [%(levelname)s] %(message)s"
+
+# Map Generator Enums
+class ETerrainFlags(Enum):
+    NONE = 0
+    FLOOR_STONE = 1
+    FLOOR_DIRT = 1.1
+    FLOOR_GRASS = 1.2
+    FLOOR_DRY_GRASS = 1.3
+    SHALLOW_WATER = 3
+    DEEP_WATER = 4
+    WALL = 5
+    CHASM = 5.1
 
 # Spell Enums
 class ESpellName(Enum):

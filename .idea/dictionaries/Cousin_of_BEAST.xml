@@ -7,6 +7,7 @@
       <w>libtcod</w>
       <w>monodoc</w>
       <w>multidoc</w>
+      <w>passability</w>
       <w>tcodconsole</w>
       <w>testdoc</w>
       <w>yaml</w>

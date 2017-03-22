@@ -1,13 +1,22 @@
-"""Creates Maps out of Rooms. Populates Rooms with Entities based upon YAML configs."""
+"""Uses various strategies to create maps according to data configs.
+
+Extensible with new strategies and data to feed those strategies.
+"""
 
 import Constants as CONST
 from game_ecs import ComponentFactory
-from lib.ecs.ecs.managers import EntityManager
 from lib import libtcodpy as libtcod
+from config import ConfigLoader
+from lib.ecs.ecs.managers import EntityManager
+
 
 class MapGenerator():
-    def __init__(self,map_config_yaml):
+    """Responsible for generating a new location that players can explore."""
+
+    def __init__(self, map_config_yaml):
+        """MapGenerator init eats yaml, creates maps."""
         map_config = map_config_yaml
+
 
     def Setup_New_Entity(self):
         """Sends map params to entity factory, which returns list of entities.
