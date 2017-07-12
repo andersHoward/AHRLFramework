@@ -64,10 +64,20 @@
 	"buffers":
 	[
 		{
-			"file": "src/geometry/Grid.py",
+			"file": "src/game_ecs/component/C_Tile.py",
 			"settings":
 			{
-				"buffer_size": 3689,
+				"buffer_size": 1152,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Constants.py",
+			"settings":
+			{
+				"buffer_size": 2506,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -95,10 +105,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 104.0,
-		"last_filter": "install pa",
+		"height": 219.0,
+		"last_filter": "PICO-8",
 		"selected_items":
 		[
+			[
+				"PICO-8",
+				"PICO-8: Setup PICO-8 Path"
+			],
+			[
+				"PICO-8: Se",
+				"PICO-8: Setup PICO-8 Path"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"install pa",
 				"Package Control: Install Package"
@@ -157,11 +179,49 @@
 	[
 		"/L/Documents/GitHub/AHRLFramework",
 		"/L/Documents/GitHub/AHRLFramework/src",
-		"/L/Documents/GitHub/AHRLFramework/src/geometry",
+		"/L/Documents/GitHub/AHRLFramework/src/game_ecs",
+		"/L/Documents/GitHub/AHRLFramework/src/game_ecs/component",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs"
 	],
 	"file_history":
 	[
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/User/Flake8Lint.sublime-settings",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/pico-8/config.txt",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/pico-8/sdl_controllers.txt",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/pico-8/cdata/drop_7_pro_2darray.p8d.txt",
+		"/E/Applications/PICO-8/pico-8.txt",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/pico-8/cdata/buzzkill1031.p8d.txt",
+		"/C/Users/Cousin of BEAST/AppData/Roaming/pico-8/cdata/ap_tinyp.p8d.txt",
+		"/E/Applications/PICO-8/pico8.dat",
+		"/C/Users/Cousin of BEAST/Desktop/SundayCrash.txt",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/Vicious Orcs/rooms/village.map",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/Vicious Orcs/rooms/r0.map",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/Vicious Orcs/rooms/rs2.map",
+		"/L/CodeLibraries/Libraries/libtcod-1.6.3-msvs-x64 C++ Source/libtcod-msvs-x64/python/samples_py.py",
+		"/L/CodeLibraries/Libraries/libtcod-1.6.3-msvs-x64 C++ Source/libtcod-msvs-x64/build.bat",
+		"/L/CodeLibraries/Libraries/libtcod-1.6.3-msvs-x64 C++ Source/libtcod-msvs-x64/python/setup.py",
+		"/L/Documents/GitHub/AHRLFramework/src/geometry/Grid.py",
+		"/C/Users/Cousin of BEAST/AppData/Local/Temp/Temp1_DH7DRL.zip/DH7DRL/DH7DRL readme.txt",
+		"/C/Users/Cousin of BEAST/Desktop/GameDevBookmarks.html",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/SmartKobold/text.txt",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/SmartKobold/README.TXT",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/SmartKobold/src/source.txt",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/SmartKobold/src/TODO.TXT",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/SmartKobold/src/text.txt",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/ZeusMustDie0.1alpha/weaponchances.py",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/ZeusMustDie0.1alpha/prefab_map.py",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/ZeusMustDie0.1alpha/libtcodpy.py",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/ZeusMustDie0.1alpha/Readme.md",
+		"/L/Documents/GitHub/AHRLFramework/lib/libtcodpy/utils/samples_py.py",
+		"/L/CodeLibraries/Open Src Games/_libtcod Games/ZeusMustDie0.1alpha/firstrl.py",
+		"/L/CodeLibraries/Libraries/libtcod-1.6.3-msvs-x64 C++ Source/libtcod-msvs-x64/samples/worldgen/README.txt",
+		"/L/CodeLibraries/Libraries/libtcod-1.6.3-msvs-x64 C++ Source/libtcod-msvs-x64/build/README.txt",
+		"/L/Downloads/ZeusMustDie/README.txt",
+		"/L/Epic/FortMain/FortniteGame/Content/Backend/ItemTemplates/HomebaseNodes.json",
+		"/L/Downloads/Game4_MA_SBSB (1).txt",
+		"/C/Users/Cousin of BEAST/AppData/Local/Temp/Temp1_DH7DRL.zip/DH7DRL/media/Data/Journals.txt",
+		"/C/Users/Cousin of BEAST/AppData/Local/Temp/Temp1_DH7DRL.zip/DH7DRL/media/Data/Terrains1.txt",
 		"/L/Downloads/transcript.txt",
 		"/L/Downloads/Game4_MA_SBSB.txt",
 		"/C/Users/Cousin of BEAST/Desktop/Game4_MA_SBSB.txt",
@@ -171,12 +231,9 @@
 		"/E/Applications/Sublime Text 3/Game4_MA_SBSB.txt",
 		"/L/Documents/GitHub/AHRLFramework/src/MapGenerator.Py",
 		"/L/Documents/Google Drive/Software/Games/Roguelikes/Brogue Tiles 1.7.4/Brogue Source/BrogueCode/Grid.c",
-		"/L/Documents/GitHub/AHRLFramework/src/geometry/Grid.py",
 		"/L/Documents/GitHub/AHRLFramework/src/geometry/__init__.py",
 		"/E/Games/DoomRL/keybindings.lua",
 		"/L/Documents/GitHub/AHRLFramework/src/Constants.py",
-		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/User/Flake8Lint.sublime-settings",
-		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/README.md",
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Default.sublime-commands",
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/.pep8",
@@ -255,45 +312,11 @@
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
 		"/L/Documents/GitHub/AHRLFramework/src/ecs/Component",
 		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
-		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/README.md",
-		"/L/Documents/GitHub/AHRLFramework/AHRLSublimeText_prj.sublime-project",
-		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 2/Packages/User/JSON.sublime-settings",
-		"/L/Documents/GitHub/AHRLFramework/src/Geometry.py",
-		"/L/Documents/GitHub/AHRLFramework/src/Entity.py",
-		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 2/Packages/User/Python27_64.sublime-build",
-		"/L/Documents/GitHub/AHRLFramework/sublimetest.py",
-		"/C/Users/Cousin of BEAST/Desktop/NewSquadDataFormat01",
-		"/C/Users/Cousin of BEAST/Desktop/SquadsPartyDate_SAMPLE.json",
-		"/C/Users/Cousin of BEAST/AppData/Local/Temp/p4v/CousinofBEAST_perforce_1666/Fortnite/Main/FortniteGame/GameService/Fortnite-Core/src/main/java/com/epicgames/fortnite/core/game/managers/ScoreManager#32.java",
-		"/L/Epic/FortMain/FortniteGame/Content/Backend/ItemTemplates/PrivateQuotas.json",
-		"/C/Users/Cousin of BEAST/Desktop/Games/Roguelikes/UnNetHack 5.1.0/defaults.nh",
-		"/L/Documents/Google Drive/Projects/Game Dev and Programming/PythonRoguelike - out of date - moved to Github!/LibtcodTest/firstrl.py",
-		"/C/Users/Cousin of BEAST/Desktop/cbthemes01.conf",
-		"/C/Users/Cousin of BEAST/Desktop/WoW_UI_to_Cloud.bat",
-		"/C/Users/Cousin of BEAST/Desktop/Civ6 Saves to Cloud.bat",
-		"/C/Users/Cousin of BEAST/Desktop/Cloud to Civ6 Saves.bat",
-		"/L/Epic/FortMain/FortniteGame/Content/Backend/ItemTemplates/Quests.json",
-		"/L/Epic/FortMain/FortniteGame/Content/Backend/ItemTemplates/Quotas.json",
-		"/L/Documents/My Games/Sid Meier's Civilization VI/Saves/Single/Cloud to Civ6.bat",
-		"/L/Documents/My Games/Sid Meier's Civilization VI/Saves/Single/Civ6 to Cloud.bat",
-		"/C/Users/Cousin of BEAST/Desktop/Civ6 to Cloud.bat",
-		"/E/Applications/Arduino/hardware/arduino/avr/boards.txt",
-		"/E/Applications/Arduino/hardware/arduino/avr/platform.txt",
-		"/L/Documents/Arduino/libraries/HID-master/src/HID-Settings.h",
-		"/C/Users/Cousin of BEAST/Desktop/FreeBASIC-1.05.0-win64/vertrot.bas",
-		"/L/Epic/FortMain/FortniteGame/Content/Backend/ItemTemplates/HomebaseNodes.json",
-		"/L/Documents/GitHub/cqui/UI/ActionPanel.lua",
-		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/damage.qc",
-		"/C/Users/Cousin of BEAST/Desktop/FASM/_example.asm",
-		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/impulses.qc",
-		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/entities/ambient.qc",
-		"/E/Games/Steam/SteamApps/common/Quake/scratch/source/effects/chasecam.qc",
-		"/C/Users/Cousin of BEAST/Desktop/SlowMotionVolume.h"
+		"/C/Users/Cousin of BEAST/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/README.md"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -307,6 +330,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"visual",
+			"path_func",
+			"map",
+			"touch",
 			"casualty",
 			"touch",
 			"dead",
@@ -350,24 +377,143 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/geometry/Grid.py",
+					"file": "src/game_ecs/component/C_Tile.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3689,
+						"buffer_size": 1152,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								781,
+								764
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										848,
+										849
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										694,
+										695
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/Constants.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								761,
+								777
 							]
 						],
 						"settings":
@@ -390,16 +536,41 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -410,48 +581,23 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
 							],
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 570.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -493,7 +639,7 @@
 		"cols":
 		[
 			0.0,
-			0.57463439272,
+			0.967298888162,
 			1.0
 		],
 		"rows":
@@ -553,7 +699,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 151.0,
+	"side_bar_width": 225.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -19,12 +19,25 @@ MSG_WIDTH = SCREEN_WIDTH - BAR_WIDTH - 2
 MSG_HEIGHT = PANEL_HEIGHT - 1
 INVENTORY_PIXEL_WIDTH = 50
 
-# YAML Config paths
+# YAML CONFIG PATHS
 YAML_MANIFEST_PATH = "config/config_manifest.yaml"
 
-# Inventory
+# INVENTORY
 INVENTORYSLOTS_ROWS = 6
 INVENTORYSLOTS_COLUMNS = 4
+
+# MAP GENERATION ENUMS
+# Terrain Flags
+class ETerrainFlags(Enum):
+    NONE = 0
+    FLOOR_STONE = 1
+    FLOOR_DIRT = 1.1
+    FLOOR_GRASS = 1.2
+    FLOOR_DRY_GRASS = 1.3
+    SHALLOW_WATER = 3
+    DEEP_WATER = 4
+    WALL = 5
+    CHASM = 5.1
 
 # Map attributes
 MAP_WIDTH = 160
@@ -37,6 +50,18 @@ FOV_LIGHT_WALLS = True
 TORCH_RADIUS = 10
 LEVEL_SCREEN_WIDTH = 80
 CHARACTER_SCREEN_WIDTH = 60
+
+# TERRAIN COSTS
+TERRAIN_COSTS = {
+    'FLOOR': 0,
+    'HILL': 2,
+    'FOLIAGE': 2,
+    'DENSE FOLIAGE': 3,
+    'SHALLOW WATER': 1,
+    'DEEP WATER': 3
+
+
+}
 
 # Spell constants
 
@@ -54,17 +79,7 @@ COLOR_LIGHT_GROUND = libtcod.Color(200, 180, 50)
 DEBUG_MODE = False
 LOGGING_FORMAT = "%(asctime)s [%(levelname)s] %(message)s"
 
-# Map Generator Enums
-class ETerrainFlags(Enum):
-    NONE = 0
-    FLOOR_STONE = 1
-    FLOOR_DIRT = 1.1
-    FLOOR_GRASS = 1.2
-    FLOOR_DRY_GRASS = 1.3
-    SHALLOW_WATER = 3
-    DEEP_WATER = 4
-    WALL = 5
-    CHASM = 5.1
+
 
 # Spell Enums
 class ESpellName(Enum):

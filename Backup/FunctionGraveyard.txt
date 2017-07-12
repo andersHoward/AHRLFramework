@@ -1,0 +1,21 @@
+def create_grid(self):
+    """Create and return a new numpy array grid."""
+    new_grid = numpy.full((Const.MAP_WIDTH, Const.MAP_HEIGHT), Const.ETerrainFlags.NONE)
+    return new_grid
+
+def copy_to_new_grid(self, grid_copy_source):
+    """Copy one grid to a new grid instance.
+
+    Doctest:
+        >>> copy_to_new_grid(object, [[0,0], [0,0], [1,1]])
+    """
+    return_grid = self.create_grid()
+    return_grid = self.copy_grid_to_grid(grid_copy_source, return_grid)
+    return return_grid
+
+def copy_grid_to_grid(self, grid_copy_source, grid_paste_destination):
+    """Copy from one specified grid to another."""
+    for x in grid_copy_source:
+        for y in grid_copy_source:
+            grid_paste_destination([x, y])
+    return grid_paste_destination
